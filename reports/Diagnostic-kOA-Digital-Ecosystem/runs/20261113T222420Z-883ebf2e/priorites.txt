@@ -1,0 +1,3 @@
+E2E : 1 parcours sur 1 n’ont pas assez de preuves de livraison/réponse.
+Preuves : 4 frontières obligatoires sans parcours corroboré; voir matrice-preuves-frontieres.csv.
+API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.

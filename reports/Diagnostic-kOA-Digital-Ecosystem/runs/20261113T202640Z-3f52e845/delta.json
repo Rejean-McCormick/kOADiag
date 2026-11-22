@@ -1,0 +1,40 @@
+{
+  "comparison_available": true,
+  "previous_run_id": "20261113T200805Z-71af385f",
+  "previous_verdict": "PARTIAL",
+  "metrics": {
+    "inventory.present": {
+      "before": 55,
+      "after": 55,
+      "delta": 0
+    },
+    "inventory.truncated": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "api.static_calls": {
+      "before": 5,
+      "after": 5,
+      "delta": 0
+    },
+    "api.routes_matched": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "traces.correlated_pairs": {
+      "before": 2,
+      "after": 2,
+      "delta": 0
+    },
+    "journeys.evidence_complete": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    }
+  },
+  "relations_added": [],
+  "relations_not_observed": [],
+  "relations_changed": []
+}

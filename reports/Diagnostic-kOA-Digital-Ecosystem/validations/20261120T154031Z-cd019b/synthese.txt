@@ -1,0 +1,7 @@
+kOADiag — Validation rapide
+Verdict : CONDITIONNEL
+Essentiels : 5/5
+Services C0 : 5/21
+Connexions : 2/6 (extrémités seulement)
+Tests métier E2E : 0 (nécessitent confirmation distincte)
+Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé.

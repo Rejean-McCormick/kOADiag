@@ -1,0 +1,37 @@
+Diagnostic kOA · Clôture
+Campagne 20261113T222420Z-883ebf2e
+VALIDATIONS_RESTANTES
+
+Frontières obligatoires corroborées
+- autonome : 0/4
+- integre : 0/4
+
+Décisions de revue ouvertes : 23
+Frontières optionnelles à documenter : 7
+Sources documentaires alignées : non
+
+Contrôles obligatoires à reprendre
+- parcours · konnaxion-orgo-decision-impact autonome · PREUVES_INSUFFISANTES
+  Exporter le reçu terminal émis par le récepteur après traitement.
+  Relever les révisions des services réellement déployés et les inclure dans les exports.
+- frontiere · 1f2498730e97c890bdcf (Daat → Kristal-Framework) autonome · CONTRAT_SANS_PREUVE_RUNTIME
+  Exécuter le contrat sur les versions actives et exporter les observations des deux services.
+- frontiere · 4870ff5c8d8f61490fff (EncyKlopedia → Daat) autonome · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+  Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution.
+- frontiere · 5ccf0084e563d648f67b (Konnaxion → Orgo) autonome · REPONSE_NON_TERMINALE
+  Exporter le reçu terminal émis par le récepteur après traitement.
+- frontiere · b269e34addc74b408fac (Orgo → Konnaxion) autonome · REVISION_NON_VERIFIEE
+  Relever les révisions des services réellement déployés et les inclure dans les exports.
+- parcours · konnaxion-orgo-decision-impact integre · PREUVES_INSUFFISANTES
+  Consulter les motifs de chaque saut dans validation-integrale.json.
+- frontiere · 1f2498730e97c890bdcf (Daat → Kristal-Framework) integre · CONTRAT_SANS_PREUVE_RUNTIME
+  Exécuter le contrat sur les versions actives et exporter les observations des deux services.
+- frontiere · 4870ff5c8d8f61490fff (EncyKlopedia → Daat) integre · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+  Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution.
+- frontiere · 5ccf0084e563d648f67b (Konnaxion → Orgo) integre · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- frontiere · b269e34addc74b408fac (Orgo → Konnaxion) integre · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- Inventaire · Diag seulement · Rejean-McCormick/Karacter, Rejean-McCormick/Kolor, Rejean-McCormick/Kristalizer, Rejean-McCormick/diK
+
+Consulter cloture.json pour les détails. La décision de certification appartient au responsable.

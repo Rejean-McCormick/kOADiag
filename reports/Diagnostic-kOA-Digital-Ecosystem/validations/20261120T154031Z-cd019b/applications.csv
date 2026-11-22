@@ -1,0 +1,22 @@
+﻿id;owner;port;tcp;http_code;status;detail
+orgo-web;orgo;21110;True;200;FAMILY_MATCH;Famille reconnue dans le titre, instance exacte non prouvée
+orgo-api;orgo;21111;True;404;HTTP_UNVERIFIED;Serveur HTTP présent, identité non vérifiée
+orgo-worlds-web;orgo;21112;False;;STOPPED;Aucun service TCP local sur le port attribué
+orgo-worlds-api;orgo;21113;False;;STOPPED;Aucun service TCP local sur le port attribué
+orgo-koali-web;orgo;21114;False;;STOPPED;Aucun service TCP local sur le port attribué
+orgo-koali-api;orgo;21115;False;;STOPPED;Aucun service TCP local sur le port attribué
+orgo-koali-pglite;orgo;21116;False;;STOPPED;Aucun service TCP local sur le port attribué
+initkoa-web;initkoa;21120;True;200;FAMILY_MATCH;Famille reconnue dans le titre, instance exacte non prouvée
+konnaxion-web;konnaxion;21130;True;200;HTTP_UNVERIFIED;Serveur HTTP présent, identité non vérifiée
+konnaxion-api;konnaxion;21131;True;;TCP_OPEN_UNVERIFIED;TCP ouvert, mais aucune réponse HTTP claire (TimeoutError)
+konnaxion-capsule-agent-local;konnaxion;21132;False;;STOPPED;Aucun service TCP local sur le port attribué
+konnaxion-capsule-manager-local;konnaxion;21133;False;;STOPPED;Aucun service TCP local sur le port attribué
+konnaxion-koali-web;konnaxion;21134;False;;STOPPED;Aucun service TCP local sur le port attribué
+konnaxion-koali-api;konnaxion;21135;False;;STOPPED;Aucun service TCP local sur le port attribué
+skope-web;skope;21140;False;;STOPPED;Aucun service TCP local sur le port attribué
+ekole-quebec-learner;ekole;21150;False;;STOPPED;Aucun service TCP local sur le port attribué
+ekole-quebec-teacher;ekole;21151;False;;STOPPED;Aucun service TCP local sur le port attribué
+ekole-opsconsole;ekole;21152;False;;STOPPED;Aucun service TCP local sur le port attribué
+ekole-pastorale-learner;ekole;21153;False;;STOPPED;Aucun service TCP local sur le port attribué
+ekole-pastorale-teacher;ekole;21154;False;;STOPPED;Aucun service TCP local sur le port attribué
+koali-spaces-web;koali;21170;False;;STOPPED;Aucun service TCP local sur le port attribué

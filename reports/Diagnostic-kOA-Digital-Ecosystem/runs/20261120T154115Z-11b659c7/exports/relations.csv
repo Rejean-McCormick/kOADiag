@@ -1,0 +1,67 @@
+﻿id;source;target;contract;maturity;qualification
+R001;Akor;Kompose;;observed_static;INDICES_STATIQUES
+R002;Akor;Kontexte;;observed_static;INDICES_STATIQUES
+R003;Daat;Konnaxion;kristal.artifact.ready/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R004;Daat;Kristal-Framework;;documented_passage;DOCUMENTE
+R005;Daat;Orgo;kristal.artifact.ready/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R006;Daat;uckk;kristal.publication.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R007;Daat;uckk;kristal.publication.revoke.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R008;diK;Kristal-Framework;;proposed;CANDIDAT_OU_BLOQUE
+R009;diK;Kristalizer;dik-kristalizer-owner-boundary;proposed;CANDIDAT_OU_BLOQUE
+R010;diK;SemantiK-Architect;;proposed;CANDIDAT_OU_BLOQUE
+R011;Ekole;Akor;;observed_static;INDICES_STATIQUES
+R012;Ekole;Kompose;;observed_static;INDICES_STATIQUES
+R013;Ekole;Kontexte;;observed_static;INDICES_STATIQUES
+R014;Ekole-Quebec;Spek;;observed_static;INDICES_STATIQUES
+R015;EncyKlopedia;Daat;;documented_passage;DOCUMENTE
+R016;EncyKlopedia;Mediatheque;;observed_static;INDICES_STATIQUES
+R017;EncyKlopedia;Mediatheque;encyk.source-evidence-handoff/2.0.0;receiver_pending;INDICES_STATIQUES
+R018;EncyKlopedia;SemantiK-Architect;;observed_static;INDICES_STATIQUES
+R019;EncyKlopedia;Spek;;observed_static;INDICES_STATIQUES
+R020;kOA-Linux-Koali;UCKK;publish_to_uckk;documented;DOCUMENTE
+R021;Koali;Ressource approuvée;;documented;DOCUMENTE
+R022;Koali-Spaces;Konnaxion;;observed_static;INDICES_STATIQUES
+R023;Konnaxion;Daat;kristal.build.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R024;Konnaxion;Daat;kristal.revision.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R025;Konnaxion;kOA-Linux-Koali;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R026;Konnaxion;Orgo;;documented_passage;DOCUMENTE
+R027;Konnaxion;Orgo;governance.decision.execute/1.0.0;qualified_local;CONTRAT_OU_ROUTE
+R028;Konnaxion-Capsule-Manager;Konnaxion;;observed_static;INDICES_STATIQUES
+R029;Konnaxion-Worlds;Konnaxion;;observed_static;INDICES_STATIQUES
+R030;Konstellation;Spek;konstellation ResultSet 0.2;documented;DOCUMENTE
+R031;Kontexte;Orgo;;observed_static;INDICES_STATIQUES
+R032;Kristal-Authoring-Kit;Kristal-Manager;kristal.github-read-surface/1.0;integrated_pending;CANDIDAT_OU_BLOQUE
+R033;Kristal-Framework;Ekole;kristal.learning-surface;candidate;CANDIDAT_OU_BLOQUE
+R034;Kristal-Framework;kOA-Linux-Koali;;documented_passage;DOCUMENTE
+R035;Kristal-Framework;Konstellation;;documented;DOCUMENTE
+R036;Kristal-Integration-Pack;Kompiler;;observed_static;INDICES_STATIQUES
+R037;Kristal-Manager;Kompiler;kristal.github-collection-index/1.0;blocked;CANDIDAT_OU_BLOQUE
+R038;Kristal-Manager;Konstellation-Light;kristal.github-collection-index/1.0;blocked;CANDIDAT_OU_BLOQUE
+R039;Kristal-Manager;KristalDiag;;observed_static;INDICES_STATIQUES
+R040;kristal-public;Kristal-Manager;;observed_static;INDICES_STATIQUES
+R041;kristal-public;SemantiK-Architect;;observed_static;INDICES_STATIQUES
+R042;Kristalizer;Kristal-Framework;;proposed;CANDIDAT_OU_BLOQUE
+R043;LevelUpDiag-Orgo;Orgo;;observed_static;INDICES_STATIQUES
+R044;Mediatheque;Daat;;documented;DOCUMENTE
+R045;Mediatheque;kOA-Linux-Koali;kOA-Linux UCKK publication package/receipt;documented;DOCUMENTE
+R046;MediKristal-LevelUpDiag-;MediKristal;;observed_static;INDICES_STATIQUES
+R047;Orgo;Daat;;documented_passage;INDICES_STATIQUES
+R048;Orgo;Daat;kristal.build.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R049;Orgo;Daat;kristal.revision.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R050;Orgo;kOA-Linux-Koali;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R051;Orgo;Konnaxion;;observed_static;INDICES_STATIQUES
+R052;Orgo;Konnaxion;accountability.impact.publish/1.0.0;qualified_local;CONTRAT_OU_ROUTE
+R053;Orgo;Konnaxion;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R054;Orgo;Konnaxion;operational.reconsideration.recommended/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R055;Orgo-Worlds;Kontexte;;observed_static;INDICES_STATIQUES
+R056;Orgo-Worlds;Orgo;;observed_static;INDICES_STATIQUES
+R057;Ressource approuvée;Mediatheque;;documented;DOCUMENTE
+R058;SemantiK-Architect;SemantiK_Runtime_Orchestrator;;documented_passage;DOCUMENTE
+R059;Skope;EncyKlopedia;;proposed;CANDIDAT_OU_BLOQUE
+R060;Skope;EncyKlopedia;skope.reviewed-working-export;candidate;CANDIDAT_OU_BLOQUE
+R061;Skope;Kristalizer;;proposed;CANDIDAT_OU_BLOQUE
+R062;Spek;Publication;;implemented_owner;DOCUMENTE
+R063;Spek;SemantiK-Architect;;observed_static;INDICES_STATIQUES
+R064;uckk;Daat;kristal.publication.available/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R065;uckk;Daat;kristal.publication.revoked/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R066;UCKK;Reçu et suivi;UCKK publication receipt (contractual boundary);documented;DOCUMENTE

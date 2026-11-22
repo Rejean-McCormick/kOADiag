@@ -1,0 +1,248 @@
+{
+  "inventory_alignment": {
+    "source": "local_audit_initial_inventory",
+    "aligned": false,
+    "diag_only": [
+      "Rejean-McCormick/Karacter",
+      "Rejean-McCormick/Kolor",
+      "Rejean-McCormick/Kristalizer",
+      "Rejean-McCormick/diK"
+    ],
+    "audit_only": []
+  },
+  "schema": "koa.cloture/v1",
+  "run_id": "20261113T222420Z-883ebf2e",
+  "suite_version": "5.5.1",
+  "status": "VALIDATIONS_RESTANTES",
+  "campaign_verdict": "PARTIAL",
+  "all_levels_reported": true,
+  "collection_available": true,
+  "documentary_aligned": false,
+  "required_by_kind": {
+    "depot": {
+      "pass": 55,
+      "total": 55
+    },
+    "frontiere": {
+      "pass": 0,
+      "total": 8
+    },
+    "parcours": {
+      "pass": 0,
+      "total": 2
+    }
+  },
+  "mandatory_boundaries_by_mode": {
+    "autonome": {
+      "pass": 0,
+      "total": 4
+    },
+    "integre": {
+      "pass": 0,
+      "total": 4
+    }
+  },
+  "remaining_counts": {
+    "parcours": 2,
+    "frontiere": 8
+  },
+  "remaining": [
+    {
+      "kind": "parcours",
+      "id": "konnaxion-orgo-decision-impact",
+      "mode": "autonome",
+      "status": "PREUVES_INSUFFISANTES",
+      "verdict": "PARTIAL",
+      "hops_remaining": [
+        {
+          "source": "Konnaxion",
+          "target": "Orgo",
+          "contract": "governance.decision.execute/1.0.0",
+          "status": "REPONSE_NON_TERMINALE"
+        },
+        {
+          "source": "Orgo",
+          "target": "Konnaxion",
+          "contract": "accountability.impact.publish/1.0.0",
+          "status": "REVISION_NON_VERIFIEE"
+        }
+      ],
+      "next_actions": [
+        "Exporter le reçu terminal émis par le récepteur après traitement.",
+        "Relever les révisions des services réellement déployés et les inclure dans les exports."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "1f2498730e97c890bdcf",
+      "mode": "autonome",
+      "source": "Daat",
+      "target": "Kristal-Framework",
+      "status": "CONTRAT_SANS_PREUVE_RUNTIME",
+      "verdict": "PARTIAL",
+      "declared_journeys": 0,
+      "historical_contract": "kristal_state/6.0.0",
+      "technical_status": "REFERENCE_FIGEE_VALIDEE",
+      "next_actions": [
+        "Exécuter le contrat sur les versions actives et exporter les observations des deux services."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "4870ff5c8d8f61490fff",
+      "mode": "autonome",
+      "source": "EncyKlopedia",
+      "target": "Daat",
+      "status": "QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 0,
+      "historical_contract": "encyklopedia.corpus-harvest-handoff/1.0.0",
+      "technical_status": "REVUE_CONTRAT_HISTORIQUE",
+      "next_actions": [
+        "Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "5ccf0084e563d648f67b",
+      "mode": "autonome",
+      "source": "Konnaxion",
+      "target": "Orgo",
+      "status": "REPONSE_NON_TERMINALE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 1,
+      "next_actions": [
+        "Exporter le reçu terminal émis par le récepteur après traitement."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "b269e34addc74b408fac",
+      "mode": "autonome",
+      "source": "Orgo",
+      "target": "Konnaxion",
+      "status": "REVISION_NON_VERIFIEE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 1,
+      "next_actions": [
+        "Relever les révisions des services réellement déployés et les inclure dans les exports."
+      ]
+    },
+    {
+      "kind": "parcours",
+      "id": "konnaxion-orgo-decision-impact",
+      "mode": "integre",
+      "status": "PREUVES_INSUFFISANTES",
+      "verdict": "PARTIAL",
+      "hops_remaining": [
+        {
+          "source": "Konnaxion",
+          "target": "Orgo",
+          "contract": "governance.decision.execute/1.0.0",
+          "status": "PREUVE_MANQUANTE"
+        },
+        {
+          "source": "Orgo",
+          "target": "Konnaxion",
+          "contract": "accountability.impact.publish/1.0.0",
+          "status": "PREUVE_MANQUANTE"
+        }
+      ],
+      "next_actions": [
+        "Consulter les motifs de chaque saut dans validation-integrale.json."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "1f2498730e97c890bdcf",
+      "mode": "integre",
+      "source": "Daat",
+      "target": "Kristal-Framework",
+      "status": "CONTRAT_SANS_PREUVE_RUNTIME",
+      "verdict": "PARTIAL",
+      "declared_journeys": 0,
+      "historical_contract": "kristal_state/6.0.0",
+      "technical_status": "REFERENCE_FIGEE_VALIDEE",
+      "next_actions": [
+        "Exécuter le contrat sur les versions actives et exporter les observations des deux services."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "4870ff5c8d8f61490fff",
+      "mode": "integre",
+      "source": "EncyKlopedia",
+      "target": "Daat",
+      "status": "QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 0,
+      "historical_contract": "encyklopedia.corpus-harvest-handoff/1.0.0",
+      "technical_status": "REVUE_CONTRAT_HISTORIQUE",
+      "next_actions": [
+        "Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "5ccf0084e563d648f67b",
+      "mode": "integre",
+      "source": "Konnaxion",
+      "target": "Orgo",
+      "status": "PARCOURS_DECLARE_NON_PROUVE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 1,
+      "next_actions": [
+        "Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut."
+      ]
+    },
+    {
+      "kind": "frontiere",
+      "id": "b269e34addc74b408fac",
+      "mode": "integre",
+      "source": "Orgo",
+      "target": "Konnaxion",
+      "status": "PARCOURS_DECLARE_NON_PROUVE",
+      "verdict": "PARTIAL",
+      "declared_journeys": 1,
+      "next_actions": [
+        "Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut."
+      ]
+    }
+  ],
+  "level_errors": [],
+  "human_review_pending": [
+    "0ad69f534405b3ac4c51",
+    "17d220a58ca47ec916df",
+    "1e6c331ff01a82847edf",
+    "2887765582f2eac62c9a",
+    "29b354d5c5f6a8785e56",
+    "4d27ea2851d632d11a07",
+    "5494d355f8adf8101a44",
+    "61589c3f4c66289e005c",
+    "71fcae612638be2d0c44",
+    "7a158ce8c1f179f078e1",
+    "8191ff0e471e4317a590",
+    "832d6ce0c440d4f7c483",
+    "8eb7d9836d26e43cc5f0",
+    "a3afa53e563907b0621b",
+    "aae6f2b0b2c90037fbf2",
+    "b1e0f78115af9db7ca80",
+    "bcb7062fc6d0d3f4f409",
+    "c0ae80e086d1f2965e78",
+    "c317947bfe71a40edf52",
+    "c3bfacc56bae55bfd3d8",
+    "f3594b2a61dcc92fa913",
+    "f7e9ec561b78ee415ecf",
+    "f9332599ea163c25d620"
+  ],
+  "optional_unproven": [
+    "030dd11b2fae9c0a6b2b",
+    "2c73aeb951b599112fba",
+    "520d48175f3627e9d0b1",
+    "5c69c6802f72c6991f2a",
+    "76d3f17036eac37ca6de",
+    "86db95658f9b73edd9ee",
+    "d841be73970eb4238e54"
+  ],
+  "certification": "DECISION_HUMAINE"
+}

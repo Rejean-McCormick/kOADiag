@@ -1,0 +1,121 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "4.0.0",
+  "run_id": "20261110T180617Z-657b6bde",
+  "level_id": "N01",
+  "level_name": "Collecte de preuves inter-repos",
+  "purpose": "Capturer les surfaces inter-dépôts sans exécuter les applications",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-10T18:06:17+00:00",
+  "ended_at": "2026-11-10T18:07:05+00:00",
+  "verdict": "PARTIAL",
+  "required": true,
+  "findings": [
+    {
+      "id": "collection.inventory.complete",
+      "verdict": "PASS",
+      "category": "inventory",
+      "message": "Collecte sur 53/53 dépôts"
+    },
+    {
+      "id": "collection.scan.truncated",
+      "verdict": "PARTIAL",
+      "category": "inventory",
+      "message": "Scan limité dans 4 dépôt(s)",
+      "recommendation": "Ajuster scan.max_files_per_repo dans le fichier local si nécessaire."
+    },
+    {
+      "id": "collection.scan.issues",
+      "verdict": "WARN",
+      "category": "inventory",
+      "message": "1 fichier(s) source n’ont pu être examinés",
+      "evidence": {
+        "sample": [
+          {
+            "status": "ERREUR",
+            "repo": "Konnaxion",
+            "element": "backend/schema-endpoints.json",
+            "detail": "JSON de schéma illisible"
+          }
+        ]
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "snapshot",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\levels\\N01\\snapshot.json",
+      "description": "Preuves et relations extraites en lecture seule"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\relations.csv",
+      "description": "Vue relations des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\appels-api.csv",
+      "description": "Vue appels-api des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\evenements.csv",
+      "description": "Vue evenements des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\dependances.csv",
+      "description": "Vue dependances des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\ci-workflows.csv",
+      "description": "Vue ci-workflows des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\echanges.csv",
+      "description": "Vue echanges des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\profils-ik.csv",
+      "description": "Vue profils-ik des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261110T180617Z-657b6bde\\exports\\schemas.csv",
+      "description": "Vue schemas des frontières inter-repos"
+    }
+  ],
+  "metrics": {
+    "inventory_repos": 53,
+    "present_repos": 53,
+    "relations": 57,
+    "api_static_calls": 5,
+    "api_route_matches": 0,
+    "api_live_ok": 0,
+    "api_live_probes": 1,
+    "events": 12,
+    "cross_repo_events": 0,
+    "declared_dependencies": 0,
+    "workflow_cross_repo": 0,
+    "imports_cross_repo": 45,
+    "env_boundary_hints": 19,
+    "boundary_expectations": 0,
+    "boundary_expectations_missing": 0,
+    "dependency_versions_to_review": 0,
+    "schemas": 398,
+    "schema_issues": 18,
+    "active_ik_profiles": 11,
+    "ik_contract_issues": 0,
+    "exchanges_correlated": 0,
+    "ik_receipts_success": 0,
+    "repositories_scan_truncated": 4,
+    "fully_certified_e2e": 0,
+    "worker_duration_seconds": 47.61
+  }
+}

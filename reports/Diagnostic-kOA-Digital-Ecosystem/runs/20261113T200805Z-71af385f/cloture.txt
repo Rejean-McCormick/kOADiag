@@ -1,0 +1,25 @@
+Diagnostic kOA · Clôture
+Campagne 20261113T200805Z-71af385f
+VALIDATIONS_RESTANTES
+
+Frontières obligatoires corroborées
+- autonome : 0/4
+- integre : 0/4
+
+Décisions de revue ouvertes : 23
+Frontières optionnelles à documenter : 7
+Sources documentaires alignées : non
+
+Contrôles obligatoires à reprendre
+- parcours · konnaxion-orgo-decision-impact autonome · PREUVES_INSUFFISANTES
+- frontiere · 1f2498730e97c890bdcf autonome · CONTRAT_SANS_PREUVE_RUNTIME
+- frontiere · 4870ff5c8d8f61490fff autonome · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+- frontiere · 5ccf0084e563d648f67b autonome · REPONSE_NON_TERMINALE
+- frontiere · b269e34addc74b408fac autonome · REVISION_NON_VERIFIEE
+- parcours · konnaxion-orgo-decision-impact integre · PREUVES_INSUFFISANTES
+- frontiere · 1f2498730e97c890bdcf integre · CONTRAT_SANS_PREUVE_RUNTIME
+- frontiere · 4870ff5c8d8f61490fff integre · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+- frontiere · 5ccf0084e563d648f67b integre · PARCOURS_DECLARE_NON_PROUVE
+- frontiere · b269e34addc74b408fac integre · PARCOURS_DECLARE_NON_PROUVE
+
+Consulter cloture.json pour les détails. La décision de certification appartient au responsable.

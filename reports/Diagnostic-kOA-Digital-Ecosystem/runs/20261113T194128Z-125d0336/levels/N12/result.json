@@ -1,0 +1,126 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "run_id": "20261113T194128Z-125d0336",
+  "level_id": "N12",
+  "level_name": "Preuves et qualification des parcours E2E",
+  "purpose": "Qualifier les parcours explicites, saut par saut, sans inférer une transaction E2E depuis un simple healthcheck",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T19:42:21+00:00",
+  "ended_at": "2026-11-13T19:42:21+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "journey.konnaxion-orgo-decision-impact.incomplete",
+      "verdict": "PARTIAL",
+      "category": "e2e",
+      "message": "konnaxion-orgo-decision-impact: PREUVES_INSUFFISANTES. 0/2 frontières corroborées.",
+      "evidence": {
+        "hops": [
+          {
+            "source": "Konnaxion",
+            "target": "Orgo",
+            "contract": "governance.decision.execute/1.0.0",
+            "status": "REPONSE_NON_TERMINALE",
+            "method": "",
+            "path": "",
+            "channel": "",
+            "relation_reference_present": true,
+            "correlation_hash": "b307ec8ffc81940b",
+            "attempt_hash": "280f3d77c7c7805b",
+            "mode": "autonome",
+            "evidence_files": [
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/konnaxion-observations.json",
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/orgo-observations.json"
+            ],
+            "evidence_sha256": {
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/konnaxion-observations.json": "ee156631704f9e5c096098a5bfebfd6922675c55c7c65344110bc1ed90842615",
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/orgo-observations.json": "0f4efdec44900ac9c740230c4f2dcf0dadc5feb8bf2f23c9fd0e37d69704dc4d"
+            },
+            "complementary_observations": [],
+            "response_observed": true,
+            "response_ok": true,
+            "occurred_at": "2026-11-13T19:41:12.261+00:00",
+            "received_at": "2026-11-13T19:41:12.971+00:00",
+            "responded_at": "2026-11-13T19:41:13.018+00:00",
+            "observed_revisions": [
+              [
+                "",
+                ""
+              ]
+            ]
+          },
+          {
+            "source": "Orgo",
+            "target": "Konnaxion",
+            "contract": "accountability.impact.publish/1.0.0",
+            "status": "REVISION_NON_VERIFIEE",
+            "method": "",
+            "path": "",
+            "channel": "",
+            "relation_reference_present": true,
+            "correlation_hash": "b307ec8ffc81940b",
+            "attempt_hash": "f96ef271985ab4f5",
+            "mode": "autonome",
+            "evidence_files": [
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/konnaxion-observations.json",
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/orgo-observations.json"
+            ],
+            "evidence_sha256": {
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/orgo-observations.json": "0f4efdec44900ac9c740230c4f2dcf0dadc5feb8bf2f23c9fd0e37d69704dc4d",
+              "kOA-Digital-Ecosystem-GitHub-Audit/kOA-D-E-GitHub-Audit/private_evidence/konnaxion-orgo-20261113-143917-b7427620/konnaxion-observations.json": "ee156631704f9e5c096098a5bfebfd6922675c55c7c65344110bc1ed90842615"
+            },
+            "complementary_observations": [],
+            "response_observed": true,
+            "response_ok": true,
+            "occurred_at": "2026-11-13T19:41:13.489+00:00",
+            "received_at": "2026-11-13T19:41:17.793+00:00",
+            "responded_at": "2026-11-13T19:41:17.797+00:00",
+            "observed_revisions": [
+              [
+                "",
+                ""
+              ]
+            ]
+          }
+        ]
+      },
+      "recommendation": "Exporter les émissions, réceptions ET réponses depuis les applications concernées."
+    },
+    {
+      "id": "journeys.scope",
+      "verdict": "WARN",
+      "category": "e2e",
+      "message": "La preuve d’un parcours déclaré ne valide pas les autres parcours non configurés."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "koali_summary_exports": 0,
+    "koali_dependency_indicators": 0,
+    "autonomous_complete": 0,
+    "integrated_complete": 0,
+    "configured": 1,
+    "evidence_complete": 0,
+    "incomplete": 1,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.33
+  }
+}

@@ -1,0 +1,31 @@
+Diagnostic du kOA Digital Ecosystem - complet
+Run: 20261110T192300Z-83d16444
+Verdict: PARTIAL
+Racine: C:\mycode
+
+NIVEAUX
+N00  PASS         Intégrité des références et sécurité
+N01  PARTIAL      Collecte de preuves inter-repos
+N02  PARTIAL      Topologie et propriété des liaisons
+N03  PARTIAL      Contrats IK et dérive de schémas
+N04  PARTIAL      API sortantes et routes entrantes
+N05  PARTIAL      Événements, topics, abonnements
+N06  PARTIAL      Dépendances et versions
+N07  PARTIAL      Imports, CI et variables de service
+N08  PARTIAL      Obligations de frontière
+N09  PARTIAL      Traces, enveloppes et reçus IK
+N10  PARTIAL      Sondes API opt-in (GET/HEAD)
+N11  PARTIAL      Continuité et qualification des parcours
+N12  PARTIAL      Preuves et qualification des parcours E2E
+
+COUVERTURE : 53/53 dépôts; 2 tronqués
+PARCOURS : 0/0 suffisamment corroborés
+E2E GLOBAL : NON CERTIFIÉ
+
+PRIORITÉS
+Collecte : 2 dépôt(s) tronqué(s) — augmenter la limite ou cibler les frontières.
+E2E : déclarer les parcours requis dans koa-ecosystem-diag.config.local.json.
+Traces : importer les exports émission/réception des diagnostics dédiés (journey_id et correlation_id).
+API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.
+
+Une route, un import ou une réponse GET ne valide pas un échange métier E2E.

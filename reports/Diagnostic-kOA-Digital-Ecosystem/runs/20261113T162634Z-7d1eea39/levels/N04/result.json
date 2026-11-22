@@ -1,0 +1,117 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "run_id": "20261113T162634Z-7d1eea39",
+  "level_id": "N04",
+  "level_name": "API sortantes et routes entrantes",
+  "purpose": "Vérifier les correspondances statiques des routes et des consommateurs",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T16:30:26+00:00",
+  "ended_at": "2026-11-13T16:30:26+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "api.static.observed",
+      "verdict": "PASS",
+      "category": "api",
+      "message": "5 appels sortants observés, 0 correspondances directes"
+    },
+    {
+      "id": "api.static.unresolved.1",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Konnaxion-Capsule-Manager → ? : GET /health/ready/ (CIBLE_INCONNUE)",
+      "evidence": {
+        "evidence": {
+          "file": "tools/tandem_v2/diag_ik_fakeplant.py",
+          "line": 98
+        },
+        "mapping": "non_resolu"
+      }
+    },
+    {
+      "id": "api.static.unresolved.2",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Konstellation → ? : GET /api/bootstrap (CIBLE_INCONNUE)",
+      "evidence": {
+        "evidence": {
+          "file": "scripts/smoke-dev.mjs",
+          "line": 11
+        },
+        "mapping": "non_resolu"
+      }
+    },
+    {
+      "id": "api.static.unresolved.3",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Konstellation → ? : GET /api/query (CIBLE_INCONNUE)",
+      "evidence": {
+        "evidence": {
+          "file": "scripts/smoke-dev.mjs",
+          "line": 29
+        },
+        "mapping": "non_resolu"
+      }
+    },
+    {
+      "id": "api.static.unresolved.4",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Konstellation → ? : GET / (CIBLE_INCONNUE)",
+      "evidence": {
+        "evidence": {
+          "file": "scripts/smoke-dev.mjs",
+          "line": 36
+        },
+        "mapping": "non_resolu"
+      }
+    },
+    {
+      "id": "api.static.unresolved.5",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Orgo → ? : GET /health/ready/ (CIBLE_INCONNUE)",
+      "evidence": {
+        "evidence": {
+          "file": "validation/konnaxion-orgo-ik/prepare-local.ps1",
+          "line": 196
+        },
+        "mapping": "non_resolu"
+      }
+    },
+    {
+      "id": "api.runtime.not-proven",
+      "verdict": "WARN",
+      "category": "api",
+      "message": "Concordance des routes ≠ appel réussi entre deux applications."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "calls": 5,
+    "matches": 0,
+    "declared_boundaries": 0,
+    "declared_boundaries_matched": 0,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.43
+  }
+}

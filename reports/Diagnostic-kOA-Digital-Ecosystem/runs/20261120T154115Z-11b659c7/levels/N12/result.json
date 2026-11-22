@@ -1,0 +1,104 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.6.0",
+  "run_id": "20261120T154115Z-11b659c7",
+  "level_id": "N12",
+  "level_name": "Preuves et qualification des parcours E2E",
+  "purpose": "Qualifier les parcours explicites, saut par saut, sans inférer une transaction E2E depuis un simple healthcheck",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-20T15:42:56+00:00",
+  "ended_at": "2026-11-20T15:42:56+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "journey.konnaxion-orgo-decision-impact.incomplete",
+      "verdict": "PARTIAL",
+      "category": "e2e",
+      "message": "konnaxion-orgo-decision-impact: PREUVES_INSUFFISANTES. 0/2 frontières corroborées.",
+      "evidence": {
+        "hops": [
+          {
+            "source": "Konnaxion",
+            "target": "Orgo",
+            "contract": "governance.decision.execute/1.0.0",
+            "status": "PREUVE_MANQUANTE",
+            "method": "",
+            "path": "",
+            "channel": "",
+            "relation_reference_present": true,
+            "correlation_hash": "",
+            "attempt_hash": "",
+            "mode": "non_renseigne",
+            "evidence_files": [],
+            "evidence_sha256": {},
+            "complementary_observations": [],
+            "response_observed": false,
+            "response_ok": false,
+            "occurred_at": null,
+            "received_at": null,
+            "responded_at": null,
+            "observed_revisions": []
+          },
+          {
+            "source": "Orgo",
+            "target": "Konnaxion",
+            "contract": "accountability.impact.publish/1.0.0",
+            "status": "PREUVE_MANQUANTE",
+            "method": "",
+            "path": "",
+            "channel": "",
+            "relation_reference_present": true,
+            "correlation_hash": "",
+            "attempt_hash": "",
+            "mode": "non_renseigne",
+            "evidence_files": [],
+            "evidence_sha256": {},
+            "complementary_observations": [],
+            "response_observed": false,
+            "response_ok": false,
+            "occurred_at": null,
+            "received_at": null,
+            "responded_at": null,
+            "observed_revisions": []
+          }
+        ]
+      },
+      "recommendation": "Exporter les émissions, réceptions ET réponses depuis les applications concernées."
+    },
+    {
+      "id": "journeys.scope",
+      "verdict": "WARN",
+      "category": "e2e",
+      "message": "La preuve d’un parcours déclaré ne valide pas les autres parcours non configurés."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "koali_summary_exports": 0,
+    "koali_dependency_indicators": 0,
+    "autonomous_complete": 0,
+    "integrated_complete": 0,
+    "configured": 1,
+    "evidence_complete": 0,
+    "incomplete": 1,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.43
+  }
+}

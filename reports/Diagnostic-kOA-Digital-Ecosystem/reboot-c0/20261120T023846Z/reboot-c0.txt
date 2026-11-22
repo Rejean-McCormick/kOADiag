@@ -1,0 +1,47 @@
+ Container orgo-postgres-1 Restarting 
+ Container orgo-api-1 Restarting 
+ Container orgo-web-1 Restarting 
+ Container orgo-worker-1 Restarting 
+ Container orgo-migrate-1 Restarting 
+ Container orgo-migrate-1 Started 
+ Container orgo-postgres-1 Started 
+ Container orgo-web-1 Started 
+ Container orgo-api-1 Started 
+ Container orgo-worker-1 Started 
+ Container orgo-postgres-1 Running 
+ Container orgo-migrate-1 Running 
+ Container orgo-api-1 Recreate 
+ Container orgo-worker-1 Recreate 
+ Container orgo-api-1 Recreated 
+ Container orgo-web-1 Recreate 
+ Container orgo-web-1 Recreated 
+ Container orgo-worker-1 Recreated 
+ Container orgo-postgres-1 Waiting 
+ Container orgo-postgres-1 Healthy 
+ Container orgo-migrate-1 Starting 
+ Container orgo-migrate-1 Started 
+ Container orgo-migrate-1 Waiting 
+ Container orgo-migrate-1 Waiting 
+ Container orgo-migrate-1 Exited 
+ Container orgo-migrate-1 Exited 
+ Container orgo-worker-1 Starting 
+ Container orgo-api-1 Starting 
+ Container orgo-worker-1 Started 
+ Container orgo-api-1 Started 
+ Container orgo-api-1 Waiting 
+ Container orgo-api-1 Healthy 
+ Container orgo-web-1 Starting 
+ Container orgo-web-1 Started 
+
+== orgo ==
+  Docker Compose d�marr�/red�marr� sans suppression de volumes.
+
+== konnaxion ==
+  konnaxion-api : PID 34352 ; journal C:\Users\rejea\AppData\Local\kOA\C0-reboot\logs\konnaxion--konnaxion-api--20261119-213906.log
+  konnaxion-web : PID 27720 ; journal C:\Users\rejea\AppData\Local\kOA\C0-reboot\logs\konnaxion--konnaxion-web--20261119-213906.log
+
+== initkoa ==
+  initkoa : PID 43000 ; journal C:\Users\rejea\AppData\Local\kOA\C0-reboot\logs\initkoa--initkoa--20261119-213906.log
+
+Bilan: groupes manuels = 0 ; groupes en erreur = 0
+Termin�. Ex�cuter ETAT-PORTS-C0.bat, puis les tests IK s�par�ment.

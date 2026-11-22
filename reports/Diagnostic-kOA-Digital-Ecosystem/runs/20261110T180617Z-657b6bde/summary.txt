@@ -1,0 +1,20 @@
+Diagnostic du kOA Digital Ecosystem - complet
+Run: 20261110T180617Z-657b6bde
+Verdict: BLOCKED
+Racine: C:\mycode
+
+NIVEAUX
+N00  PASS         Intégrité des références et sécurité
+N01  PARTIAL      Collecte de preuves inter-repos
+N02  BLOCKED      Topologie et propriété des liaisons
+N03  BLOCKED      Contrats IK et dérive de schémas
+N04  BLOCKED      API sortantes et routes entrantes
+N05  BLOCKED      Événements, topics, abonnements
+N06  BLOCKED      Dépendances et versions
+N07  BLOCKED      Imports, CI et variables de service
+N08  BLOCKED      Obligations de frontière
+N09  BLOCKED      Traces, enveloppes et reçus IK
+N10  BLOCKED      Sondes API opt-in (GET/HEAD)
+N11  BLOCKED      Continuité et qualification des parcours
+
+La présence de contrats ou des réponses GET ne valide pas un échange métier E2E.

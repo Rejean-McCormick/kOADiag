@@ -1,0 +1,4 @@
+Collecte : 2 dépôt(s) tronqué(s) — augmenter la limite ou cibler les frontières.
+E2E : déclarer les parcours requis dans koa-ecosystem-diag.config.local.json.
+Traces : importer les exports émission/réception des diagnostics dédiés (journey_id et correlation_id).
+API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.

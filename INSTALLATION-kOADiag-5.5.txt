@@ -1,0 +1,43 @@
+kOADiag 5.5.0 — validation intégrale centralisée
+
+Extraire le contenu directement dans C:\mycode\kOA_Digital_Ecosystem\kOADiag,
+au même niveau que Diagnostic-kOA-Digital-Ecosystem.pyw. Remplacer les fichiers
+du pack. La base attendue est le snapshot du 13 novembre après le correctif
+de collecte. L’archive livre le code de mise à jour de kOADiag uniquement.
+
+Ouvrir Diagnostic-kOA-Digital-Ecosystem.pyw et lancer validation-integrale.
+L’option GitHub Audit est activée par défaut. Si plusieurs installations
+sont présentes, sélectionner le dossier de l’Audit voulu.
+Pour rejouer Fakeplant, cocher l’option du kit local après avoir démarré la
+pile d’essai existante. Le World par défaut de l’interface est
+fp-electromecanique-informatique. Le kit existant reste la source du test.
+
+Équivalent PowerShell, depuis la racine kOADiag :
+  py -3 .\Diagnostic-kOA-Digital-Ecosystem-CLI.py run validation-integrale --audit
+
+Avec le kit métier local :
+  py -3 .\Diagnostic-kOA-Digital-Ecosystem-CLI.py run validation-integrale --audit --runtime-local --world fp-electromecanique-informatique
+
+kOADiag retrouve les descripteurs des campagnes Konnaxion–Orgo archivées dans
+private_evidence, et accepte les exports indépendants des autres propriétaires
+via la configuration locale existante. Pour une archive par campagne,
+private_evidence\koa-observations-<campagne> peut contenir un fichier
+descripteurs-import.json (tableau des descripteurs standard avec chemin relatif
+à C:\mycode, owner_repo, mode et sha256). Les fichiers visés sont placés dans le
+même dossier. La politique d’expiration des preuves reste applicable.
+
+N14 s’exécute en premier lorsqu’il est demandé. Si le kit expose ses
+observations, elles sont archivées avant N01. En cas d’échec, N14 garde son
+verdict et les niveaux indépendants poursuivent. L’Audit reçoit le résumé de
+cette campagne, même avec un verdict partiel ou un échec. Le rapport
+audit-import.json consigne le résultat de l’import. inventory-alignment.json
+compare la référence locale Audit si elle est disponible, avec priorité à la
+référence locale explicitement configurée dans kOADiag. cloture.txt donne les
+frontières, les modes et les actions qui restent.
+
+Les producteurs de preuve restent les applications propriétaires. Le kit
+actuel exporte l’acceptation d’Orgo et la réponse terminale de Konnaxion.
+Le reçu terminal Orgo, les révisions des images réellement déployées, les
+observations Koali intégrées et la qualification historique EncyKlopedia →
+Daat → Kristal restent requis. Cette mise à jour ne change aucun contrat ni
+registre de décisions. GitHub Audit conserve son import privé existant.

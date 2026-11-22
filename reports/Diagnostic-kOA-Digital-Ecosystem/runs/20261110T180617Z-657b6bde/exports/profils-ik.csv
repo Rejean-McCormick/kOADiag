@@ -1,0 +1,19 @@
+﻿name;status;detail
+governance.decision.execute/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+accountability.impact.publish/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+operational.reconsideration.recommended/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.build.request/2.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.artifact.ready/2.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.revision.request/2.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+knowledge.distribution.request/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.publication.request/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.publication.available/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.publication.revoke.request/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+kristal.publication.revoked/1.0.0;OK;Index ↔ descripteur ↔ payload cohérents
+Index actif;OK;11/11 profils chargés
+Verrou adopté: profile.json;OK;SHA-256 conforme
+Verrou adopté: payload.schema.json;OK;SHA-256 conforme
+Verrou adopté: profile.json;OK;SHA-256 conforme
+Verrou adopté: payload.schema.json;OK;SHA-256 conforme
+Verrou adopté: profile.json;OK;SHA-256 conforme
+Verrou adopté: payload.schema.json;OK;SHA-256 conforme

@@ -1,0 +1,34 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.5.1",
+  "run_id": "20261113T222420Z-883ebf2e",
+  "level_id": "N14",
+  "level_name": "Kit métier officiel Konnaxion–Orgo (pile locale d’essai)",
+  "purpose": "Exécuter sur demande le test transversal officiel sur la pile locale d’essai",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T22:24:20+00:00",
+  "ended_at": "2026-11-13T22:24:50+00:00",
+  "verdict": "PASS",
+  "required": false,
+  "findings": [
+    {
+      "id": "runtime.konnaxion-orgo.official",
+      "verdict": "PASS",
+      "category": "runtime",
+      "message": "Assertions du kit officiel Konnaxion–Orgo réussies sur la pile locale",
+      "evidence": {
+        "script_sha256": "863fd8aa900fdd15aae82b76c0f9e70b1e64e64725f358e839b04fa016044aaa",
+        "exit_code": 0,
+        "observations_archived": 2
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "upstream_quality": {},
+    "worker_duration_seconds": 30.5
+  }
+}

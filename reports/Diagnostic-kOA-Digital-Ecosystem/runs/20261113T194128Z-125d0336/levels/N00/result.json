@@ -1,0 +1,89 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "run_id": "20261113T194128Z-125d0336",
+  "level_id": "N00",
+  "level_name": "Intégrité des références et sécurité",
+  "purpose": "Valider le registre, les manifests et les limites de sécurité",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T19:41:29+00:00",
+  "ended_at": "2026-11-13T19:41:29+00:00",
+  "verdict": "WARN",
+  "required": true,
+  "findings": [
+    {
+      "id": "references.repositories.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "repositories.json lisible",
+      "evidence": {
+        "sha256": "89065c60dd153a7056c4c03c2997f0aca9ad43c3c45c5771297d0d2fd671bc30",
+        "type": "list"
+      }
+    },
+    {
+      "id": "references.graph-registry.v1.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "graph-registry.v1.json lisible",
+      "evidence": {
+        "sha256": "d6cafce739e57cf071b311c25a96d4851c722e7d6c25f269fa33afcc968a7a81",
+        "type": "dict"
+      }
+    },
+    {
+      "id": "references.graph-focus.v1.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "graph-focus.v1.json lisible",
+      "evidence": {
+        "sha256": "617861a2403c8730f7ed13c35e1e4b7fdfbcd205b98402242f31a7d03467c9dd",
+        "type": "dict"
+      }
+    },
+    {
+      "id": "inventory.count",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "53 dépôts dans le registre"
+    },
+    {
+      "id": "inventory.audit.reference.difference",
+      "verdict": "WARN",
+      "category": "references",
+      "message": "Écart entre la référence historique Audit et la liste Diagnostic : revue nécessaire",
+      "evidence": {
+        "diag_only": [
+          "Rejean-McCormick/Karacter",
+          "Rejean-McCormick/Kolor",
+          "Rejean-McCormick/Kristalizer",
+          "Rejean-McCormick/diK"
+        ],
+        "audit_only": [],
+        "source": "dated_snapshot_2026-11-10"
+      }
+    },
+    {
+      "id": "security.no-target-commands",
+      "verdict": "PASS",
+      "category": "security",
+      "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai."
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "repositories.json_sha256": "89065c60dd153a7056c4c03c2997f0aca9ad43c3c45c5771297d0d2fd671bc30",
+    "graph-registry.v1.json_sha256": "d6cafce739e57cf071b311c25a96d4851c722e7d6c25f269fa33afcc968a7a81",
+    "graph-focus.v1.json_sha256": "617861a2403c8730f7ed13c35e1e4b7fdfbcd205b98402242f31a7d03467c9dd",
+    "inventory_declared": 53,
+    "registry_rows": 61,
+    "audit_inventory_diag_count": 53,
+    "audit_inventory_reference_count": 49,
+    "audit_inventory_unmatched": 4,
+    "upstream_quality": {},
+    "worker_duration_seconds": 0.43
+  }
+}

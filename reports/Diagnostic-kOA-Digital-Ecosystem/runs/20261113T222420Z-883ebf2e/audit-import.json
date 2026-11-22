@@ -1,0 +1,4 @@
+{
+  "status": "IMPORTED",
+  "detail": "{\n  \"stored\": \"C:\\\\Users\\\\rejea\\\\AppData\\\\Local\\\\kOA-GitHub-Audit\\\\ecosystem-diag\\\\records\\\\20261113T222420Z-883ebf2e.json\",\n  \"run_id\": \"20261113T222420Z-883ebf2e\",\n  \"reported_verdict\": \"PARTIAL\",\n  \"consistent_levels\": 15,\n  \"missing_levels\": 0,\n  \"ecosystem_e2e_certification\": \"NOT_ESTABLISHED\"\n}"
+}

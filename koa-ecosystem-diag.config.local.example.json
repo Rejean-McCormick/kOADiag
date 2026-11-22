@@ -1,0 +1,48 @@
+{
+  "target_root": "C:\\mycode",
+  "execution": {
+    "max_parallel": 4
+  },
+  "interrepo": {
+    "scan": {
+      "max_files_per_repo": 3500
+    },
+    "journeys": [
+      {
+        "id": "exemple-konnaxion-orgo",
+        "enabled": false,
+        "required": true,
+        "nodes": [
+          "Konnaxion",
+          "Orgo",
+          "Konnaxion"
+        ],
+        "require_response": true
+      }
+    ],
+    "exchange_trace_files": [],
+    "boundary_expectations": [],
+    "ik": {
+      "trace_files": [],
+      "probes": []
+    },
+    "expected_api_links": [
+      {
+        "id": "exemple-konnaxion-orgo-ready",
+        "enabled": false,
+        "required": false,
+        "source": "Konnaxion",
+        "target": "Orgo",
+        "method": "GET",
+        "path": "/health/ready/"
+      }
+    ],
+    "evidence_policy": {
+      "require_timestamps": true,
+      "max_age_hours": 168,
+      "strict_evidence": true,
+      "mode": "non_renseigne",
+      "reference_revisions": {}
+    }
+  }
+}

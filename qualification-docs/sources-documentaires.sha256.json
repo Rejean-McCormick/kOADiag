@@ -1,0 +1,17 @@
+{
+  "source_archive": "znapshot_kOA_Digital_Ecosystem_11100750.zip",
+  "source_date": "2026-11-10",
+  "documents": {
+    "docs/2-Technical-Reference/10-system/authority-map.md": "63999be129f3a13e1f393470acadc7cc28182878836b0dc643cc83f4b06590e1",
+    "docs/2-Technical-Reference/40-integration/contract-map.md": "7052d2f39e1c5a6e93befb5da430391950d683810194f8eef5af80f2c735d7cb",
+    "docs/2-Technical-Reference/40-integration/dik-kristalizer/README.md": "b021150e6dff35ab349f8479a2328c0435b7a390d9d4c1567dfa148ff6906610",
+    "docs/2-Technical-Reference/40-integration/interaction-kernel/status.md": "126c037344de94d9bf905e9ba68989977e1bce9eec2050ba9f0a83d479b7a03e",
+    "docs/2-Technical-Reference/40-integration/knowledge-projection-contract-set.json": "f8e8eab78eb6811db06394541c058931cc2fc04c792150bf92fe795ed18fc003",
+    "docs/2-Technical-Reference/40-integration/knowledge-projection.md": "7a82d9f9a0e8e0b1ad7609330592f01f0d1bc90087c41e01e3bc2f53f0e62eaf",
+    "docs/2-Technical-Reference/40-integration/kristal-v10-alignment/contracts-and-versions.md": "fb914edd5195e1f0e3bf0dfe38cdeb0256726b065a68e195a4f8ff50a3bb48e5",
+    "docs/2-Technical-Reference/40-integration/orchestration-c0/README.md": "3fc703651f73c5b4f2cf498ecc9b9695ed415ff35cbab8d67f6b25ffca8bf3db",
+    "docs/2-Technical-Reference/40-integration/orgo-konnaxion/index.md": "4b2458f7a45bfce57e8a3d721c353942ccc62b06632db54c98b2ed1afe95802e",
+    "docs/2-Technical-Reference/40-integration/skope-ekole/index.md": "5612aa8d1719d773270d77dd85d1c4fcc2f222b7af89afd8415c909b9127f328",
+    "docs/status/current.md": "f4ba27768fb29e57b445f9ec15a78b31e43254b92e15a527e7b8d2626d7ab43b"
+  }
+}

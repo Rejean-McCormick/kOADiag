@@ -1,0 +1,69 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.0.0",
+  "run_id": "20261110T192300Z-83d16444",
+  "level_id": "N00",
+  "level_name": "Intégrité des références et sécurité",
+  "purpose": "Valider le registre, les manifests et les limites de sécurité",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-10T19:23:00+00:00",
+  "ended_at": "2026-11-10T19:23:00+00:00",
+  "verdict": "PASS",
+  "required": true,
+  "findings": [
+    {
+      "id": "references.repositories.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "repositories.json lisible",
+      "evidence": {
+        "sha256": "89065c60dd153a7056c4c03c2997f0aca9ad43c3c45c5771297d0d2fd671bc30",
+        "type": "list"
+      }
+    },
+    {
+      "id": "references.graph-registry.v1.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "graph-registry.v1.json lisible",
+      "evidence": {
+        "sha256": "d6cafce739e57cf071b311c25a96d4851c722e7d6c25f269fa33afcc968a7a81",
+        "type": "dict"
+      }
+    },
+    {
+      "id": "references.graph-focus.v1.json.readable",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "graph-focus.v1.json lisible",
+      "evidence": {
+        "sha256": "617861a2403c8730f7ed13c35e1e4b7fdfbcd205b98402242f31a7d03467c9dd",
+        "type": "dict"
+      }
+    },
+    {
+      "id": "inventory.count",
+      "verdict": "PASS",
+      "category": "references",
+      "message": "53 dépôts dans le registre"
+    },
+    {
+      "id": "security.no-target-commands",
+      "verdict": "PASS",
+      "category": "security",
+      "message": "Le diagnostiqueur n’exécute aucune commande de dépôt et n’écrit aucune donnée métier."
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "repositories.json_sha256": "89065c60dd153a7056c4c03c2997f0aca9ad43c3c45c5771297d0d2fd671bc30",
+    "graph-registry.v1.json_sha256": "d6cafce739e57cf071b311c25a96d4851c722e7d6c25f269fa33afcc968a7a81",
+    "graph-focus.v1.json_sha256": "617861a2403c8730f7ed13c35e1e4b7fdfbcd205b98402242f31a7d03467c9dd",
+    "inventory_declared": 53,
+    "upstream_quality": {},
+    "worker_duration_seconds": 0.28
+  }
+}

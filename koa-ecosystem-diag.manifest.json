@@ -1,0 +1,285 @@
+{
+  "schema": "levelupdiag.manifest.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite_name": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "repository_mode": "standalone-external-ecosystem",
+  "levels": [
+    {
+      "id": "N00",
+      "name": "Intégrité des références et sécurité",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 0,
+      "required": true,
+      "depends_on": [],
+      "timeout_seconds": 30,
+      "parallel_safe": true,
+      "purpose": "Valider le registre, les manifests et les limites de sécurité"
+    },
+    {
+      "id": "N01",
+      "name": "Collecte de preuves inter-repos",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 10,
+      "required": true,
+      "depends_on": [
+        "N00"
+      ],
+      "timeout_seconds": 600,
+      "parallel_safe": true,
+      "purpose": "Capturer les surfaces inter-dépôts sans exécuter les applications",
+      "continue_after": [
+        "N00"
+      ]
+    },
+    {
+      "id": "N02",
+      "name": "Topologie et propriété des liaisons",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 20,
+      "required": true,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Relier les producteurs et consommateurs aux dépôts effectivement présents"
+    },
+    {
+      "id": "N03",
+      "name": "Contrats IK et dérive de schémas",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 30,
+      "required": true,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Valider versions, profils, verrous et intégrité des schémas de frontière"
+    },
+    {
+      "id": "N04",
+      "name": "API sortantes et routes entrantes",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 40,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Vérifier les correspondances statiques des routes et des consommateurs"
+    },
+    {
+      "id": "N05",
+      "name": "Événements, topics, abonnements",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 50,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Comparer les publications et abonnements nommés"
+    },
+    {
+      "id": "N06",
+      "name": "Dépendances et versions",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 60,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Contrôler les dépendances et les contraintes inter-repos"
+    },
+    {
+      "id": "N07",
+      "name": "Imports, CI et variables de service",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 70,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Cartographier les références de code, workflows et variables sans secrets"
+    },
+    {
+      "id": "N08",
+      "name": "Obligations de frontière",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 80,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Vérifier les exigences explicitement définies entre dépôts"
+    },
+    {
+      "id": "N09",
+      "name": "Traces, enveloppes et reçus IK",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 90,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Corréler passivement les preuves émises et reçues"
+    },
+    {
+      "id": "N10",
+      "name": "Sondes API opt-in (GET/HEAD)",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 100,
+      "required": false,
+      "depends_on": [],
+      "timeout_seconds": 160,
+      "parallel_safe": true,
+      "purpose": "Vérifier uniquement les endpoints de lecture explicitement activés"
+    },
+    {
+      "id": "N11",
+      "name": "Continuité et qualification des parcours",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 110,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Consolider les degrés de preuve de chaque relation sans test interne"
+    },
+    {
+      "id": "N12",
+      "name": "Preuves et qualification des parcours E2E",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 120,
+      "required": false,
+      "depends_on": [
+        "N01"
+      ],
+      "timeout_seconds": 90,
+      "parallel_safe": true,
+      "purpose": "Qualifier les parcours explicites, saut par saut, sans inférer une transaction E2E depuis un simple healthcheck"
+    },
+    {
+      "id": "N13",
+      "name": "Validation intégrale par dépôt, frontière et mode",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 130,
+      "required": true,
+      "depends_on": [
+        "N01",
+        "N10",
+        "N14"
+      ],
+      "continue_after": [
+        "N01",
+        "N10",
+        "N14"
+      ],
+      "timeout_seconds": 180,
+      "parallel_safe": true,
+      "purpose": "Consolider les contrôles dans les deux modes et identifier chaque preuve ou prérequis manquant"
+    },
+    {
+      "id": "N14",
+      "name": "Kit métier officiel Konnaxion–Orgo (pile locale d’essai)",
+      "module": "koa_ecosystem_diag.levels.checks",
+      "order": 140,
+      "required": false,
+      "depends_on": [],
+      "timeout_seconds": 270,
+      "parallel_safe": true,
+      "purpose": "Exécuter sur demande le test transversal officiel sur la pile locale d’essai"
+    }
+  ],
+  "campaigns": {
+    "validation-integrale": {
+      "description": "Tous les niveaux, toutes les frontières, les deux modes. Poursuite après échec.",
+      "levels": [
+        "N00",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14"
+      ]
+    },
+    "complet": {
+      "description": "Tous les niveaux inter-repos",
+      "levels": [
+        "N00",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ]
+    },
+    "structure": {
+      "description": "Contrats et topologie sans réseaux",
+      "levels": [
+        "N00",
+        "N01",
+        "N02",
+        "N03",
+        "N06",
+        "N07",
+        "N08",
+        "N11"
+      ]
+    },
+    "echanges": {
+      "description": "Contrôles API/événements et preuves",
+      "levels": [
+        "N00",
+        "N01",
+        "N04",
+        "N05",
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ]
+    },
+    "e2e": {
+      "description": "Collecte, traces corrélées et qualification des parcours déclarés",
+      "levels": [
+        "N00",
+        "N01",
+        "N09",
+        "N11",
+        "N12"
+      ]
+    }
+  }
+}

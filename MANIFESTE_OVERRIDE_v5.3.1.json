@@ -1,0 +1,58 @@
+{
+  "release": "5.3.1",
+  "mode": "override-root-full-files",
+  "files": [
+    {
+      "file": "Diagnostic-kOA-Digital-Ecosystem.pyw",
+      "sha256": "f604cc1a4663145336b0b26840ef2a59858641c18f9ebbf6e871e9178ed69d55"
+    },
+    {
+      "file": "GUIDE_PREUVES_KONNAXION_ORGO.md",
+      "sha256": "a6e1d130adb2d036fecfa776e8959759175ea6e5d7795e43fd00d4cbc39c107d"
+    },
+    {
+      "file": "INSTALLATION_OVERRIDE_ROOT_v5.3.1.md",
+      "sha256": "8433308a458593b065ce31601081b23710b27c35e25e910657dfddc019f51afc"
+    },
+    {
+      "file": "koa-ecosystem-diag.manifest.json",
+      "sha256": "a537ae8ff635813da0aea38c4dc4f860bd7de5026d8f5bdfbc30d3912c933799"
+    },
+    {
+      "file": "koa_ecosystem_diag/coverage.py",
+      "sha256": "da0a3679dbf126d01d836b5bc67701c74165a9b1eb956e24ae72fac98c2b0ae7"
+    },
+    {
+      "file": "koa_ecosystem_diag/evidence_adapters.py",
+      "sha256": "7c53460d4e665d4c078b3adacbe648df2b10fedf7b780d02b551ecd0c474122a"
+    },
+    {
+      "file": "koa_ecosystem_diag/framework.py",
+      "sha256": "d00cc16cf3b1950d4f79a7272a4ef5ae74daded857661fc3b649cb2f72d953b7"
+    },
+    {
+      "file": "koa_ecosystem_diag/interrepo_core.py",
+      "sha256": "97d0abd54d3b11ac4d7a9010ed9200effbb78bc0884d3792b4dafba79d226480"
+    },
+    {
+      "file": "koa_ecosystem_diag/journeys.py",
+      "sha256": "0769947a625c324a6ed7a8d07f034ab3d1b6ee2aebf07a1c411e631ba1b428b5"
+    },
+    {
+      "file": "koa_ecosystem_diag/levels/checks.py",
+      "sha256": "e52148853be0493e4c7d1d02939da07d60cbf1f029524bbf9506d3264b67a256"
+    },
+    {
+      "file": "koa_ecosystem_diag/qualification.py",
+      "sha256": "d1dc062632ae43e989f728f59a47aff38a6e9eaadcaf3a38a1f826b6949eac81"
+    },
+    {
+      "file": "koa_ecosystem_diag/runner.py",
+      "sha256": "a83c6106e55d7f7ba947854cab994977aa41541c1fe65583c26a7ab97cc20b5f"
+    },
+    {
+      "file": "tests/test_scope_mapping_v531.py",
+      "sha256": "2afbf34030c753ad715754a49d1e019c481667d94127681eab4c1b86ac2c9483"
+    }
+  ]
+}

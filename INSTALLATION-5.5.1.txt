@@ -1,0 +1,20 @@
+Mise à jour kOADiag 5.5.1 pour l'installation 5.5.0
+
+Fermer kOADiag. Extraire directement dans C:\mycode\kOA_Digital_Ecosystem\kOADiag
+et remplacer les fichiers du pack. Rouvrir Diagnostic-kOA-Digital-Ecosystem.pyw.
+
+Démarrer Docker Desktop et attendre que son moteur soit prêt. Cocher
+« Start local Docker test stack and run Konnaxion–Orgo » et lancer
+« LANCER LA CAMPAGNE ». La pile d'essai Fakeplant doit avoir été configurée
+une première fois (fichiers Compose, images existantes, World et workflow).
+Le port 8000 doit être disponible pour Konnaxion Docker.
+Le démarrage emploie les images disponibles localement.
+
+Le niveau N14 démarre Orgo et Konnaxion, attend leur disponibilité, puis
+exécute le kit. Si cette étape bloque, les contrôles indépendants et
+l'import Audit se poursuivent. Détails dans levels/N14/test-stack.log.
+L'état de l'import figure aussi dans latest/audit-import.json.
+
+Le rejeu renouvelle les observations. Le reçu terminal côté Orgo, la
+provenance des révisions déployées, le mode Koali et les preuves historiques
+restent des travaux sur les services concernés.

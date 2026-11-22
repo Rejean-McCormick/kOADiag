@@ -1,0 +1,29 @@
+{
+  "schema": "koa.diag.v570.backup.v1",
+  "originals": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "be8ec8551b2aa9d8cdf07e1f0e4924cce622df94d0003a0aebf6c9cd3ee0d764",
+    "koa_ecosystem_diag/__init__.py": "fd5ac3bd1186f9cf4cf793afac08592a87708a465d2d9c16fe35a9c73ca91447",
+    "koa_ecosystem_diag/validation_hub.py": "5696a686139e33e2751bb1f472035660275e20a7d87b35fc58cb5be6f13b8201",
+    "koa_ecosystem_diag/ik_e2e.py": null,
+    "koa_ecosystem_diag/campaign_recovery.py": null,
+    "koa_ecosystem_diag/app_suite_catalog.py": null,
+    "CENTRE-VALIDATION-V570.md": null,
+    "GUIDE-E2E-V570.md": null,
+    "tests/test_ik_e2e_v570.py": null,
+    "tests/test_campaign_recovery_v570.py": null,
+    "tests/test_app_suite_catalog_v570.py": null
+  },
+  "installed": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "9f42780c907ac2208f830b3435632b85cc60707324b3d730300079916ff60ad4",
+    "koa_ecosystem_diag/__init__.py": "93bd42b256ded1a22d179ce5736f3660ae41e5e452745b052ec5368adecffb6f",
+    "koa_ecosystem_diag/validation_hub.py": "7a0123b4c30f0de1764e4230c117abbe5ecbb8f0ec2ab14f42d69fd1bc4de37a",
+    "koa_ecosystem_diag/ik_e2e.py": "ab2b756fb47e9c0fd03c3710441892692609ab6b6fb05d6d6f79563e2215888e",
+    "koa_ecosystem_diag/campaign_recovery.py": "82cd09cf299908caf07549cfcbcacc1d99a8d7f678380a01e6e70ba01ecab81e",
+    "koa_ecosystem_diag/app_suite_catalog.py": "cd0744c3507970b30f10d99a99e0020d1f9c132f940f332a4c894c855067150f",
+    "CENTRE-VALIDATION-V570.md": "8888d7e8fbfbe1c8119e63fe4f01646f02889311347f0b494fbd3696e6758d9b",
+    "GUIDE-E2E-V570.md": "b07465268b55d42ea8e7ed1447af0906dd4c05e77cb2bf2a4240340df18de547",
+    "tests/test_ik_e2e_v570.py": "a42f74eedc9651d41350388c9dc239ca520aa99f6301d48500413e2385e02fd9",
+    "tests/test_campaign_recovery_v570.py": "53bc289bb610088fbe14ad32b4e6aaa8af10fa85e1e3fb174a777c4b44a1bb5f",
+    "tests/test_app_suite_catalog_v570.py": "e994d7441d88d7f4e1a5bed3db059f138d2d49210640e1970c954fe666ade4e3"
+  }
+}

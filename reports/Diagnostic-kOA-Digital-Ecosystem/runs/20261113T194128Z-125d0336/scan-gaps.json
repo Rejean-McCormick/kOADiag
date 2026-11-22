@@ -1,0 +1,126 @@
+{
+  "schema": "koa.scan-gaps/v1",
+  "repos": [
+    {
+      "repo": "Ekole-Quebec",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "plans",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 2,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "frontend",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion-Worlds",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "universes",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konstellation",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 3,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "data",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "repo": "Kristal-Manager",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 2,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "rapports",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "kristal-public",
+      "truncated": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "kristals/transportation/canon/domain/v11/updates/wikidata-2026-10-27-v11-1/semantic-graph.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "kristals/transportation/canon/domain/v11/updates/wikidata-2026-10-27/semantic-graph.json",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 2,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 109,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "kristals",
+          "files": 109
+        }
+      ]
+    },
+    {
+      "repo": "Orgo-Worlds",
+      "truncated": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "fakeplant",
+          "files": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "comparison_available": true,
+  "previous_run_id": "20261113T222420Z-883ebf2e",
+  "previous_verdict": "PARTIAL",
+  "metrics": {
+    "inventory.present": {
+      "before": 55,
+      "after": 55,
+      "delta": 0
+    },
+    "inventory.truncated": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "api.static_calls": {
+      "before": 5,
+      "after": 5,
+      "delta": 0
+    },
+    "api.routes_matched": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "traces.correlated_pairs": {
+      "before": 4,
+      "after": 0,
+      "delta": -4
+    },
+    "journeys.evidence_complete": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    }
+  },
+  "relations_added": [
+    {
+      "source": "EncyKlopedia",
+      "target": "Mediatheque",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    },
+    {
+      "source": "EncyKlopedia",
+      "target": "SemantiK-Architect",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    },
+    {
+      "source": "EncyKlopedia",
+      "target": "Spek",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    }
+  ],
+  "relations_not_observed": [
+    {
+      "source": "Ekole-Quebec",
+      "target": "Kontexte",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    }
+  ],
+  "relations_changed": [
+    {
+      "source": "EncyKlopedia",
+      "target": "Mediatheque",
+      "contract": "encyk.source-evidence-handoff/2.0.0",
+      "before": "CANDIDAT_OU_BLOQUE",
+      "after": "INDICES_STATIQUES"
+    },
+    {
+      "source": "Konnaxion",
+      "target": "Orgo",
+      "contract": "governance.decision.execute/1.0.0",
+      "before": "ECHANGE_CORRELE",
+      "after": "CONTRAT_OU_ROUTE"
+    },
+    {
+      "source": "Orgo",
+      "target": "Konnaxion",
+      "contract": "accountability.impact.publish/1.0.0",
+      "before": "ECHANGE_CORRELE",
+      "after": "CONTRAT_OU_ROUTE"
+    }
+  ]
+}

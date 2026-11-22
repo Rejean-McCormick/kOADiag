@@ -1,0 +1,22 @@
+﻿port;id;owner;purpose;tcp;http_code;http_title;status;detail;adoption
+21110;orgo-web;orgo;frontend;True;200;Orgo · Organize and Go;FAMILY_MATCH;Famille reconnue dans le titre, instance exacte non prouvée;proposed
+21111;orgo-api;orgo;API;True;404;Error;HTTP_UNVERIFIED;Serveur HTTP présent, identité non vérifiée;proposed
+21112;orgo-worlds-web;orgo;Orgo Worlds standalone UI;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21113;orgo-worlds-api;orgo;Orgo Worlds standalone API;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21114;orgo-koali-web;orgo;Koali-managed second Orgo frontend instance;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21115;orgo-koali-api;orgo;Koali-managed second Orgo API instance;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21116;orgo-koali-pglite;orgo;Koali-managed local PGlite listening on loopback only;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21120;initkoa-web;initkoa;HomePage Next.js frontend;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21130;konnaxion-web;konnaxion;frontend;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21131;konnaxion-api;konnaxion;Django API (direct host, Docker host-published 21131:8000);False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21132;konnaxion-capsule-agent-local;konnaxion;"Developer-machine Agent only; not remote droplet Agent";False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21133;konnaxion-capsule-manager-local;konnaxion;Developer-machine Capsule Manager;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21134;konnaxion-koali-web;konnaxion;Koali-managed second frontend instance;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21135;konnaxion-koali-api;konnaxion;Koali-managed second Django instance;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21140;skope-web;skope;research explorer;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21150;ekole-quebec-learner;ekole;Québec learner;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21151;ekole-quebec-teacher;ekole;Québec teacher;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21152;ekole-opsconsole;ekole;OpsConsole;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21153;ekole-pastorale-learner;ekole;Pastorale learner;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21154;ekole-pastorale-teacher;ekole;Pastorale teacher;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed
+21170;koali-spaces-web;koali;Koali Spaces shell frontend;False;;;STOPPED;Aucun service TCP local sur le port attribué;proposed

@@ -1,0 +1,35 @@
+Diagnostic du kOA Digital Ecosystem - complet
+Run: 20261111T145649Z-df900489
+Verdict: PARTIAL
+Racine: C:\mycode
+
+NIVEAUX
+N00  WARN         Intégrité des références et sécurité
+N01  PARTIAL      Collecte de preuves inter-repos
+N02  PARTIAL      Topologie et propriété des liaisons
+N03  PARTIAL      Contrats IK et dérive de schémas
+N04  PARTIAL      API sortantes et routes entrantes
+N05  PARTIAL      Événements, topics, abonnements
+N06  PARTIAL      Dépendances et versions
+N07  PARTIAL      Imports, CI et variables de service
+N08  PARTIAL      Obligations de frontière
+N09  PARTIAL      Traces, enveloppes et reçus IK
+N10  PARTIAL      Sondes API opt-in (GET/HEAD)
+N11  PARTIAL      Continuité et qualification des parcours
+N12  PARTIAL      Preuves et qualification des parcours E2E
+
+COUVERTURE : 53/53 dépôts; 1 tronqués
+PARCOURS : 0/1 suffisamment corroborés
+E2E GLOBAL : NON CERTIFIÉ
+FRONTIÈRES À QUALIFIER : 19
+
+PRIORITÉS
+Collecte : 1 dépôt(s) tronqué(s) — vérifier les fichiers ciblés et ajuster la limite.
+Collecte : 936 fichiers volumineux et 0 fichiers illisibles ignorés.
+Collecte : 1 dépôt(s) sans fichier source/configuration dans le périmètre analysé.
+E2E : 1 parcours sur 1 n’ont pas assez de preuves de livraison/réponse.
+Traces : importer des exports passifs attribués aux dépôts émetteur et récepteur.
+Preuves : 4 frontières obligatoires sans parcours corroboré; voir matrice-preuves-frontieres.csv.
+API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.
+
+Une route, un import ou une réponse GET ne valide pas un échange métier E2E.

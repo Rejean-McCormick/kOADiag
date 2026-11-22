@@ -1,0 +1,63 @@
+﻿boundary_key;source_repo;target_repo;review_status;required;protocol;observed;documented;contract_status;static_contract;passive_pairs;attested_pairs;fresh_attested_pairs;declared_journeys;matching_journeys;autonomous_journeys;integrated_journeys;verdict;status;reason
+61589c3f4c66289e005c;Akor;Kompose;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+f3594b2a61dcc92fa913;Akor;Kontexte;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+114028d38256d938d408;Daat;Konnaxion;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+1f2498730e97c890bdcf;Daat;Kristal-Framework;APPROVED;True;OTHER;True;True;REFERENCE_FIGEE_VALIDEE;True;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime. frontière obligatoire hors parcours déclaré
+21fde8aab3c3cd23934c;Daat;Orgo;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+1a131dd89f8e94b5d217;Daat;uckk;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+48dd4a4ae5d742f07166;Daat;uckk;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+1e7652a8a7c932fce2ee;diK;Kristal-Framework;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+e9d8735f9a232a98d9bd;diK;Kristalizer;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+1149b3515c9f26c0af9b;diK;SemantiK-Architect;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+4d27ea2851d632d11a07;Ekole;Akor;UNREVIEWED;;;True;False;NON_SPECIFIE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+c0ae80e086d1f2965e78;Ekole;Kompose;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+f7e9ec561b78ee415ecf;Ekole;Kontexte;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+4870ff5c8d8f61490fff;EncyKlopedia;Daat;APPROVED;True;IK;True;True;REVUE_CONTRAT_HISTORIQUE;False;0;0;0;0;0;0;0;PARTIAL;QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE;qualification du profil historique requise. frontière obligatoire hors parcours déclaré
+d36b5e71f6c368419f30;EncyKlopedia;Mediatheque;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+16a8dbbf96dd83c93d44;kOA-Linux-Koali;UCKK;DEFERRED;;PACKAGE;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+65ad3d18ddf91368a154;Koali;Ressource approuvée;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre
+5fa5ac2c294f28957469;Koali-Spaces;Konnaxion;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+d841be73970eb4238e54;Konnaxion;Daat;APPROVED;False;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+86db95658f9b73edd9ee;Konnaxion;Daat;APPROVED;False;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+c3bfacc56bae55bfd3d8;Konnaxion;kOA-Linux-Koali;UNREVIEWED;;IK;True;True;ECART;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+81c3c856a512edc66284;Konnaxion;Orgo;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre
+5ccf0084e563d648f67b;Konnaxion;Orgo;APPROVED;True;IK;True;True;VALIDE;True;0;0;0;1;0;0;0;PARTIAL;PARCOURS_DECLARE_NON_PROUVE;parcours declare non prouve
+cb6cd92ccd77edf310c6;Konnaxion-Capsule-Manager;Konnaxion;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+1e6c331ff01a82847edf;Konnaxion-Worlds;Konnaxion;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+29b354d5c5f6a8785e56;Konstellation;Spek;UNREVIEWED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+5494d355f8adf8101a44;Kontexte;Orgo;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+b418d002016ef3973aef;Kristal-Authoring-Kit;Kristal-Manager;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+c99cf20c2d17aa314b1e;Kristal-Framework;Ekole;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+5c69c6802f72c6991f2a;Kristal-Framework;kOA-Linux-Koali;APPROVED;False;PACKAGE;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+b42c111310a9065d0714;Kristal-Framework;Konstellation;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+8191ff0e471e4317a590;Kristal-Integration-Pack;Kompiler;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+57d49f81fced1a0e3a23;Kristal-Manager;Kompiler;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+b8bf223d0dc8261ee3d4;Kristal-Manager;Konstellation-Light;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+a3afa53e563907b0621b;Kristal-Manager;KristalDiag;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+832d6ce0c440d4f7c483;kristal-public;Kristal-Manager;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+2887765582f2eac62c9a;kristal-public;SemantiK-Architect;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+c45935f7d2c469a1539b;Kristalizer;Kristal-Framework;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+f9332599ea163c25d620;LevelUpDiag-Orgo;Orgo;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+68b609ecd13c5709bc4d;Mediatheque;Daat;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+030dd11b2fae9c0a6b2b;Mediatheque;kOA-Linux-Koali;APPROVED;False;PACKAGE;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+aae6f2b0b2c90037fbf2;MediKristal-LevelUpDiag-;MediKristal;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+c317947bfe71a40edf52;Orgo;Daat;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+76d3f17036eac37ca6de;Orgo;Daat;APPROVED;False;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+2c73aeb951b599112fba;Orgo;Daat;APPROVED;False;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+7a158ce8c1f179f078e1;Orgo;kOA-Linux-Koali;UNREVIEWED;;IK;True;True;ECART;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+d7d6c912844a9b43825e;Orgo;Konnaxion;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre
+b269e34addc74b408fac;Orgo;Konnaxion;APPROVED;True;IK;True;True;VALIDE;True;0;0;0;1;0;0;0;PARTIAL;PARCOURS_DECLARE_NON_PROUVE;parcours declare non prouve
+bcb7062fc6d0d3f4f409;Orgo;Konnaxion;UNREVIEWED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+96759d58a0de8b23d726;Orgo;Konnaxion;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+8eb7d9836d26e43cc5f0;Orgo-Worlds;Kontexte;UNREVIEWED;;;True;False;NON_SPECIFIE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+17d220a58ca47ec916df;Orgo-Worlds;Orgo;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+833fd0179de54df16e2e;Ressource approuvée;Mediatheque;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre
+520d48175f3627e9d0b1;SemantiK-Architect;SemantiK_Runtime_Orchestrator;APPROVED;False;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;CONTRAT_SANS_PREUVE_RUNTIME;contrat sans preuve runtime
+4876c03e350f3976f63a;Skope;EncyKlopedia;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+9b25b16b1b549933c01f;Skope;EncyKlopedia;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+341dc55061f08fc0fc24;Skope;Kristalizer;DEFERRED;;OTHER;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+27cbe823688bc731db75;Spek;Publication;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre
+b1e0f78115af9db7ca80;Spek;SemantiK-Architect;UNREVIEWED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;PARTIAL;REVUE_REQUISE;revue requise
+c0e9206d0044f1a42f23;uckk;Daat;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+6e17f8705b064c155557;uckk;Daat;DEFERRED;;IK;True;True;VALIDE;True;0;0;0;0;0;0;0;SKIP;REVUE_REQUISE;revue requise
+af736905eba0478a03de;UCKK;Reçu et suivi;REJECTED;;;True;True;DECLARE;False;0;0;0;0;0;0;0;SKIP;HORS_PERIMETRE;hors perimetre

@@ -1,0 +1,17 @@
+{
+  "schema": "koa-diag-v560-backup-v1",
+  "originals": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "822cadd36a29e42f0011fea28ac87122a726b184de06b3e282de9ff75ae5c304",
+    "koa_ecosystem_diag/__init__.py": "826740ff07fadd254fe438d27728d2e3deb11f557b8a985680411e5095d56168",
+    "koa_ecosystem_diag/validation_hub.py": null,
+    "tests/test_validation_hub_v560.py": null,
+    "CENTRE-VALIDATION-v560.md": null
+  },
+  "after": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "a6eaed177196000753cbbfe7c341a0ec8171f36f3f84bf57c28924fe386e25af",
+    "koa_ecosystem_diag/__init__.py": "b1fd2cbaadfe5207d5af594549c22cf6da1e23ff9ad38808f674db31a3771079",
+    "koa_ecosystem_diag/validation_hub.py": "030a5e2348b749563ebc40095ba7e43c0a9f3bfc54f4ac94119f990349f182aa",
+    "tests/test_validation_hub_v560.py": "c66c6ccd9389aa4068a758ccc1222800d6e5a7e488972a0c20d7476e7397f529",
+    "CENTRE-VALIDATION-v560.md": "1e85f994c027cb5719edd5e93572fd4e90820619521a72fd82862c7465fb6238"
+  }
+}

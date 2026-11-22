@@ -1,0 +1,19 @@
+{
+  "schema": "koa.diag.v561.backup.v1",
+  "originals": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "a6eaed177196000753cbbfe7c341a0ec8171f36f3f84bf57c28924fe386e25af",
+    "koa_ecosystem_diag/__init__.py": "b1fd2cbaadfe5207d5af594549c22cf6da1e23ff9ad38808f674db31a3771079",
+    "koa_ecosystem_diag/validation_hub.py": "030a5e2348b749563ebc40095ba7e43c0a9f3bfc54f4ac94119f990349f182aa",
+    "koa_ecosystem_diag/levelup_triage.py": null,
+    "tests/test_levelup_triage_v561.py": null,
+    "CENTRE-PREUVES-V561.md": null
+  },
+  "installed": {
+    "Diagnostic-kOA-Digital-Ecosystem.pyw": "be8ec8551b2aa9d8cdf07e1f0e4924cce622df94d0003a0aebf6c9cd3ee0d764",
+    "koa_ecosystem_diag/__init__.py": "fd5ac3bd1186f9cf4cf793afac08592a87708a465d2d9c16fe35a9c73ca91447",
+    "koa_ecosystem_diag/validation_hub.py": "5696a686139e33e2751bb1f472035660275e20a7d87b35fc58cb5be6f13b8201",
+    "koa_ecosystem_diag/levelup_triage.py": "112076309c5a7bc85ea75815f381291d4f20fec27a4ee568b5eb2a1ba9e94cf9",
+    "tests/test_levelup_triage_v561.py": "5fa449d8ba770fc1d8b5f1cd92289be65e45338cd44c962654dba55bc4e659e6",
+    "CENTRE-PREUVES-V561.md": "9003d83dd2a8d590467ab5b1f845920eb1d58166b3f250dabe3479c1a250e5cc"
+  }
+}

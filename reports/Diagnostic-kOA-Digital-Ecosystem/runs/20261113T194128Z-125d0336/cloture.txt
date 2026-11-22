@@ -1,0 +1,33 @@
+Diagnostic kOA · Clôture
+Campagne 20261113T194128Z-125d0336
+VALIDATIONS_RESTANTES
+
+Frontières obligatoires corroborées
+- autonome : 0/4
+- integre : 0/4
+
+Décisions de revue ouvertes : 23
+Frontières optionnelles à documenter : 7
+Sources documentaires alignées : non
+
+Contrôles obligatoires à reprendre
+- depot · Ekole-Quebec  · COLLECTE_PARTIELLE
+- depot · Konductor  · COLLECTE_PARTIELLE
+- depot · Konnaxion  · COLLECTE_PARTIELLE
+- depot · Konnaxion-Worlds  · COLLECTE_PARTIELLE
+- depot · Konstellation  · COLLECTE_PARTIELLE
+- depot · Kristal-Manager  · COLLECTE_PARTIELLE
+- depot · kristal-public  · COLLECTE_PARTIELLE
+- depot · Orgo-Worlds  · COLLECTE_PARTIELLE
+- parcours · konnaxion-orgo-decision-impact autonome · PREUVES_INSUFFISANTES
+- frontiere · 1f2498730e97c890bdcf autonome · CONTRAT_SANS_PREUVE_RUNTIME
+- frontiere · 4870ff5c8d8f61490fff autonome · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+- frontiere · 5ccf0084e563d648f67b autonome · REPONSE_NON_TERMINALE
+- frontiere · b269e34addc74b408fac autonome · REVISION_NON_VERIFIEE
+- parcours · konnaxion-orgo-decision-impact integre · PREUVES_INSUFFISANTES
+- frontiere · 1f2498730e97c890bdcf integre · CONTRAT_SANS_PREUVE_RUNTIME
+- frontiere · 4870ff5c8d8f61490fff integre · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+- frontiere · 5ccf0084e563d648f67b integre · PARCOURS_DECLARE_NON_PROUVE
+- frontiere · b269e34addc74b408fac integre · PARCOURS_DECLARE_NON_PROUVE
+
+Consulter cloture.json pour les détails. La décision de certification appartient au responsable.

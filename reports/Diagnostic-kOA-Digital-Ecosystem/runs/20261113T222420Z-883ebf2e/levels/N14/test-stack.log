@@ -1,0 +1,41 @@
+compose -f docker-compose.yml up -d --no-build api worker · code 0
+ Container orgo-postgres-1 Running 
+ Container orgo-api-1 Running 
+ Container orgo-worker-1 Running 
+ Container orgo-postgres-1 Waiting 
+ Container orgo-postgres-1 Healthy 
+ Container orgo-migrate-1 Starting 
+ Container orgo-migrate-1 Started 
+ Container orgo-migrate-1 Waiting 
+ Container orgo-migrate-1 Waiting 
+ Container orgo-migrate-1 Exited 
+ Container orgo-migrate-1 Exited 
+
+compose -f docker-compose.local.yml -f docker-compose.worlds.local.yml -f docker-compose.e2e-db.local.yml up -d --no-build django celeryworker · code 0
+ Container konnaxion_local_redis Running 
+ Container konnaxion_local_celeryworker Running 
+ Container konnaxion_local_mailpit Running 
+ Container backend-kx-e2e-postgres-1 Running 
+ Container konnaxion_local_django Running 
+ Container backend-kx-e2e-redis-1 Running 
+ Container backend-kx-e2e-postgres-1 Waiting 
+ Container backend-kx-e2e-postgres-1 Waiting 
+ Container backend-kx-e2e-postgres-1 Healthy 
+ Container backend-kx-e2e-postgres-1 Healthy 
+
+compose -f docker-compose.yml ps --status running --services · code 0
+api
+postgres
+web
+worker
+
+compose -f docker-compose.local.yml -f docker-compose.worlds.local.yml -f docker-compose.e2e-db.local.yml ps --status running --services · code 0
+kx-e2e-postgres
+kx-e2e-redis
+celeryworker
+django
+mailpit
+redis
+
+Orgo · HTTP 200
+Konnaxion · HTTP 200

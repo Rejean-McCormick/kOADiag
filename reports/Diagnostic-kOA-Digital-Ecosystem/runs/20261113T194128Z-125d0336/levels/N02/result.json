@@ -1,0 +1,68 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "run_id": "20261113T194128Z-125d0336",
+  "level_id": "N02",
+  "level_name": "Topologie et propriété des liaisons",
+  "purpose": "Relier les producteurs et consommateurs aux dépôts effectivement présents",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T19:42:20+00:00",
+  "ended_at": "2026-11-13T19:42:20+00:00",
+  "verdict": "PARTIAL",
+  "required": true,
+  "findings": [
+    {
+      "id": "topology.map.readable",
+      "verdict": "PASS",
+      "category": "topology",
+      "message": "64 liaisons inventoriées"
+    },
+    {
+      "id": "topology.registry.pending",
+      "verdict": "PARTIAL",
+      "category": "governance",
+      "message": "Registre : 23 frontières non revues et 24 reportées",
+      "evidence": {
+        "required_confirmed": 4,
+        "approved_optional": 7
+      },
+      "recommendation": "Qualifier les frontières dans l’onglet Registre des frontières avant de certifier un périmètre."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "declared": 55,
+    "present": 55,
+    "relations": 64,
+    "registry_registered": 64,
+    "registry_observed": 64,
+    "registry_new_or_unreviewed": 23,
+    "registry_approved": 11,
+    "registry_required": 4,
+    "registry_optional": 7,
+    "registry_rejected": 6,
+    "registry_deferred": 24,
+    "registry_not_seen": 0,
+    "registry_approved_without_audit_mapping": 0,
+    "registry_review_complete": false,
+    "registry_global_e2e_certified": false,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.35
+  }
+}

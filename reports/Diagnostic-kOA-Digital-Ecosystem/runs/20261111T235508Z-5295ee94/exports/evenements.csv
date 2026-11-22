@@ -1,0 +1,14 @@
+﻿channel;source;target;status
+authorized;Daat;;UNILATERAL_OU_LOCAL
+campaign_finished;MediKristal-LevelUpDiag-;;UNILATERAL_OU_LOCAL
+campaign_started;MediKristal-LevelUpDiag-;;UNILATERAL_OU_LOCAL
+completed;Daat;;UNILATERAL_OU_LOCAL
+denied;Daat;;UNILATERAL_OU_LOCAL
+has_member;Konstellation, Konstellation-Light;;UNILATERAL_OU_LOCAL
+level_finished;MediKristal-LevelUpDiag-;;UNILATERAL_OU_LOCAL
+level_started;MediKristal-LevelUpDiag-;;UNILATERAL_OU_LOCAL
+lists_file;Konstellation, Konstellation-Light;;UNILATERAL_OU_LOCAL
+mapped;Daat;;UNILATERAL_OU_LOCAL
+replay;Daat;;UNILATERAL_OU_LOCAL
+started;Daat;;UNILATERAL_OU_LOCAL
+uncaughtException;Konnaxion;;UNILATERAL_OU_LOCAL

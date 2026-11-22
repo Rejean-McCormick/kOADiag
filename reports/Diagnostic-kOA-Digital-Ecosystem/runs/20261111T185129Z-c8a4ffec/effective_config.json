@@ -1,0 +1,165 @@
+{
+  "format": "koa.digital-ecosystem-diagnostic.config/v1",
+  "target_root": "C:\\mycode",
+  "control_dir": "reports/Diagnostic-kOA-Digital-Ecosystem",
+  "execution": {
+    "max_parallel": 4,
+    "default_timeout_seconds": 120,
+    "fail_fast": false,
+    "partial_dependencies_allowed": true
+  },
+  "interrepo": {
+    "format": "koa.interrepo-kernel.config/1",
+    "scan": {
+      "max_files_per_repo": 12000,
+      "max_file_bytes": 480000
+    },
+    "repo_aliases": {
+      "daat": "Daat",
+      "encyk": "EncyKlopedia",
+      "mediatheque-koa": "Mediatheque",
+      "kristal": "Kristal-Framework",
+      "ekole": "Ekole"
+    },
+    "service_endpoints": {
+      "Orgo": [
+        "http://127.0.0.1:4000"
+      ],
+      "Ekole": [
+        "http://127.0.0.1:8765"
+      ],
+      "Skope": [
+        "http://127.0.0.1:8767"
+      ]
+    },
+    "relations": [],
+    "exchange_trace_files": [],
+    "ik": {
+      "trace_files": [],
+      "probes": [
+        {
+          "id": "orgo-ready-example-disabled",
+          "label": "Orgo readiness (exemple, non preuve E2E)",
+          "enabled": false,
+          "source": "Konnaxion",
+          "target": "Orgo",
+          "kind": "readiness",
+          "method": "GET",
+          "url": "http://127.0.0.1:4000/health/ready",
+          "expect_status": [
+            200
+          ],
+          "expect_content_type": "application/json",
+          "expect_json": {
+            "status": "ready"
+          }
+        }
+      ]
+    },
+    "boundary_expectations": [],
+    "journeys": [
+      {
+        "id": "konnaxion-orgo-decision-impact",
+        "nodes": [
+          "Konnaxion",
+          "Orgo",
+          "Konnaxion"
+        ],
+        "enabled": true,
+        "required": true,
+        "require_response": true,
+        "description": "Parcours contractuel QUALIFIED local: governance.decision.execute puis accountability.impact.publish via IK; preuve passive v5.3 à fournir.",
+        "contract_refs": [
+          "governance.decision.execute/1.0.0",
+          "accountability.impact.publish/1.0.0"
+        ],
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/contract-map.md",
+          "docs/2-Technical-Reference/40-integration/orgo-konnaxion/index.md"
+        ]
+      },
+      {
+        "id": "encyklopedia-daat-kristal-v6",
+        "nodes": [
+          "EncyKlopedia",
+          "Daat",
+          "Kristal-Framework"
+        ],
+        "enabled": false,
+        "required": false,
+        "require_response": false,
+        "description": "Baseline v6 figée; activer seulement après confirmation d’une identité de transaction partagée et des exports de preuves.",
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/contract-map.md",
+          "docs/2-Technical-Reference/40-integration/knowledge-projection-contract-set.json",
+          "docs/2-Technical-Reference/40-integration/knowledge-projection.md"
+        ]
+      },
+      {
+        "id": "orgo-daat-kristal-owner-export",
+        "nodes": [
+          "Orgo",
+          "Daat",
+          "Kristal-Framework"
+        ],
+        "enabled": false,
+        "required": false,
+        "require_response": false,
+        "description": "Flux owner-specific; activation conditionnelle aux exports réels et à la corrélation d’identités.",
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/contract-map.md"
+        ]
+      },
+      {
+        "id": "encyk-v2-mediatheque-c6",
+        "nodes": [
+          "EncyKlopedia",
+          "Mediatheque"
+        ],
+        "enabled": false,
+        "required": false,
+        "require_response": true,
+        "description": "C6 en attente de récepteur/receipt, déclaré mais désactivé jusqu’à acceptation indépendante.",
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/contract-map.md",
+          "docs/2-Technical-Reference/40-integration/orchestration-c0/README.md"
+        ]
+      },
+      {
+        "id": "authoring-manager-konstellation-v10",
+        "nodes": [
+          "Kristal-Authoring-Kit",
+          "Kristal-Manager",
+          "Konstellation-Light"
+        ],
+        "enabled": false,
+        "required": false,
+        "require_response": true,
+        "description": "C1→C4 bloqué/non qualifié. Parcours préparé, désactivé sans homologation de l’index et du read surface.",
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/contract-map.md",
+          "docs/2-Technical-Reference/40-integration/kristal-v10-alignment/contracts-and-versions.md"
+        ]
+      },
+      {
+        "id": "skope-encyk-acquisition-candidate",
+        "nodes": [
+          "Skope",
+          "EncyKlopedia"
+        ],
+        "enabled": false,
+        "required": false,
+        "require_response": false,
+        "description": "Handoff source review candidat. Ne pas prétendre à un échange intégré.",
+        "documentation_refs": [
+          "docs/2-Technical-Reference/40-integration/skope-ekole/index.md"
+        ]
+      }
+    ],
+    "expected_api_links": [],
+    "evidence_policy": {
+      "require_timestamps": true,
+      "max_age_hours": 168
+    }
+  }
+}

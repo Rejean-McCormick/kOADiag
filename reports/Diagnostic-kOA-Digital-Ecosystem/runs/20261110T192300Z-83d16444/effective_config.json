@@ -1,0 +1,63 @@
+{
+  "format": "koa.digital-ecosystem-diagnostic.config/v1",
+  "target_root": "C:\\mycode",
+  "control_dir": "reports/Diagnostic-kOA-Digital-Ecosystem",
+  "execution": {
+    "max_parallel": 4,
+    "default_timeout_seconds": 120,
+    "fail_fast": false,
+    "partial_dependencies_allowed": true
+  },
+  "interrepo": {
+    "format": "koa.interrepo-kernel.config/1",
+    "scan": {
+      "max_files_per_repo": 3500,
+      "max_file_bytes": 220000
+    },
+    "repo_aliases": {
+      "daat": "Daat",
+      "encyk": "EncyKlopedia",
+      "mediatheque-koa": "Mediatheque",
+      "kristal": "Kristal-Framework",
+      "ekole": "Ekole"
+    },
+    "service_endpoints": {
+      "Orgo": [
+        "http://127.0.0.1:4000"
+      ],
+      "Ekole": [
+        "http://127.0.0.1:8765"
+      ],
+      "Skope": [
+        "http://127.0.0.1:8767"
+      ]
+    },
+    "relations": [],
+    "exchange_trace_files": [],
+    "ik": {
+      "trace_files": [],
+      "probes": [
+        {
+          "id": "orgo-ready-example-disabled",
+          "label": "Orgo readiness (exemple, non preuve E2E)",
+          "enabled": false,
+          "source": "Konnaxion",
+          "target": "Orgo",
+          "kind": "readiness",
+          "method": "GET",
+          "url": "http://127.0.0.1:4000/health/ready",
+          "expect_status": [
+            200
+          ],
+          "expect_content_type": "application/json",
+          "expect_json": {
+            "status": "ready"
+          }
+        }
+      ]
+    },
+    "boundary_expectations": [],
+    "journeys": [],
+    "expected_api_links": []
+  }
+}

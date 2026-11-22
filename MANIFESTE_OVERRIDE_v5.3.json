@@ -1,0 +1,95 @@
+{
+  "format": "koa.diagnostic.override.root.v5.3",
+  "version": "5.3.0",
+  "source_version": "5.2.0",
+  "installation": "Extraire le contenu directement dans la racine du dépôt Diagnostic",
+  "local_files_overwritten": false,
+  "full_files_only": true,
+  "files": [
+    {
+      "path": "Diagnostic-kOA-Digital-Ecosystem.pyw",
+      "sha256": "9c85f452f7fc876fd4c80baf61f1a0e8dded1cc2e55c0fc85a24c812b820c0ad",
+      "bytes": 54130
+    },
+    {
+      "path": "koa-ecosystem-diag.config.json",
+      "sha256": "937c1b0240d89888e46ef72b4d340e87f4c444a85a09f4b9e540d58e59e33c4a",
+      "bytes": 1654
+    },
+    {
+      "path": "koa-ecosystem-diag.config.local.example.json",
+      "sha256": "7a7d5eeda221c5ea6bbc8f6c1b648c6b71c7738fb763ac941160d57bdcc02e6d",
+      "bytes": 898
+    },
+    {
+      "path": "koa-ecosystem-diag.manifest.json",
+      "sha256": "cd68cc76bf3cb5da1d4707c1377290d315a97c5960ec322eabf05ce8508aae89",
+      "bytes": 6062
+    },
+    {
+      "path": "koa_ecosystem_diag/boundary_registry.py",
+      "sha256": "c87f975b481bbaaf1b6bdc73ca006184e75d46a86ce0d2efc734f925f8373728",
+      "bytes": 8880
+    },
+    {
+      "path": "koa_ecosystem_diag/evidence_adapters.py",
+      "sha256": "2ee15467966aed52b6b6b4f791fabcc3fdc12a5cdf243032be77fae32a422a01",
+      "bytes": 6476
+    },
+    {
+      "path": "koa_ecosystem_diag/interrepo_core.py",
+      "sha256": "896c8ad0962255c065135ebe64b17edb65560b21a8b20abffcc6b63422ed4f92",
+      "bytes": 51197
+    },
+    {
+      "path": "koa_ecosystem_diag/journeys.py",
+      "sha256": "9b1e93932ebfecf3bc4802fa1dd2c567072df5736bd016763638c72331e46d03",
+      "bytes": 6077
+    },
+    {
+      "path": "koa_ecosystem_diag/levels/checks.py",
+      "sha256": "b32ac41b2ac1757e23d9dc40b899fdcd6eae71a007847fdee207767e803e7cde",
+      "bytes": 26829
+    },
+    {
+      "path": "koa_ecosystem_diag/qualification.py",
+      "sha256": "471321b580bddf36392b3735591b7f1ca486b591e3da46c42bbc114d885b6317",
+      "bytes": 4176
+    },
+    {
+      "path": "koa_ecosystem_diag/runner.py",
+      "sha256": "cab425fd4cf25e9610197368f96ff1887f02f0fe0e78086d93d07a0271c8b7a1",
+      "bytes": 14726
+    },
+    {
+      "path": "koa_ecosystem_diag/framework.py",
+      "sha256": "0d268724c5e3f9fe6345ac35105c139baffc4126c5dec22ab708bfea6ae0ae98",
+      "bytes": 6396
+    },
+    {
+      "path": "koa_ecosystem_diag/coverage.py",
+      "sha256": "fbad29f9c9c1fd60e245cd541d93d7e90dc70a0aca66f7363e7678773a3fab5f",
+      "bytes": 7890
+    },
+    {
+      "path": "tests/test_interrepo_v5.py",
+      "sha256": "7ad2b4e33dd5bd767b73fcb0f736eb86590785bd89535db3f0d2d81115b9d0aa",
+      "bytes": 4631
+    },
+    {
+      "path": "tests/test_evidence_v53.py",
+      "sha256": "6868d39ce6ade77275ca3a4ad931da7cbb07bc4707f81a26ad17161f1c962515",
+      "bytes": 6683
+    },
+    {
+      "path": "CHANGELOG-v5.3.md",
+      "sha256": "6b474ebc6abd030ab2966f5d139f7789e61a97d729cee2d8d2660ecc5b38b3b7",
+      "bytes": 3592
+    },
+    {
+      "path": "INSTALLATION_OVERRIDE_ROOT_v5.3.md",
+      "sha256": "d81d71797cd5823a85bcec480b42ba5dacb38d2ba8d551754e70469f75212def",
+      "bytes": 5483
+    }
+  ]
+}

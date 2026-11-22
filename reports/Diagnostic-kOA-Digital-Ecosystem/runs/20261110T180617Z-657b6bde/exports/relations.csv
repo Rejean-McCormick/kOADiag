@@ -1,0 +1,58 @@
+﻿id;source;target;contract;maturity;qualification
+R001;Akor;Kompose;;observed_static;INDICES_STATIQUES
+R002;Akor;Kontexte;;observed_static;INDICES_STATIQUES
+R003;Daat;Konnaxion;kristal.artifact.ready/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R004;Daat;Kristal-Framework;;documented_passage;DOCUMENTE
+R005;Daat;Orgo;kristal.artifact.ready/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R006;Daat;uckk;kristal.publication.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R007;Daat;uckk;kristal.publication.revoke.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R008;diK;Kristal-Framework;;proposed;CANDIDAT_OU_BLOQUE
+R009;diK;Kristalizer;dik-kristalizer-owner-boundary;proposed;CANDIDAT_OU_BLOQUE
+R010;diK;SemantiK-Architect;;proposed;CANDIDAT_OU_BLOQUE
+R011;Ekole;Kompose;;observed_static;INDICES_STATIQUES
+R012;Ekole;Kontexte;;observed_static;INDICES_STATIQUES
+R013;EncyKlopedia;Daat;;documented_passage;DOCUMENTE
+R014;EncyKlopedia;Mediatheque;encyk.source-evidence-handoff/2.0.0;receiver_pending;CANDIDAT_OU_BLOQUE
+R015;kOA-Linux-Koali;UCKK;publish_to_uckk;documented;DOCUMENTE
+R016;Koali;Ressource approuvée;;documented;DOCUMENTE
+R017;Koali-Spaces;Konnaxion;;observed_static;INDICES_STATIQUES
+R018;Konnaxion;Daat;kristal.build.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R019;Konnaxion;Daat;kristal.revision.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R020;Konnaxion;kOA-Linux-Koali;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R021;Konnaxion;Orgo;;documented_passage;DOCUMENTE
+R022;Konnaxion;Orgo;governance.decision.execute/1.0.0;qualified_local;CONTRAT_OU_ROUTE
+R023;Konnaxion-Capsule-Manager;Konnaxion;;observed_static;INDICES_STATIQUES
+R024;Konnaxion-Worlds;Konnaxion;;observed_static;INDICES_STATIQUES
+R025;Konstellation;Spek;konstellation ResultSet 0.2;documented;DOCUMENTE
+R026;Kontexte;Orgo;;observed_static;INDICES_STATIQUES
+R027;Kristal-Authoring-Kit;Kristal-Manager;kristal.github-read-surface/1.0;integrated_pending;CANDIDAT_OU_BLOQUE
+R028;Kristal-Framework;Ekole;kristal.learning-surface;candidate;CANDIDAT_OU_BLOQUE
+R029;Kristal-Framework;kOA-Linux-Koali;;documented_passage;DOCUMENTE
+R030;Kristal-Framework;Konstellation;;documented;DOCUMENTE
+R031;Kristal-Integration-Pack;Kompiler;;observed_static;INDICES_STATIQUES
+R032;Kristal-Manager;Kompiler;kristal.github-collection-index/1.0;blocked;CANDIDAT_OU_BLOQUE
+R033;Kristal-Manager;Konstellation-Light;kristal.github-collection-index/1.0;blocked;CANDIDAT_OU_BLOQUE
+R034;Kristalizer;Kristal-Framework;;proposed;CANDIDAT_OU_BLOQUE
+R035;LevelUpDiag-Orgo;Orgo;;observed_static;INDICES_STATIQUES
+R036;Mediatheque;Daat;;documented;DOCUMENTE
+R037;Mediatheque;kOA-Linux-Koali;kOA-Linux UCKK publication package/receipt;documented;DOCUMENTE
+R038;MediKristal-LevelUpDiag-;MediKristal;;observed_static;INDICES_STATIQUES
+R039;Orgo;Daat;;documented_passage;INDICES_STATIQUES
+R040;Orgo;Daat;kristal.build.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R041;Orgo;Daat;kristal.revision.request/2.0.0;declared_ik;CONTRAT_OU_ROUTE
+R042;Orgo;kOA-Linux-Koali;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R043;Orgo;Konnaxion;;observed_static;INDICES_STATIQUES
+R044;Orgo;Konnaxion;accountability.impact.publish/1.0.0;qualified_local;CONTRAT_OU_ROUTE
+R045;Orgo;Konnaxion;knowledge.distribution.request/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R046;Orgo;Konnaxion;operational.reconsideration.recommended/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R047;Orgo-Worlds;Orgo;;observed_static;INDICES_STATIQUES
+R048;Ressource approuvée;Mediatheque;;documented;DOCUMENTE
+R049;SemantiK-Architect;SemantiK_Runtime_Orchestrator;;documented_passage;DOCUMENTE
+R050;Skope;EncyKlopedia;;proposed;CANDIDAT_OU_BLOQUE
+R051;Skope;EncyKlopedia;skope.reviewed-working-export;candidate;CANDIDAT_OU_BLOQUE
+R052;Skope;Kristalizer;;proposed;CANDIDAT_OU_BLOQUE
+R053;Spek;Publication;;implemented_owner;DOCUMENTE
+R054;Spek;SemantiK-Architect;;observed_static;INDICES_STATIQUES
+R055;uckk;Daat;kristal.publication.available/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R056;uckk;Daat;kristal.publication.revoked/1.0.0;declared_ik;CONTRAT_OU_ROUTE
+R057;UCKK;Reçu et suivi;UCKK publication receipt (contractual boundary);documented;DOCUMENTE

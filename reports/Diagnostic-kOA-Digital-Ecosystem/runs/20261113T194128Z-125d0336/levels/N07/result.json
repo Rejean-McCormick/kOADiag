@@ -1,0 +1,45 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.4.2",
+  "run_id": "20261113T194128Z-125d0336",
+  "level_id": "N07",
+  "level_name": "Imports, CI et variables de service",
+  "purpose": "Cartographier les références de code, workflows et variables sans secrets",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-13T19:42:21+00:00",
+  "ended_at": "2026-11-13T19:42:21+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "coupling.static.detected",
+      "verdict": "PASS",
+      "category": "coupling",
+      "message": "68 imports, 0 workflows, 19 références de configuration"
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "imports": 68,
+    "workflows": 0,
+    "env_edges": 19,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.41
+  }
+}

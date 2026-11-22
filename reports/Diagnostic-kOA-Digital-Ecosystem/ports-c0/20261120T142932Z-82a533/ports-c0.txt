@@ -1,0 +1,35 @@
+DIAGNOSTIC C0 — 2026-11-20T14:29:32.315172+00:00
+Registre : C:\mycode\kOA_Digital_Ecosystem\kOA_Digital_Ecosystem\config\local-dev-ports.v1.json
+Attributions : 21
+Les ports arrêtés peuvent correspondre à des services volontairement inactifs.
+Un port ouvert n’atteste pas une communication IK E2E.
+
+21110 | orgo-web                           | FAMILY_MATCH          | Famille reconnue dans le titre, instance exacte non prouvée
+21111 | orgo-api                           | HTTP_UNVERIFIED       | Serveur HTTP présent, identité non vérifiée
+21112 | orgo-worlds-web                    | STOPPED               | Aucun service TCP local sur le port attribué
+21113 | orgo-worlds-api                    | STOPPED               | Aucun service TCP local sur le port attribué
+21114 | orgo-koali-web                     | STOPPED               | Aucun service TCP local sur le port attribué
+21115 | orgo-koali-api                     | STOPPED               | Aucun service TCP local sur le port attribué
+21116 | orgo-koali-pglite                  | STOPPED               | Aucun service TCP local sur le port attribué
+21120 | initkoa-web                        | TCP_OPEN_UNVERIFIED   | TCP ouvert, mais aucune réponse HTTP claire (TimeoutError)
+21130 | konnaxion-web                      | TCP_OPEN_UNVERIFIED   | TCP ouvert, mais aucune réponse HTTP claire (TimeoutError)
+21131 | konnaxion-api                      | TCP_OPEN_UNVERIFIED   | TCP ouvert, mais aucune réponse HTTP claire (TimeoutError)
+21132 | konnaxion-capsule-agent-local      | STOPPED               | Aucun service TCP local sur le port attribué
+21133 | konnaxion-capsule-manager-local    | STOPPED               | Aucun service TCP local sur le port attribué
+21134 | konnaxion-koali-web                | STOPPED               | Aucun service TCP local sur le port attribué
+21135 | konnaxion-koali-api                | STOPPED               | Aucun service TCP local sur le port attribué
+21140 | skope-web                          | STOPPED               | Aucun service TCP local sur le port attribué
+21150 | ekole-quebec-learner               | STOPPED               | Aucun service TCP local sur le port attribué
+21151 | ekole-quebec-teacher               | STOPPED               | Aucun service TCP local sur le port attribué
+21152 | ekole-opsconsole                   | STOPPED               | Aucun service TCP local sur le port attribué
+21153 | ekole-pastorale-learner            | STOPPED               | Aucun service TCP local sur le port attribué
+21154 | ekole-pastorale-teacher            | STOPPED               | Aucun service TCP local sur le port attribué
+21170 | koali-spaces-web                   | STOPPED               | Aucun service TCP local sur le port attribué
+
+Paires locales (présence seulement, jamais preuve IK E2E) :
+Interaction Kernel : Orgo -> Konnaxion : DEUX_ENDPOINTS_OUVERTS_NON_E2E
+Interaction Kernel : Konnaxion -> Orgo : DEUX_ENDPOINTS_OUVERTS_NON_E2E
+Koali : Konnaxion Web -> API : ENDPOINTS_INDISPONIBLES
+Koali : Orgo Web -> API : ENDPOINTS_INDISPONIBLES
+Orgo Worlds : Web -> API : ENDPOINTS_INDISPONIBLES
+Audit kOA -> HomePage : DEUX_ENDPOINTS_OUVERTS_NON_E2E

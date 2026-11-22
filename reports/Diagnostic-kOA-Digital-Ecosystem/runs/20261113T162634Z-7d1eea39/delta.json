@@ -1,0 +1,68 @@
+{
+  "comparison_available": true,
+  "previous_run_id": "20261111T235508Z-5295ee94",
+  "previous_verdict": "PARTIAL",
+  "metrics": {
+    "inventory.present": {
+      "before": 53,
+      "after": 55,
+      "delta": 2
+    },
+    "inventory.truncated": {
+      "before": 2,
+      "after": 2,
+      "delta": 0
+    },
+    "api.static_calls": {
+      "before": 5,
+      "after": 5,
+      "delta": 0
+    },
+    "api.routes_matched": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    },
+    "traces.correlated_pairs": {
+      "before": 0,
+      "after": 2,
+      "delta": 2
+    },
+    "journeys.evidence_complete": {
+      "before": 0,
+      "after": 0,
+      "delta": 0
+    }
+  },
+  "relations_added": [
+    {
+      "source": "Ekole-Quebec",
+      "target": "Kontexte",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    },
+    {
+      "source": "Ekole-Quebec",
+      "target": "Spek",
+      "contract": "",
+      "qualification": "INDICES_STATIQUES"
+    }
+  ],
+  "relations_not_observed": [],
+  "relations_changed": [
+    {
+      "source": "Konnaxion",
+      "target": "Orgo",
+      "contract": "governance.decision.execute/1.0.0",
+      "before": "CONTRAT_OU_ROUTE",
+      "after": "ECHANGE_CORRELE"
+    },
+    {
+      "source": "Orgo",
+      "target": "Konnaxion",
+      "contract": "accountability.impact.publish/1.0.0",
+      "before": "CONTRAT_OU_ROUTE",
+      "after": "ECHANGE_CORRELE"
+    }
+  ]
+}

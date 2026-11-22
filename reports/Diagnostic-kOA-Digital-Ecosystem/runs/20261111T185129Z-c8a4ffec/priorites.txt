@@ -1,0 +1,7 @@
+Collecte : 1 dépôt(s) tronqué(s) — vérifier les fichiers ciblés et ajuster la limite.
+Collecte : 936 fichiers volumineux et 0 fichiers illisibles ignorés.
+Collecte : 1 dépôt(s) sans fichier source/configuration dans le périmètre analysé.
+E2E : 1 parcours sur 1 n’ont pas assez de preuves de livraison/réponse.
+Traces : importer des exports passifs attribués aux dépôts émetteur et récepteur.
+Preuves : 4 frontières obligatoires sans parcours corroboré; voir matrice-preuves-frontieres.csv.
+API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.

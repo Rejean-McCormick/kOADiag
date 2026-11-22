@@ -1,0 +1,139 @@
+{
+  "schema": "koa.scan-gaps/v1",
+  "repos": [
+    {
+      "repo": "Konnaxion",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 8,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "frontend",
+          "files": 6
+        },
+        {
+          "directory": "_konnaxion_consolidation_backups",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion-Capsule-Manager",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "diagnostics",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion-Worlds",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "universes",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konstellation",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 3,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "data",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "repo": "Kristal-Manager",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 8,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "rapports",
+          "files": 7
+        },
+        {
+          "directory": "tools",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "kristal-public",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 244,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "kristals",
+          "files": 244
+        }
+      ]
+    },
+    {
+      "repo": "Kristalizer",
+      "truncated": true,
+      "unselected_files": 32933,
+      "oversized_files": 664,
+      "top_unselected_directories": [
+        {
+          "directory": "sortie",
+          "files": 32931
+        },
+        {
+          "directory": "[root]",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "SORTIE",
+          "files": 664
+        }
+      ]
+    },
+    {
+      "repo": "LevelUpDiag-Orgo",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 6,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "browser",
+          "files": 6
+        }
+      ]
+    },
+    {
+      "repo": "Orgo-Worlds",
+      "truncated": false,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "fakeplant",
+          "files": 1
+        }
+      ]
+    }
+  ]
+}
