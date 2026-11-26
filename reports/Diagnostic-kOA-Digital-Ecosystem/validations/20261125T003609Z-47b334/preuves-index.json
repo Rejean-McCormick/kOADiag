@@ -1,0 +1,381 @@
+{
+  "schema": "koa.diag.developer-evidence.v1",
+  "run_id": "20261125T003543Z-4c209678",
+  "verdict": "PARTIAL",
+  "limites": {
+    "campaign_seconds": 105,
+    "files_per_repo": 120,
+    "bytes_per_file": 80000,
+    "entries_per_repo": 2500,
+    "seconds_per_repo": 2,
+    "surface_seconds": 22,
+    "ik_reference_seconds": 6
+  },
+  "niveaux": [
+    {
+      "id": "N00",
+      "nom": "Intégrité des références et sécurité",
+      "verdict": "WARN",
+      "source": "levels/N00/result.json",
+      "sha256": "152291ec0a2c6b9d866f1729e7715e471e7be2457dc66dfc64891d070f26aa84",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "references.repositories.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "repositories.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "references.graph-registry.v1.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "graph-registry.v1.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "references.graph-focus.v1.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "graph-focus.v1.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "inventory.count",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "53 dépôts dans le registre",
+          "recommendation": ""
+        },
+        {
+          "id": "inventory.audit.reference.difference",
+          "verdict": "WARN",
+          "category": "references",
+          "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+          "recommendation": ""
+        },
+        {
+          "id": "security.no-target-commands",
+          "verdict": "PASS",
+          "category": "security",
+          "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N01",
+      "nom": "Collecte de preuves inter-repos",
+      "verdict": "PARTIAL",
+      "source": "levels/N01/result.json",
+      "sha256": "e41fbb385be189c43e9c6364e6d8fc6afebd85475f2351e99affddc14ad1bc8e",
+      "artefacts": [
+        "documentary-scope.json",
+        "boundary-qualification.json",
+        "registry-snapshot.json",
+        "levels/N01/snapshot.json",
+        "exports/relations.csv",
+        "exports/appels-api.csv",
+        "exports/routes-api.csv",
+        "exports/frontieres-api.csv",
+        "exports/evenements.csv",
+        "exports/dependances.csv",
+        "exports/ci-workflows.csv",
+        "exports/echanges.csv",
+        "exports/profils-ik.csv",
+        "exports/schemas.csv",
+        "exports/parcours-e2e.csv"
+      ],
+      "constats": [
+        {
+          "id": "scope.documentary.review",
+          "verdict": "WARN",
+          "category": "scope",
+          "message": "Sources ou décisions du plan documentaire à rapprocher",
+          "recommendation": ""
+        },
+        {
+          "id": "scope.required.gaps",
+          "verdict": "PARTIAL",
+          "category": "scope",
+          "message": "Frontières obligatoires hors parcours ou dépôts manquants",
+          "recommendation": ""
+        },
+        {
+          "id": "collection.inventory.complete",
+          "verdict": "PASS",
+          "category": "inventory",
+          "message": "Collecte sur 55/55 dépôts",
+          "recommendation": ""
+        },
+        {
+          "id": "collection.intermediate.budget",
+          "verdict": "PARTIAL",
+          "category": "inventory",
+          "message": "Collecte bornée : 55 dépôt(s) entamé(s), 0 différé(s), 9 parcours incomplet(s).",
+          "recommendation": "Lire les sources observées et les limites dans scan-gaps.json."
+        },
+        {
+          "id": "collection.scan.truncated",
+          "verdict": "PARTIAL",
+          "category": "inventory",
+          "message": "Scan limité dans 27 dépôt(s) : 10350 fichiers éligibles non sélectionnés",
+          "recommendation": "Consulter scan-gaps.json, puis ajuster précisément la portée avant d’augmenter le plafond."
+        },
+        {
+          "id": "collection.files.unreadable",
+          "verdict": "PARTIAL",
+          "category": "inventory",
+          "message": "Collecte incomplète : 159 fichiers trop volumineux, 0 illisibles",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N03",
+      "nom": "Contrats IK et dérive de schémas",
+      "verdict": "PARTIAL",
+      "source": "levels/N03/result.json",
+      "sha256": "995f6d1cf8ed091a27b3aa553b7122c713945f89270068f6074e6be8e79b3665",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "contracts.schema.review.1",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Interaction-Kernel — locks/kristal-v6.0.0-upstream/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.2",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Konnaxion — _BUG_HARVEST_REVIEW/LevelUpDiag/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.3",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "EncyKlopedia — ecosystem/LevelUpDiag_EncyK/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.4",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Konstellation — contracts/upstream/kristal-state-v6.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.5",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Authoring-Kit — schemas/github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.6",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Framework — profiles/github/schemas/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.7",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Framework — schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.8",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — koa_upgrade_runs/runs/run-20261120T012750607983Z/staging/Kristal-kOA-Ecosystem/knowledge-base/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.9",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — tools/KristalDiag/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.10",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — tools/KristalDiag/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.11",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.12",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.13",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.14",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "KristalDiag — contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.15",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "KristalDiag — contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.16",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "KristalDiag — kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.17",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "KristalDiag — kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.18",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "KristalDiag — kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.19",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "LevelUpDiag-kOA-Linux — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.20",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "LevelUpDiag-Orgo — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.21",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "LevelUpDiag-Orgo — tools/tandem_tour7/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.22",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "LevelUpDiag-Orgo — tools/tandem_tour7_v2/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.23",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "LevelUpDiag_SemantiK-Architect — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "contracts.schema.review.24",
+          "verdict": "WARN",
+          "category": "schema",
+          "message": "MediKristal-LevelUpDiag- — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+          "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+        },
+        {
+          "id": "evidence.upstream.partial",
+          "verdict": "PARTIAL",
+          "category": "coverage",
+          "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N08",
+      "nom": "Obligations de frontière",
+      "verdict": "PARTIAL",
+      "source": "levels/N08/result.json",
+      "sha256": "2ee2bbfc5b8a29fc8b9acd046765e3b9056eb74719409820d16ccad2cb1dc098",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "obligations.none",
+          "verdict": "SKIP",
+          "category": "obligation",
+          "message": "Aucune obligation de frontière configurée : contrôle non applicable",
+          "recommendation": ""
+        },
+        {
+          "id": "evidence.upstream.partial",
+          "verdict": "PARTIAL",
+          "category": "coverage",
+          "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N09",
+      "nom": "Traces, enveloppes et reçus IK",
+      "verdict": "PARTIAL",
+      "source": "levels/N09/result.json",
+      "sha256": "12713c38ed92390bb0b1541c34f25a3511aeb21f9f0489719e3287f21ed296aa",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "traces.no-correlation",
+          "verdict": "PARTIAL",
+          "category": "evidence",
+          "message": "Aucune paire émission / réception corrélée dans les exports configurés",
+          "recommendation": "Configurer les exports des outils dédiés, sans lancer leurs tests depuis ce diagnostic."
+        },
+        {
+          "id": "evidence.upstream.partial",
+          "verdict": "PARTIAL",
+          "category": "coverage",
+          "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    }
+  ],
+  "exports_locaux": [
+    "validation.json",
+    "applications.csv",
+    "connexions.csv"
+  ],
+  "portee": "Constats passifs et traces existantes, aucune transaction E2E exécutée.",
+  "dossier_source": "runs/20261125T003543Z-4c209678"
+}

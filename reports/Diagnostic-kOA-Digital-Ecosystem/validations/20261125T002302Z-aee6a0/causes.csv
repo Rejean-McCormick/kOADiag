@@ -1,0 +1,2 @@
+﻿id;priorite;titre;detail;action;niveaux
+PREUVES_TRACES_ABSENTES;P1;Traces IK non corroborées;0 paire corrélée, 0 reçu IK. Aucune source déclarée dans les deux configurations.;"Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.";N09,N11,N12

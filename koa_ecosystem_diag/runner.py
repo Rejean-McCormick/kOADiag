@@ -51,7 +51,7 @@ def _console_python():
 
 
 def worker(tool,meta,cfg,run_root,uid,allow_network=False,allow_remote=False,ack_remote=False,
-           *, integral=False, runtime_local=False, runtime_world=None, runtime_audit=None, start_test_stack=False):
+           *, integral=False, intermediate=False, runtime_local=False, runtime_world=None, runtime_audit=None, start_test_stack=False):
     # Worker can write only within the run directory that was created by parent.
     tool=Path(tool).resolve();run_root=Path(run_root).resolve()
     conf=Path(cfg['_control']).resolve()
@@ -61,7 +61,7 @@ def worker(tool,meta,cfg,run_root,uid,allow_network=False,allow_remote=False,ack
     report=Report(meta,cfg['_root'],uid)
     ctx={'run_root':str(run_root),'allow_network':allow_network,
          'allow_remote':allow_remote,'ack_remote':ack_remote,
-         'integral':integral,'runtime_local':runtime_local,
+         'integral':integral,'intermediate':intermediate,'runtime_local':runtime_local,
          'runtime_world':runtime_world,'runtime_audit':runtime_audit,'start_test_stack':start_test_stack}
     try:
         module=importlib.import_module(meta['module'])
@@ -102,6 +102,10 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
         raise ValueError('Accès distant interdit sans --network ET --ack-remote')
     if runtime_local and selection != 'validation-integrale':
         raise ValueError('--runtime-local requiert validation-integrale')
+    intermediate = selection == 'validation-intermediaire'
+    if intermediate and any((allow_network, allow_remote, ack_remote, runtime_local,
+                             audit, audit_root, runtime_world, start_test_stack)):
+        raise ValueError('La validation intermédiaire est passive et sans import Audit.')
     levels=resolve_campaign(manifest,selection)
     uid=run_id();run_root=Path(cfg['_control'])/'runs'/uid
     run_root.mkdir(parents=True,exist_ok=False)
@@ -128,6 +132,7 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
     full = selection == 'validation-integrale'
     fail_fast = not full and bool(cfg.get('execution', {}).get('fail_fast', False))
     def launch(meta):
+        notify(f'LEVEL_START={meta["id"]}|{meta["name"]}')
         dest=run_root/'levels'/meta['id'];dest.mkdir(parents=True,exist_ok=True)
         cmd=[_console_python(),str(tool/'Diagnostic-kOA-Digital-Ecosystem-CLI.py'),
             '_worker','--root',cfg['_root'],'--run-root',str(run_root),
@@ -137,6 +142,7 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
         if allow_remote:cmd.append('--remote')
         if ack_remote:cmd.append('--ack-remote')
         if full:cmd.append('--integral-worker')
+        if intermediate:cmd.append('--intermediate-worker')
         if runtime_local:cmd.append('--runtime-local')
         if meta['id'] == 'N14' and start_test_stack:cmd.append('--start-test-stack')
         if meta['id'] == 'N14' and runtime_world:cmd+=['--world', runtime_world]
@@ -144,6 +150,8 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
         timeout=int(meta.get('timeout_seconds',cfg.get('execution',{}).get('default_timeout_seconds',120)))
         if meta['id'] == 'N14' and start_test_stack:
             timeout = max(timeout, 600)
+        if intermediate:
+            timeout = min(timeout, {'N00': 12, 'N01': 70}.get(meta['id'], 18))
         if full and meta['id'] == 'N01':
             timeout = max(timeout, 1800)
         start=time.monotonic()
@@ -228,7 +236,7 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
         boundary_file=run_root/'boundary-qualification.json'
         if boundary_file.is_file():
             cover['boundary_evidence']=read_json(boundary_file).get('summary',{})
-    previous_summary,previous_snapshot=get_previous(cfg['_control'],uid)
+    previous_summary,previous_snapshot=get_previous(cfg['_control'],uid,intermediate=intermediate)
     changes=delta(previous_summary,previous_snapshot,cover,snapshot) if cover else {'comparison_available':False,'reason':'Collecte N01 absente'}
     write_json(run_root/'delta.json',changes)
     try:
@@ -249,6 +257,7 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
                 writer.writerow({k:repo.get(k,'') for k in writer.fieldnames})
         # Paths are directory names relative to each repo, not code snippets.
         gaps=[{'repo':repo.get('repo'), 'truncated':repo.get('truncated',False),
+               'traversal_limited':repo.get('traversal_limited',False),
                'boundary_scan_gaps':repo.get('boundary_scan_gaps',[]),
                'boundary_scan_gap_count':repo.get('boundary_scan_gap_count',0),
                'unreadable_files':repo.get('unreadable_files',0),
@@ -307,6 +316,9 @@ def campaign(tool,selection='complet',root_override=None,config_override=None,*,
                 'Détail : validation-integrale.json et exports/validation-integrale.csv']
     txt += ['','Une route, un import ou une réponse GET ne valide pas un échange métier E2E.']
     (run_root/'summary.txt').write_text('\n'.join(txt)+'\n',encoding='utf-8')
+    if intermediate:
+        notify('VERDICT='+verdict)
+        return summary,run_root
     latest=Path(cfg['_control'])/'latest'
     latest.mkdir(parents=True,exist_ok=True)
     if closure_report:

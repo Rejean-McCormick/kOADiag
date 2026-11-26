@@ -7,9 +7,10 @@ network, remote, audit publication, and runtime-local options explicitly.
 """
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, deque
 from datetime import datetime, timezone
 import csv
+from hashlib import sha256
 import http.client
 import json
 from pathlib import Path
@@ -19,8 +20,10 @@ import sys
 import uuid
 
 from . import port_diagnostics as c0
-from .levelup_triage import interpret_report
+from .levelup_triage import MAX_BYTES, MAX_FINDINGS, _safe_text, interpret_report
+from .framework import load_config, load_manifest, resolve_campaign, VERDICTS
 from .campaign_recovery import recovery_plan
+from .hub_session import stream_process
 from .app_suite_catalog import discover as discover_app_suites
 
 # No request is made to any path that is not explicitly declared here.
@@ -41,7 +44,12 @@ REPOS = {
     'koali': 'kOA-Linux/koali-spaces',
 }
 ESSENTIALS = {'orgo-web', 'orgo-api', 'initkoa-web', 'konnaxion-web', 'konnaxion-api'}
-_SAFE_PROGRESS = re.compile(r'^(RUN_ROOT=|LEVEL=|VERDICT=|SUMMARY=)')
+_SAFE_PROGRESS = re.compile(r'^(RUN_ROOT=|LEVEL_START=|LEVEL=|VERDICT=|SUMMARY=)')
+HUB_CAMPAIGNS = {'intermediaire': 'validation-intermediaire', 'approfondie': 'validation-integrale'}
+INTERMEDIATE_LIMITS = {'campaign_seconds': 105, 'files_per_repo': 120, 'bytes_per_file': 80000,
+                       'entries_per_repo': 2500, 'seconds_per_repo': 2,
+                       'surface_seconds': 22, 'ik_reference_seconds': 6}
+
 
 
 def health_probe(service: dict, timeout: float = 2.0) -> dict:
@@ -142,29 +150,98 @@ def summarize(ports_result: dict, links: list, health: list, mode: str, *, campa
     }
 
 
-def _passive_campaign(root: Path, tool: Path, *, progress=None, python=None, timeout=1800) -> dict:
+def _developer_evidence(run_root, runs_dir, expected_levels, campaign):
+    levels = [{'id': meta['id'], 'nom': meta['name'], 'verdict': 'NON_OBSERVE',
+               'source': None, 'sha256': None, 'artefacts': [], 'constats': [],
+               'constats_omis': 0} for meta in expected_levels]
+    evidence = {'schema': 'koa.diag.developer-evidence.v1', 'run_id': None,
+                'verdict': campaign['verdict'], 'limites': INTERMEDIATE_LIMITS, 'niveaux': levels,
+                'exports_locaux': ['validation.json', 'applications.csv', 'connexions.csv'],
+                'portee': 'Constats passifs et traces existantes, aucune transaction E2E exécutée.'}
+    if run_root is None:
+        return evidence
+    raw_root = Path(run_root)
+    root = raw_root.resolve()
+    if raw_root.is_symlink() or root.parent != runs_dir.resolve() or not re.fullmatch(
+            r'[A-Za-z0-9_-]{1,90}', root.name):
+        return evidence
+    evidence['run_id'] = root.name
+    evidence['dossier_source'] = f'runs/{root.name}'
+    for item in levels:
+        rel = f"levels/{item['id']}/result.json"
+        source = root/rel
+        try:
+            if not source.is_file() or source.is_symlink() or not source.resolve().is_relative_to(root):
+                continue
+            with source.open('rb') as stream:
+                raw = stream.read(MAX_BYTES + 1)
+            if len(raw) > MAX_BYTES:
+                item['erreur_lecture'] = 'Rapport de niveau trop volumineux'
+                continue
+            data = json.loads(raw.decode('utf-8-sig'))
+            if (data['schema'] != 'levelupdiag.report.v2' or data['level_id'] != item['id']
+                    or data['run_id'] != root.name or data['verdict'] not in VERDICTS):
+                item['erreur_lecture'] = 'Identité, schéma ou verdict invalide'
+                continue
+            item.update(source=rel, sha256=sha256(raw).hexdigest(), verdict=data['verdict'])
+            findings = data.get('findings', [])
+            if isinstance(findings, list):
+                item['constats_omis'] = max(0, len(findings) - MAX_FINDINGS)
+                item['constats'] = [{
+                    key: _safe_text(finding.get(key), 320)
+                    for key in ('id', 'verdict', 'category', 'message', 'recommendation')
+                } for finding in findings[:MAX_FINDINGS] if isinstance(finding, dict)]
+            artifacts = data.get('artifacts', [])
+            if isinstance(artifacts, list):
+                for ref in artifacts[:40]:
+                    if not isinstance(ref, dict) or not isinstance(ref.get('path'), str):
+                        continue
+                    original = Path(ref['path'])
+                    path = (original if original.is_absolute() else root/original).resolve()
+                    if path.is_relative_to(root) and path.is_file() and not original.is_symlink():
+                        item['artefacts'].append(path.relative_to(root).as_posix())
+        except (OSError, ValueError, RuntimeError, KeyError, TypeError, AttributeError) as exc:
+            item['erreur_lecture'] = type(exc).__name__
+    return evidence
+
+
+def _passive_campaign(root: Path, tool: Path, *, progress=None, python=None, timeout=1800, selection='validation-integrale',
+                      evidence_context=None) -> dict:
     # No runtime-local, network, remote, start-test-stack or --audit flags.
     executable = python or sys.executable
-    command = [str(executable), str(tool/'Diagnostic-kOA-Digital-Ecosystem-CLI.py'),
-               'run', 'validation-integrale', '--root', str(root)]
+    command = [str(executable), '-X', 'utf8', '-u', str(tool/'Diagnostic-kOA-Digital-Ecosystem-CLI.py'),
+               'run', selection, '--root', str(root)]
+    last_run_root = None
+
+    def outcome(data):
+        if evidence_context is not None:
+            data['developer_evidence'] = _developer_evidence(last_run_root, *evidence_context, data)
+            data.setdefault('run_id', data['developer_evidence']['run_id'])
+        return data
+
     if not (tool/'Diagnostic-kOA-Digital-Ecosystem-CLI.py').is_file():
-        return {'verdict': 'ERROR', 'detail': 'CLI LevelUpDiag absent'}
+        return outcome({'verdict': 'ERROR', 'detail': 'CLI LevelUpDiag absent'})
     try:
-        proc = subprocess.run(command, cwd=str(tool), stdin=subprocess.DEVNULL,
-                              capture_output=True, text=True, encoding='utf-8', errors='replace',
-                              timeout=timeout, shell=False,
-                              creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
-        markers = [line.strip() for line in proc.stdout.splitlines() if _SAFE_PROGRESS.match(line.strip())]
-        if progress:
-            for line in markers[-50:]: progress('LevelUpDiag : '+line[:240])
-        run_roots = [line.split('=', 1)[1] for line in markers if line.startswith('RUN_ROOT=')]
-        if run_roots:
-            report_path = Path(run_roots[-1])/'summary.json'
-            if report_path.is_file():
+        def receive(line):
+            nonlocal last_run_root
+            if not _SAFE_PROGRESS.match(line):
+                return
+            if line.startswith('RUN_ROOT='):
+                last_run_root = line.split('=', 1)[1]
+            if progress:
+                progress('LevelUpDiag : '+line[:240])
+
+        exit_code = stream_process(command, tool, receive, timeout=timeout)
+        if last_run_root:
+            report_path = Path(last_run_root)/'summary.json'
+            trusted = evidence_context[0] if evidence_context is not None else tool
+            if (report_path.resolve().is_relative_to(trusted.resolve()) and
+                    report_path.is_file() and not report_path.is_symlink() and
+                    report_path.stat().st_size <= MAX_BYTES):
                 data = json.loads(report_path.read_text(encoding='utf-8'))
                 triage = None
                 try:
-                    triage = interpret_report(report_path, trusted_reports_root=tool/'reports')
+                    triage = interpret_report(report_path, trusted_reports_root=(trusted if evidence_context else tool/'reports'))
                 except (OSError, ValueError, TypeError, UnicodeError):
                     # A valid campaign is never erased because the optional triage fails.
                     pass
@@ -173,24 +250,38 @@ def _passive_campaign(root: Path, tool: Path, *, progress=None, python=None, tim
                     recovery = recovery_plan(report_path.parent)
                 except (OSError, ValueError, TypeError, UnicodeError):
                     pass
-                return {'verdict': data.get('verdict', 'INCONNU'),
+                return outcome({'verdict': data.get('verdict', 'INCONNU'),
                         'run_id': data.get('run_id'), 'report_path': str(report_path),
-                        'exit_code': proc.returncode, 'triage': triage, 'recovery': recovery}
-        return {'verdict': 'ERROR', 'exit_code': proc.returncode,
-                'detail': 'La campagne n’a pas retourné de rapport utilisable'}
+                        'exit_code': exit_code, 'triage': triage, 'recovery': recovery})
+        return outcome({'verdict': 'ERROR', 'exit_code': exit_code,
+                'detail': 'La campagne n’a pas retourné de rapport utilisable'})
     except subprocess.TimeoutExpired:
-        return {'verdict': 'ERROR', 'detail': 'Délai maximal LevelUpDiag dépassé'}
+        return outcome({'verdict': 'PARTIAL' if evidence_context else 'ERROR',
+                        'timed_out': True, 'detail': 'Délai maximal LevelUpDiag dépassé'})
     except (OSError, json.JSONDecodeError, ValueError) as exc:
-        return {'verdict': 'ERROR', 'detail': 'Échec LevelUpDiag : '+type(exc).__name__}
+        return outcome({'verdict': 'ERROR', 'detail': 'Échec LevelUpDiag : '+type(exc).__name__})
 
 
 def validate(root: Path, *, mode='rapide', tool: Path | None = None,
              progress=None, deep_runner=None) -> dict:
-    if mode not in ('rapide', 'approfondie'):
+    if mode != 'rapide' and mode not in HUB_CAMPAIGNS:
         raise ValueError('Mode de validation inconnu')
     root = Path(root).expanduser().resolve()
-    if progress: progress('Vérification des ports C0 et des identités locales…')
-    ports = c0.check_all(root, timeout=1.5)
+    intermediate = mode == 'intermediaire'
+    journal = deque(maxlen=256)
+
+    def notify(line):
+        if intermediate:
+            # Keep the event, without copying absolute output paths or raw worker logs.
+            marker = line.split(' : ', 1)[-1]
+            event = marker.split('=', 1)[0] if marker.startswith(('RUN_ROOT=', 'SUMMARY=')) else line
+            journal.append({'at_utc': datetime.now(timezone.utc).isoformat(),
+                            'event': _safe_text(event, 320)})
+        if progress:
+            progress(line)
+
+    notify('Vérification des ports C0 et des identités locales…')
+    ports = c0.check_all(root, timeout=0.75 if intermediate else 1.5)
     links = diagnose_links(ports)
     existing = {}
     for owner in sorted({s['owner'] for s in ports['services']}):
@@ -199,16 +290,30 @@ def validate(root: Path, *, mode='rapide', tool: Path | None = None,
             'path': None, 'present': None}
     health = []
     campaign = None
-    if mode == 'approfondie':
-        if progress: progress('Sondes de santé locales en lecture seule…')
-        health = [health_probe(row) for row in ports['services']]
-        if progress: progress('Campagne LevelUpDiag intégrale (passive, sans E2E transactionnel)…')
-        if deep_runner is not None:
+    if mode in HUB_CAMPAIGNS:
+        notify('Sondes de santé locales en lecture seule…')
+        health = [health_probe(row, timeout=0.75) if intermediate else health_probe(row)
+                  for row in ports['services']]
+        notify('Campagne LevelUpDiag intermédiaire · preuves développeur…' if intermediate else
+               'Campagne LevelUpDiag intégrale (passive, sans E2E transactionnel)…')
+        if intermediate:
+            if tool is None:
+                raise ValueError('Dossier kOADiag requis pour la validation intermédiaire')
+            tool = Path(tool)
+            levels = resolve_campaign(load_manifest(tool), HUB_CAMPAIGNS[mode])
+            runs_dir = Path(load_config(tool, root)['_control'])/'runs'
+            campaign = _passive_campaign(root, tool, progress=notify,
+                timeout=INTERMEDIATE_LIMITS['campaign_seconds'], selection=HUB_CAMPAIGNS[mode],
+                evidence_context=(runs_dir, levels))
+            notify('Index des preuves développeur terminé.')
+        elif deep_runner is not None:
             campaign = deep_runner(root)
         else:
-            if tool is None: raise ValueError('Dossier kOADiag requis pour la campagne approfondie')
-            campaign = _passive_campaign(root, Path(tool), progress=progress)
-    suite_catalog = discover_app_suites(root) if mode == 'approfondie' else []
+            if tool is None:
+                raise ValueError('Dossier kOADiag requis pour la campagne approfondie')
+            campaign = _passive_campaign(root, Path(tool), progress=notify)
+        notify('Inventaire des suites applicatives déclarées…')
+    suite_catalog = discover_app_suites(root) if mode in HUB_CAMPAIGNS else []
     summary = summarize(ports, links, health, mode, campaign=campaign)
     output = {'schema': 'koa.diag.validation.hub.v1',
               'checked_at_utc': datetime.now(timezone.utc).isoformat(),
@@ -217,13 +322,15 @@ def validate(root: Path, *, mode='rapide', tool: Path | None = None,
               'application_test_suites': suite_catalog,
               'ik_e2e': {'status':'NON_EXECUTE', 'detail':'Exécution séparée, sécurisée et confirmée par utilisateur.'},
               'port_registry_sha256': ports['registry_sha256']}
+    if intermediate:
+        output['developer_evidence'] = campaign.pop('developer_evidence')
+        output['developer_evidence']['journal'] = list(journal)
     return output
 
 
 def save_report(result: dict, base: Path) -> Path:
     folder = Path(base)/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:6])
     folder.mkdir(parents=True, exist_ok=False)
-    (folder/'validation.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     with (folder/'applications.csv').open('w', encoding='utf-8-sig', newline='') as out:
         columns = ['id','owner','port','tcp','http_code','status','detail']
         writer = csv.DictWriter(out, columns, extrasaction='ignore', delimiter=';')
@@ -262,6 +369,27 @@ def save_report(result: dict, base: Path) -> Path:
             writer.writeheader()
             for row in recovery.get('items', []):
                 writer.writerow(dict(row, locations=', '.join(row.get('locations',[]))))
+    developer = result.get('developer_evidence')
+    if isinstance(developer, dict):
+        journal = developer['journal']
+        index = {key: value for key, value in developer.items() if key != 'journal'}
+        (folder/'preuves-index.json').write_text(
+            json.dumps(index, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+        (folder/'preuves-journal.jsonl').write_text(
+            ''.join(json.dumps(event, ensure_ascii=False)+'\n' for event in journal),
+            encoding='utf-8')
+        with (folder/'preuves-constats.csv').open('w', encoding='utf-8-sig', newline='') as out:
+            columns = ['niveau','id','verdict','category','message','recommendation','source']
+            writer = csv.DictWriter(out, columns, delimiter=';')
+            writer.writeheader()
+            for level in developer['niveaux']:
+                for finding in level['constats']:
+                    row = dict(finding, niveau=level['id'], source=level['source'])
+                    writer.writerow({
+                        key: "'" + value if isinstance(value, str) and
+                        value.lstrip().startswith(('=', '+', '-', '@')) else value
+                        for key, value in row.items()
+                    })
     s = result['summary']
     lines = [f"kOADiag — Validation {s['mode']}", f"Verdict : {s['verdict']}",
              f"Essentiels : {s['services_essentiels_accessibles']}/{s['services_essentiels_total']}",
@@ -269,6 +397,8 @@ def save_report(result: dict, base: Path) -> Path:
              f"Connexions : {s['liaisons_extremites_accessibles']}/{s['liaisons_declarees']} (extrémités seulement)",
              'Tests métier E2E : 0 (nécessitent confirmation distincte)',
              s['precision']]
+    if isinstance(developer, dict):
+        lines.append('Dossier développeur : preuves-index.json · preuves-constats.csv · preuves-journal.jsonl')
     if suites:
         lines.append('Suites propriétaires référencées : '+str(len(suites))+' (non exécutées).')
     if s.get('domaines'):
@@ -281,4 +411,8 @@ def save_report(result: dict, base: Path) -> Path:
         lines.append(f"Causes à traiter : {len(triage.get('causes', []))} (preuves et périmètre, non pannes automatiques)")
         lines.extend(f" - {row['priorite']} {row['titre']}: {row['action']}" for row in triage.get('causes', []))
     (folder/'synthese.txt').write_text('\n'.join(lines)+'\n', encoding='utf-8')
+    # Publish the JSON marker only after all report files are complete.
+    pending = folder/'validation.json.tmp'
+    pending.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    pending.replace(folder/'validation.json')
     return folder

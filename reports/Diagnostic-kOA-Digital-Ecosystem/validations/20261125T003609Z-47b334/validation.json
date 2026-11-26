@@ -1,0 +1,1916 @@
+{
+  "schema": "koa.diag.validation.hub.v1",
+  "checked_at_utc": "2026-11-25T00:36:09.474700+00:00",
+  "summary": {
+    "domaines": {
+      "services_essentiels": "PARTIAL",
+      "sante_http": "PARTIAL",
+      "connexions": "PARTIAL",
+      "preuves_levelup": "PARTIAL",
+      "interaction_kernel_e2e": "NON_EXECUTE"
+    },
+    "mode": "intermediaire",
+    "verdict": "PARTIEL",
+    "port_count": 21,
+    "services_accessibles": 3,
+    "services_essentiels_accessibles": 3,
+    "services_essentiels_total": 5,
+    "services_non_demarras": 18,
+    "anomalies_identite": 0,
+    "erreurs_sante": 0,
+    "liaisons_declarees": 6,
+    "liaisons_extremites_accessibles": 2,
+    "transactions_e2e_executees": 0,
+    "precision": "Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé."
+  },
+  "services": [
+    {
+      "id": "orgo-web",
+      "owner": "orgo",
+      "purpose": "frontend",
+      "port": 21110,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 200,
+      "http_title": "Orgo · Organize and Go",
+      "status": "FAMILY_MATCH",
+      "detail": "Famille reconnue dans le titre, instance exacte non prouvée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-api",
+      "owner": "orgo",
+      "purpose": "API",
+      "port": 21111,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 404,
+      "http_title": "Error",
+      "status": "HTTP_UNVERIFIED",
+      "detail": "Serveur HTTP présent, identité non vérifiée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-worlds-web",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone UI",
+      "port": 21112,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-worlds-api",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone API",
+      "port": 21113,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-web",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo frontend instance",
+      "port": 21114,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-api",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo API instance",
+      "port": 21115,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-pglite",
+      "owner": "orgo",
+      "purpose": "Koali-managed local PGlite listening on loopback only",
+      "port": 21116,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "initkoa-web",
+      "owner": "initkoa",
+      "purpose": "HomePage Next.js frontend",
+      "port": 21120,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-web",
+      "owner": "konnaxion",
+      "purpose": "frontend",
+      "port": 21130,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-api",
+      "owner": "konnaxion",
+      "purpose": "Django API (direct host, Docker host-published 21131:8000)",
+      "port": 21131,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 200,
+      "http_title": "Konnaxion",
+      "status": "FAMILY_MATCH",
+      "detail": "Famille reconnue dans le titre, instance exacte non prouvée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "konnaxion-capsule-agent-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Agent only; not remote droplet Agent",
+      "port": 21132,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-capsule-manager-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Capsule Manager",
+      "port": 21133,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-web",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second frontend instance",
+      "port": 21134,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-api",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second Django instance",
+      "port": 21135,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "skope-web",
+      "owner": "skope",
+      "purpose": "research explorer",
+      "port": 21140,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-learner",
+      "owner": "ekole",
+      "purpose": "Québec learner",
+      "port": 21150,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-teacher",
+      "owner": "ekole",
+      "purpose": "Québec teacher",
+      "port": 21151,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-opsconsole",
+      "owner": "ekole",
+      "purpose": "OpsConsole",
+      "port": 21152,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-learner",
+      "owner": "ekole",
+      "purpose": "Pastorale learner",
+      "port": 21153,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-teacher",
+      "owner": "ekole",
+      "purpose": "Pastorale teacher",
+      "port": 21154,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "koali-spaces-web",
+      "owner": "koali",
+      "purpose": "Koali Spaces shell frontend",
+      "port": 21170,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    }
+  ],
+  "links": [
+    {
+      "name": "Interaction Kernel : Orgo -> Konnaxion",
+      "source": "orgo-api",
+      "target": "konnaxion-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Interaction Kernel : Konnaxion -> Orgo",
+      "source": "konnaxion-api",
+      "target": "orgo-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Koali : Konnaxion Web -> API",
+      "source": "konnaxion-koali-web",
+      "target": "konnaxion-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Koali : Orgo Web -> API",
+      "source": "orgo-koali-web",
+      "target": "orgo-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Orgo Worlds : Web -> API",
+      "source": "orgo-worlds-web",
+      "target": "orgo-worlds-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Audit kOA -> HomePage",
+      "source": "initkoa-web",
+      "target": "initkoa-web",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "NON_TESTABLE",
+      "e2e_proven": false,
+      "detail": "Source indépendante non enregistrée dans C0 ; audit kOA non démontré"
+    }
+  ],
+  "repositories": {
+    "ekole": {
+      "path": "Ekole/ekole",
+      "present": true
+    },
+    "initkoa": {
+      "path": "HomePage/HomePage",
+      "present": true
+    },
+    "koali": {
+      "path": "kOA-Linux/koali-spaces",
+      "present": true
+    },
+    "konnaxion": {
+      "path": "Konnaxion/Konnaxion",
+      "present": true
+    },
+    "orgo": {
+      "path": "Orgo/Orgo",
+      "present": true
+    },
+    "skope": {
+      "path": "Skope/Skope",
+      "present": true
+    }
+  },
+  "health": [
+    {
+      "id": "orgo-web",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "orgo-api",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/health/ready",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "orgo-worlds-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-worlds-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-pglite",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "initkoa-web",
+      "status": "INDISPONIBLE",
+      "detail": "Port local fermé",
+      "path": "/"
+    },
+    {
+      "id": "konnaxion-web",
+      "status": "INDISPONIBLE",
+      "detail": "Port local fermé",
+      "path": "/"
+    },
+    {
+      "id": "konnaxion-api",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/health/ready/",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "konnaxion-capsule-agent-local",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-capsule-manager-local",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-koali-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-koali-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "skope-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-quebec-learner",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-quebec-teacher",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-opsconsole",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-pastorale-learner",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-pastorale-teacher",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "koali-spaces-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    }
+  ],
+  "campaign": {
+    "verdict": "PARTIAL",
+    "run_id": "20261125T003543Z-4c209678",
+    "report_path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T003543Z-4c209678\\summary.json",
+    "exit_code": 21,
+    "triage": {
+      "schema": "koa.diag.levelup.triage.v1",
+      "run_id": "20261125T003543Z-4c209678",
+      "verdict_source": "PARTIAL",
+      "niveaux": [
+        {
+          "id": "N00",
+          "nom": "Intégrité des références et sécurité",
+          "verdict": "WARN",
+          "constats": [
+            {
+              "id": "references.repositories.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "repositories.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "references.graph-registry.v1.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "graph-registry.v1.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "references.graph-focus.v1.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "graph-focus.v1.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "inventory.count",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "53 dépôts dans le registre",
+              "recommandation": ""
+            },
+            {
+              "id": "inventory.audit.reference.difference",
+              "verdict": "WARN",
+              "categorie": "references",
+              "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+              "recommandation": ""
+            },
+            {
+              "id": "security.no-target-commands",
+              "verdict": "PASS",
+              "categorie": "security",
+              "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N01",
+          "nom": "Collecte de preuves inter-repos",
+          "verdict": "PARTIAL",
+          "constats": [
+            {
+              "id": "scope.documentary.review",
+              "verdict": "WARN",
+              "categorie": "scope",
+              "message": "Sources ou décisions du plan documentaire à rapprocher",
+              "recommandation": ""
+            },
+            {
+              "id": "scope.required.gaps",
+              "verdict": "PARTIAL",
+              "categorie": "scope",
+              "message": "Frontières obligatoires hors parcours ou dépôts manquants",
+              "recommandation": ""
+            },
+            {
+              "id": "collection.inventory.complete",
+              "verdict": "PASS",
+              "categorie": "inventory",
+              "message": "Collecte sur 55/55 dépôts",
+              "recommandation": ""
+            },
+            {
+              "id": "collection.intermediate.budget",
+              "verdict": "PARTIAL",
+              "categorie": "inventory",
+              "message": "Collecte bornée : 55 dépôt(s) entamé(s), 0 différé(s), 9 parcours incomplet(s).",
+              "recommandation": "Lire les sources observées et les limites dans scan-gaps.json."
+            },
+            {
+              "id": "collection.scan.truncated",
+              "verdict": "PARTIAL",
+              "categorie": "inventory",
+              "message": "Scan limité dans 27 dépôt(s) : 10350 fichiers éligibles non sélectionnés",
+              "recommandation": "Consulter scan-gaps.json, puis ajuster précisément la portée avant d’augmenter le plafond."
+            },
+            {
+              "id": "collection.files.unreadable",
+              "verdict": "PARTIAL",
+              "categorie": "inventory",
+              "message": "Collecte incomplète : 159 fichiers trop volumineux, 0 illisibles",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N03",
+          "nom": "Contrats IK et dérive de schémas",
+          "verdict": "PARTIAL",
+          "constats": [
+            {
+              "id": "contracts.schema.review.1",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Interaction-Kernel — locks/kristal-v6.0.0-upstream/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.2",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Konnaxion — _BUG_HARVEST_REVIEW/LevelUpDiag/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.3",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "EncyKlopedia — ecosystem/LevelUpDiag_EncyK/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.4",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Konstellation — contracts/upstream/kristal-state-v6.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.5",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Authoring-Kit — schemas/github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.6",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Framework — profiles/github/schemas/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.7",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Framework — schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.8",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — koa_upgrade_runs/runs/run-20261120T012750607983Z/staging/Kristal-kOA-Ecosystem/knowledge-base/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.9",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — tools/KristalDiag/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.10",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — tools/KristalDiag/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.11",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.12",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.13",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.14",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "KristalDiag — contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.15",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "KristalDiag — contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.16",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "KristalDiag — kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.17",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "KristalDiag — kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.18",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "KristalDiag — kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.19",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "LevelUpDiag-kOA-Linux — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.20",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "LevelUpDiag-Orgo — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.21",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "LevelUpDiag-Orgo — tools/tandem_tour7/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.22",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "LevelUpDiag-Orgo — tools/tandem_tour7_v2/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.23",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "LevelUpDiag_SemantiK-Architect — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "contracts.schema.review.24",
+              "verdict": "WARN",
+              "categorie": "schema",
+              "message": "MediKristal-LevelUpDiag- — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+              "recommandation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+            },
+            {
+              "id": "evidence.upstream.partial",
+              "verdict": "PARTIAL",
+              "categorie": "coverage",
+              "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N08",
+          "nom": "Obligations de frontière",
+          "verdict": "PARTIAL",
+          "constats": [
+            {
+              "id": "obligations.none",
+              "verdict": "SKIP",
+              "categorie": "obligation",
+              "message": "Aucune obligation de frontière configurée : contrôle non applicable",
+              "recommandation": ""
+            },
+            {
+              "id": "evidence.upstream.partial",
+              "verdict": "PARTIAL",
+              "categorie": "coverage",
+              "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N09",
+          "nom": "Traces, enveloppes et reçus IK",
+          "verdict": "PARTIAL",
+          "constats": [
+            {
+              "id": "traces.no-correlation",
+              "verdict": "PARTIAL",
+              "categorie": "evidence",
+              "message": "Aucune paire émission / réception corrélée dans les exports configurés",
+              "recommandation": "Configurer les exports des outils dédiés, sans lancer leurs tests depuis ce diagnostic."
+            },
+            {
+              "id": "evidence.upstream.partial",
+              "verdict": "PARTIAL",
+              "categorie": "coverage",
+              "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        }
+      ],
+      "causes": [
+        {
+          "id": "COLLECTE_INCOMPLETE",
+          "priorite": "P1",
+          "titre": "Collecte partielle",
+          "detail": "159 fichiers trop volumineux et 0 illisibles. Aucune analyse complète de ces fichiers.",
+          "action": "Examiner les fichiers/dossiers listés dans N01 et adapter les limites ou sources ciblées, sans les déclarer PASS.",
+          "niveaux": [
+            "N01"
+          ],
+          "resolu": false
+        },
+        {
+          "id": "FRONTIERES_NON_PROUVEES",
+          "priorite": "P1",
+          "titre": "Frontières obligatoires non démontrées",
+          "detail": "4 frontières obligatoires sans preuve E2E qualifiée.",
+          "action": "Collecter des événements émis, reçus et réponses corrélés, valider contrats et révisions dans les deux modes.",
+          "niveaux": [
+            "N01",
+            "N09",
+            "N12",
+            "N13"
+          ],
+          "resolu": false
+        },
+        {
+          "id": "PREUVES_TRACES_ABSENTES",
+          "priorite": "P1",
+          "titre": "Traces IK non corroborées",
+          "detail": "0 paire corrélée, 0 reçu IK. Aucune source déclarée dans les deux configurations.",
+          "action": "Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.",
+          "niveaux": [
+            "N09",
+            "N11",
+            "N12"
+          ],
+          "resolu": false
+        },
+        {
+          "id": "PARCOURS_NON_PROUVES",
+          "priorite": "P1",
+          "titre": "Parcours métier incomplets",
+          "detail": "1 parcours déclaré(s) ne possède(nt) pas une chaîne de preuves complète.",
+          "action": "Associer les observations aux sauts du parcours, avec corrélation, timestamps, réponse et révisions.",
+          "niveaux": [
+            "N12",
+            "N13"
+          ],
+          "resolu": false
+        },
+        {
+          "id": "QUALIFICATION_A_COMPLETER",
+          "priorite": "P2",
+          "titre": "Frontières à qualifier",
+          "detail": "17 frontières nouvelles ou non revues.",
+          "action": "Soumettre au registre des frontières pour décision humaine. Ne jamais les approuver automatiquement.",
+          "niveaux": [
+            "N01",
+            "N13"
+          ],
+          "resolu": false
+        },
+        {
+          "id": "INVENTAIRES_DIVERGENTS",
+          "priorite": "P2",
+          "titre": "Inventaires documentaires divergents",
+          "detail": "Diagnostic 53, référence Audit 49.",
+          "action": "Comparer les inventaires datés et mettre à jour la source de référence après révision.",
+          "niveaux": [
+            "N00"
+          ],
+          "resolu": false
+        }
+      ],
+      "sources_configurees": {
+        "exchange_trace_files": 0,
+        "ik.trace_files": 0
+      },
+      "requis_pass": 0,
+      "requis_total": 0,
+      "collecte": {
+        "depots_presents": 55,
+        "depots_declares": 55,
+        "fichiers_surdimensionnes": 159,
+        "fichiers_illisibles": 0
+      },
+      "limites": "Interprétation passive ; ces constats ne constituent ni un test E2E ni une réparation automatique."
+    },
+    "recovery": {
+      "schema": "koa.diag.campaign-recovery.v1",
+      "items": [
+        {
+          "id": "SCAN_0",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Arketype",
+          "count": 22,
+          "locations": [
+            "modeles",
+            "outils",
+            "[identifiant masqué]"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_1",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Daat",
+          "count": 1,
+          "locations": [
+            "src"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_2",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Ekole-Atelier-Images",
+          "count": 1,
+          "locations": [
+            "[identifiant masqué]"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_3",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Ekole-Pastorale",
+          "count": 35,
+          "locations": [
+            "kristals",
+            "extension-arketype",
+            "kristals-temoins"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_4",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Ekole-Quebec",
+          "count": 3,
+          "locations": [
+            "catalogue",
+            "kristals"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_5",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "EncyKlopedia",
+          "count": 19,
+          "locations": [
+            "ecosystem",
+            "_SAUVEGARDES_PROFONDEUR_KRISTAL"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_6",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Karacter",
+          "count": 4,
+          "locations": [
+            "src",
+            "data"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_7",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Koali-Scenario-Mosaic",
+          "count": 1,
+          "locations": [
+            "[identifiant masqué]"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_8",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konfid",
+          "count": 1,
+          "locations": [
+            "[identifiant masqué]"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_9",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konnaxion",
+          "count": 1,
+          "locations": [
+            "backend"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_10",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konnaxion-Capsule-Manager",
+          "count": 3,
+          "locations": [
+            "kx_agent",
+            "kx_builder"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_11",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konnaxion-Worlds",
+          "count": 4,
+          "locations": [
+            "legacy-world-packs"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_12",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konstellation",
+          "count": 5,
+          "locations": [
+            "data",
+            "src"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_13",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Konstellation-Light",
+          "count": 1,
+          "locations": [
+            "light"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_14",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Kontexte",
+          "count": 3,
+          "locations": [
+            "data"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_15",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Kristal-Authoring-Kit",
+          "count": 1,
+          "locations": [
+            "tools"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_16",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "kristal-public",
+          "count": 13,
+          "locations": [
+            "kristals"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_17",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "LevelUpDiag-Orgo",
+          "count": 19,
+          "locations": [
+            "browser"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_18",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "MediKristal",
+          "count": 5,
+          "locations": [
+            "backend",
+            "contracts"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_19",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Orgo-Worlds",
+          "count": 5,
+          "locations": [
+            "fakeplant",
+            "[identifiant masqué]"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_20",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "SenTient",
+          "count": 4,
+          "locations": [
+            "webapp",
+            "opentapioca"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_21",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Skope",
+          "count": 1,
+          "locations": [
+            "encyk"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_22",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "Spek",
+          "count": 6,
+          "locations": [
+            "dist-bridge",
+            "dist-education"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "SCAN_23",
+          "category": "collecte",
+          "priority": "P2",
+          "owner": "UCKK-Assets",
+          "count": 1,
+          "locations": [
+            "Auto_Format"
+          ],
+          "action": "Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites."
+        },
+        {
+          "id": "DOC_24",
+          "category": "documentation",
+          "priority": "P2",
+          "owner": "Docs",
+          "file": "docs/2-Technical-Reference/40-integration/skope-ekole/index.md",
+          "action": "Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+        },
+        {
+          "id": "DOC_25",
+          "category": "documentation",
+          "priority": "P2",
+          "owner": "Docs",
+          "file": "docs/status/current.md",
+          "action": "Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+        },
+        {
+          "id": "INVENTORY_DIFF",
+          "category": "inventaire",
+          "priority": "P2",
+          "owner": "C0 / Audit",
+          "diag_only": [
+            "Rejean-McCormick/Karacter",
+            "Rejean-McCormick/Kolor",
+            "Rejean-McCormick/Kristalizer",
+            "Rejean-McCormick/diK"
+          ],
+          "audit_only": [],
+          "action": "Rapprocher les instantanés datés; ne pas déclarer à jour un inventaire historique."
+        },
+        {
+          "id": "TRACE_SOURCES_MISSING",
+          "category": "preuves_e2e",
+          "priority": "P1",
+          "owner": "Orgo / Konnaxion",
+          "action": "Produire des exports de preuve assainis depuis les dépôts propriétaires, puis déclarer les fichiers et empreintes dans la configuration locale de kOADiag. Aucun log brut ni jeton."
+        }
+      ],
+      "counts": {
+        "collecte": 24,
+        "documentation": 2,
+        "inventaire": 1,
+        "preuves_e2e": 1
+      },
+      "warning": "Plan de remédiation dérivé des preuves : aucun fichier source, verdict ou empreinte modifié."
+    }
+  },
+  "application_test_suites": [
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "check:architecture",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test:integration",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test:pglite",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "validate:local",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "initkoa",
+      "location": "HomePage/HomePage",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "lint:fix",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test-storybook",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test:ct",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/backend",
+      "kind": "manifest",
+      "entry": "pyproject.toml",
+      "status": "PRESENT_NON_EXECUTE"
+    },
+    {
+      "owner": "skope",
+      "location": "Skope/Skope",
+      "kind": "manifest",
+      "entry": "pyproject.toml",
+      "status": "PRESENT_NON_EXECUTE"
+    },
+    {
+      "owner": "ekole",
+      "location": "Ekole/ekole",
+      "kind": "none",
+      "entry": "",
+      "status": "AUCUN_TEST_REFERENCE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "check:dependency-lock",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "check:local-assets",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test:runtime",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test:watch",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:appearance",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:contracts",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:runtime-package",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:surface-spec",
+      "status": "DECOUVERT_NON_EXECUTE"
+    }
+  ],
+  "ik_e2e": {
+    "status": "NON_EXECUTE",
+    "detail": "Exécution séparée, sécurisée et confirmée par utilisateur."
+  },
+  "port_registry_sha256": "b343fe72df0afd3fde3985d97181f69b4c68e23ab8a77c4c98a75c183c85704f",
+  "developer_evidence": {
+    "schema": "koa.diag.developer-evidence.v1",
+    "run_id": "20261125T003543Z-4c209678",
+    "verdict": "PARTIAL",
+    "limites": {
+      "campaign_seconds": 105,
+      "files_per_repo": 120,
+      "bytes_per_file": 80000,
+      "entries_per_repo": 2500,
+      "seconds_per_repo": 2,
+      "surface_seconds": 22,
+      "ik_reference_seconds": 6
+    },
+    "niveaux": [
+      {
+        "id": "N00",
+        "nom": "Intégrité des références et sécurité",
+        "verdict": "WARN",
+        "source": "levels/N00/result.json",
+        "sha256": "152291ec0a2c6b9d866f1729e7715e471e7be2457dc66dfc64891d070f26aa84",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "references.repositories.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "repositories.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "references.graph-registry.v1.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "graph-registry.v1.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "references.graph-focus.v1.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "graph-focus.v1.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "inventory.count",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "53 dépôts dans le registre",
+            "recommendation": ""
+          },
+          {
+            "id": "inventory.audit.reference.difference",
+            "verdict": "WARN",
+            "category": "references",
+            "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+            "recommendation": ""
+          },
+          {
+            "id": "security.no-target-commands",
+            "verdict": "PASS",
+            "category": "security",
+            "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N01",
+        "nom": "Collecte de preuves inter-repos",
+        "verdict": "PARTIAL",
+        "source": "levels/N01/result.json",
+        "sha256": "e41fbb385be189c43e9c6364e6d8fc6afebd85475f2351e99affddc14ad1bc8e",
+        "artefacts": [
+          "documentary-scope.json",
+          "boundary-qualification.json",
+          "registry-snapshot.json",
+          "levels/N01/snapshot.json",
+          "exports/relations.csv",
+          "exports/appels-api.csv",
+          "exports/routes-api.csv",
+          "exports/frontieres-api.csv",
+          "exports/evenements.csv",
+          "exports/dependances.csv",
+          "exports/ci-workflows.csv",
+          "exports/echanges.csv",
+          "exports/profils-ik.csv",
+          "exports/schemas.csv",
+          "exports/parcours-e2e.csv"
+        ],
+        "constats": [
+          {
+            "id": "scope.documentary.review",
+            "verdict": "WARN",
+            "category": "scope",
+            "message": "Sources ou décisions du plan documentaire à rapprocher",
+            "recommendation": ""
+          },
+          {
+            "id": "scope.required.gaps",
+            "verdict": "PARTIAL",
+            "category": "scope",
+            "message": "Frontières obligatoires hors parcours ou dépôts manquants",
+            "recommendation": ""
+          },
+          {
+            "id": "collection.inventory.complete",
+            "verdict": "PASS",
+            "category": "inventory",
+            "message": "Collecte sur 55/55 dépôts",
+            "recommendation": ""
+          },
+          {
+            "id": "collection.intermediate.budget",
+            "verdict": "PARTIAL",
+            "category": "inventory",
+            "message": "Collecte bornée : 55 dépôt(s) entamé(s), 0 différé(s), 9 parcours incomplet(s).",
+            "recommendation": "Lire les sources observées et les limites dans scan-gaps.json."
+          },
+          {
+            "id": "collection.scan.truncated",
+            "verdict": "PARTIAL",
+            "category": "inventory",
+            "message": "Scan limité dans 27 dépôt(s) : 10350 fichiers éligibles non sélectionnés",
+            "recommendation": "Consulter scan-gaps.json, puis ajuster précisément la portée avant d’augmenter le plafond."
+          },
+          {
+            "id": "collection.files.unreadable",
+            "verdict": "PARTIAL",
+            "category": "inventory",
+            "message": "Collecte incomplète : 159 fichiers trop volumineux, 0 illisibles",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N03",
+        "nom": "Contrats IK et dérive de schémas",
+        "verdict": "PARTIAL",
+        "source": "levels/N03/result.json",
+        "sha256": "995f6d1cf8ed091a27b3aa553b7122c713945f89270068f6074e6be8e79b3665",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "contracts.schema.review.1",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Interaction-Kernel — locks/kristal-v6.0.0-upstream/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.2",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Konnaxion — _BUG_HARVEST_REVIEW/LevelUpDiag/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.3",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "EncyKlopedia — ecosystem/LevelUpDiag_EncyK/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.4",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Konstellation — contracts/upstream/kristal-state-v6.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.5",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Authoring-Kit — schemas/github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.6",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Framework — profiles/github/schemas/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.7",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Framework — schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.8",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — koa_upgrade_runs/runs/run-20261120T012750607983Z/staging/Kristal-kOA-Ecosystem/knowledge-base/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.9",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — tools/KristalDiag/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.10",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — tools/KristalDiag/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.11",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.12",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.13",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.14",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "KristalDiag — contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.15",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "KristalDiag — contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.16",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "KristalDiag — kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.17",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "KristalDiag — kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.18",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "KristalDiag — kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.19",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "LevelUpDiag-kOA-Linux — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.20",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "LevelUpDiag-Orgo — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.21",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "LevelUpDiag-Orgo — tools/tandem_tour7/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.22",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "LevelUpDiag-Orgo — tools/tandem_tour7_v2/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.23",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "LevelUpDiag_SemantiK-Architect — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "contracts.schema.review.24",
+            "verdict": "WARN",
+            "category": "schema",
+            "message": "MediKristal-LevelUpDiag- — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+            "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+          },
+          {
+            "id": "evidence.upstream.partial",
+            "verdict": "PARTIAL",
+            "category": "coverage",
+            "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N08",
+        "nom": "Obligations de frontière",
+        "verdict": "PARTIAL",
+        "source": "levels/N08/result.json",
+        "sha256": "2ee2bbfc5b8a29fc8b9acd046765e3b9056eb74719409820d16ccad2cb1dc098",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "obligations.none",
+            "verdict": "SKIP",
+            "category": "obligation",
+            "message": "Aucune obligation de frontière configurée : contrôle non applicable",
+            "recommendation": ""
+          },
+          {
+            "id": "evidence.upstream.partial",
+            "verdict": "PARTIAL",
+            "category": "coverage",
+            "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N09",
+        "nom": "Traces, enveloppes et reçus IK",
+        "verdict": "PARTIAL",
+        "source": "levels/N09/result.json",
+        "sha256": "12713c38ed92390bb0b1541c34f25a3511aeb21f9f0489719e3287f21ed296aa",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "traces.no-correlation",
+            "verdict": "PARTIAL",
+            "category": "evidence",
+            "message": "Aucune paire émission / réception corrélée dans les exports configurés",
+            "recommendation": "Configurer les exports des outils dédiés, sans lancer leurs tests depuis ce diagnostic."
+          },
+          {
+            "id": "evidence.upstream.partial",
+            "verdict": "PARTIAL",
+            "category": "coverage",
+            "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      }
+    ],
+    "exports_locaux": [
+      "validation.json",
+      "applications.csv",
+      "connexions.csv"
+    ],
+    "portee": "Constats passifs et traces existantes, aucune transaction E2E exécutée.",
+    "dossier_source": "runs/20261125T003543Z-4c209678",
+    "journal": [
+      {
+        "at_utc": "2026-11-25T00:35:40.876057+00:00",
+        "event": "Vérification des ports C0 et des identités locales…"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.161648+00:00",
+        "event": "Sondes de santé locales en lecture seule…"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.256157+00:00",
+        "event": "Campagne LevelUpDiag intermédiaire · preuves développeur…"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.473111+00:00",
+        "event": "RUN_ROOT"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.473265+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N00|Intégrité des références et sécurité"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.975484+00:00",
+        "event": "LevelUpDiag : LEVEL=N00|WARN|Intégrité des références et sécurité"
+      },
+      {
+        "at_utc": "2026-11-25T00:35:43.975643+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N01|Collecte de preuves inter-repos"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:08.929611+00:00",
+        "event": "LevelUpDiag : LEVEL=N01|PARTIAL|Collecte de preuves inter-repos"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:08.929767+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N03|Contrats IK et dérive de schémas"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:08.929841+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N08|Obligations de frontière"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:08.929921+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N09|Traces, enveloppes et reçus IK"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.331893+00:00",
+        "event": "LevelUpDiag : LEVEL=N03|PARTIAL|Contrats IK et dérive de schémas"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.332057+00:00",
+        "event": "LevelUpDiag : LEVEL=N08|PARTIAL|Obligations de frontière"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.332135+00:00",
+        "event": "LevelUpDiag : LEVEL=N09|PARTIAL|Traces, enveloppes et reçus IK"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.432323+00:00",
+        "event": "LevelUpDiag : VERDICT=PARTIAL"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.432453+00:00",
+        "event": "SUMMARY"
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.463630+00:00",
+        "event": "Index des preuves développeur terminé."
+      },
+      {
+        "at_utc": "2026-11-25T00:36:09.463750+00:00",
+        "event": "Inventaire des suites applicatives déclarées…"
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.7.0",
+  "run_id": "20261125T004130Z-3c91e39f",
+  "level_id": "N01",
+  "level_name": "Collecte de preuves inter-repos",
+  "purpose": "Capturer les surfaces inter-dépôts sans exécuter les applications",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-25T00:41:30+00:00",
+  "ended_at": "2026-11-25T00:42:55+00:00",
+  "verdict": "PARTIAL",
+  "required": true,
+  "findings": [
+    {
+      "id": "scope.documentary.review",
+      "verdict": "WARN",
+      "category": "scope",
+      "message": "Sources ou décisions du plan documentaire à rapprocher"
+    },
+    {
+      "id": "scope.required.gaps",
+      "verdict": "PARTIAL",
+      "category": "scope",
+      "message": "Frontières obligatoires hors parcours ou dépôts manquants",
+      "evidence": {
+        "registered": 66,
+        "required": 4,
+        "required_in_journey": 2,
+        "required_without_journey": 2,
+        "required_declared_unproven": 2,
+        "required_proven": 0,
+        "required_unproven": 4,
+        "required_missing_repos": 0,
+        "required_not_mapped": 0,
+        "required_autonomous_proven": 0,
+        "required_integrated_proven": 0,
+        "documentary_aligned": false,
+        "required_scope_complete": false,
+        "review_pending": 49,
+        "attested_not_e2e": 0,
+        "global_certified": false
+      }
+    },
+    {
+      "id": "collection.inventory.complete",
+      "verdict": "PASS",
+      "category": "inventory",
+      "message": "Collecte sur 55/55 dépôts"
+    },
+    {
+      "id": "collection.scan.truncated",
+      "verdict": "PARTIAL",
+      "category": "inventory",
+      "message": "Scan limité dans 2 dépôt(s) : 0 fichiers éligibles non sélectionnés",
+      "recommendation": "Consulter scan-gaps.json, puis ajuster précisément la portée avant d’augmenter le plafond."
+    },
+    {
+      "id": "collection.files.unreadable",
+      "verdict": "PARTIAL",
+      "category": "inventory",
+      "message": "Collecte incomplète : 290 fichiers trop volumineux, 0 illisibles"
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "documentary-scope",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\documentary-scope.json",
+      "description": "Sources /docs et périmètre obligatoire"
+    },
+    {
+      "kind": "boundary-evidence",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\boundary-qualification.json",
+      "description": "Qualification observée séparée de la décision humaine"
+    },
+    {
+      "kind": "registry",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\registry-snapshot.json",
+      "description": "Décisions humaines conservées indépendamment des observations"
+    },
+    {
+      "kind": "snapshot",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\levels\\N01\\snapshot.json",
+      "description": "Preuves et relations extraites en lecture seule"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\relations.csv",
+      "description": "Vue relations des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\appels-api.csv",
+      "description": "Vue appels-api des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\routes-api.csv",
+      "description": "Vue routes-api des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\frontieres-api.csv",
+      "description": "Vue frontieres-api des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\evenements.csv",
+      "description": "Vue evenements des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\dependances.csv",
+      "description": "Vue dependances des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\ci-workflows.csv",
+      "description": "Vue ci-workflows des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\echanges.csv",
+      "description": "Vue echanges des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\profils-ik.csv",
+      "description": "Vue profils-ik des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\schemas.csv",
+      "description": "Vue schemas des frontières inter-repos"
+    },
+    {
+      "kind": "csv",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T004130Z-3c91e39f\\exports\\parcours-e2e.csv",
+      "description": "Vue parcours-e2e des frontières inter-repos"
+    }
+  ],
+  "metrics": {
+    "registry_new": 5,
+    "registry_unreviewed": 25,
+    "inventory_repos": 55,
+    "present_repos": 55,
+    "source_repos_sampled": 55,
+    "source_repos_deferred": 0,
+    "source_repo_traversals_limited": 0,
+    "relations": 66,
+    "api_static_calls": 5,
+    "api_route_matches": 0,
+    "api_inbound_routes": 462,
+    "expected_api_links": 0,
+    "expected_api_links_matched": 0,
+    "api_live_ok": 0,
+    "api_live_probes": 1,
+    "events": 54,
+    "cross_repo_events": 0,
+    "declared_dependencies": 0,
+    "workflow_cross_repo": 0,
+    "imports_cross_repo": 271,
+    "env_boundary_hints": 19,
+    "boundary_expectations": 0,
+    "boundary_expectations_missing": 0,
+    "dependency_versions_to_review": 0,
+    "schemas": 538,
+    "schema_issues": 25,
+    "active_ik_profiles": 11,
+    "ik_contract_issues": 0,
+    "exchanges_correlated": 0,
+    "ik_receipts_success": 0,
+    "repositories_scan_truncated": 2,
+    "source_files_eligible": 21850,
+    "source_files_scanned": 21560,
+    "source_files_unselected": 0,
+    "source_files_oversized": 290,
+    "source_files_unreadable": 0,
+    "source_repositories_empty": 0,
+    "journeys_configured": 1,
+    "journeys_evidence_complete": 0,
+    "fully_certified_e2e": 0,
+    "upstream_quality": {
+      "N00": "WARN"
+    },
+    "worker_duration_seconds": 84.63
+  }
+}

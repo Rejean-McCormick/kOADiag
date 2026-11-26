@@ -207,6 +207,10 @@
     }
   ],
   "campaigns": {
+    "validation-intermediaire": {
+      "description": "Collecte bornée et preuves développeur : inventaire, contrats IK, frontières et traces déjà disponibles.",
+      "levels": ["N00", "N01", "N03", "N08", "N09"]
+    },
     "validation-integrale": {
       "description": "Tous les niveaux, toutes les frontières, les deux modes. Poursuite après échec.",
       "levels": [

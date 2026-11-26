@@ -1,0 +1,18 @@
+{"at_utc": "2026-11-25T00:35:40.876057+00:00", "event": "Vérification des ports C0 et des identités locales…"}
+{"at_utc": "2026-11-25T00:35:43.161648+00:00", "event": "Sondes de santé locales en lecture seule…"}
+{"at_utc": "2026-11-25T00:35:43.256157+00:00", "event": "Campagne LevelUpDiag intermédiaire · preuves développeur…"}
+{"at_utc": "2026-11-25T00:35:43.473111+00:00", "event": "RUN_ROOT"}
+{"at_utc": "2026-11-25T00:35:43.473265+00:00", "event": "LevelUpDiag : LEVEL_START=N00|Intégrité des références et sécurité"}
+{"at_utc": "2026-11-25T00:35:43.975484+00:00", "event": "LevelUpDiag : LEVEL=N00|WARN|Intégrité des références et sécurité"}
+{"at_utc": "2026-11-25T00:35:43.975643+00:00", "event": "LevelUpDiag : LEVEL_START=N01|Collecte de preuves inter-repos"}
+{"at_utc": "2026-11-25T00:36:08.929611+00:00", "event": "LevelUpDiag : LEVEL=N01|PARTIAL|Collecte de preuves inter-repos"}
+{"at_utc": "2026-11-25T00:36:08.929767+00:00", "event": "LevelUpDiag : LEVEL_START=N03|Contrats IK et dérive de schémas"}
+{"at_utc": "2026-11-25T00:36:08.929841+00:00", "event": "LevelUpDiag : LEVEL_START=N08|Obligations de frontière"}
+{"at_utc": "2026-11-25T00:36:08.929921+00:00", "event": "LevelUpDiag : LEVEL_START=N09|Traces, enveloppes et reçus IK"}
+{"at_utc": "2026-11-25T00:36:09.331893+00:00", "event": "LevelUpDiag : LEVEL=N03|PARTIAL|Contrats IK et dérive de schémas"}
+{"at_utc": "2026-11-25T00:36:09.332057+00:00", "event": "LevelUpDiag : LEVEL=N08|PARTIAL|Obligations de frontière"}
+{"at_utc": "2026-11-25T00:36:09.332135+00:00", "event": "LevelUpDiag : LEVEL=N09|PARTIAL|Traces, enveloppes et reçus IK"}
+{"at_utc": "2026-11-25T00:36:09.432323+00:00", "event": "LevelUpDiag : VERDICT=PARTIAL"}
+{"at_utc": "2026-11-25T00:36:09.432453+00:00", "event": "SUMMARY"}
+{"at_utc": "2026-11-25T00:36:09.463630+00:00", "event": "Index des preuves développeur terminé."}
+{"at_utc": "2026-11-25T00:36:09.463750+00:00", "event": "Inventaire des suites applicatives déclarées…"}

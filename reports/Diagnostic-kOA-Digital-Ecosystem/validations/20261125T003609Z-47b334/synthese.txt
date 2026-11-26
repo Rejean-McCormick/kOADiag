@@ -1,0 +1,26 @@
+kOADiag — Validation intermediaire
+Verdict : PARTIEL
+Essentiels : 3/5
+Services C0 : 3/21
+Connexions : 2/6 (extrémités seulement)
+Tests métier E2E : 0 (nécessitent confirmation distincte)
+Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé.
+Dossier développeur : preuves-index.json · preuves-constats.csv · preuves-journal.jsonl
+Suites propriétaires référencées : 28 (non exécutées).
+
+DOMAINES DISTINCTS :
+ - services_essentiels: PARTIAL
+ - sante_http: PARTIAL
+ - connexions: PARTIAL
+ - preuves_levelup: PARTIAL
+ - interaction_kernel_e2e: NON_EXECUTE
+Plan de remédiation : 28 pistes (sans changement automatique).
+
+LEVELUP : 0/0 contrôles obligatoires PASS
+Causes à traiter : 6 (preuves et périmètre, non pannes automatiques)
+ - P1 Collecte partielle: Examiner les fichiers/dossiers listés dans N01 et adapter les limites ou sources ciblées, sans les déclarer PASS.
+ - P1 Frontières obligatoires non démontrées: Collecter des événements émis, reçus et réponses corrélés, valider contrats et révisions dans les deux modes.
+ - P1 Traces IK non corroborées: Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.
+ - P1 Parcours métier incomplets: Associer les observations aux sauts du parcours, avec corrélation, timestamps, réponse et révisions.
+ - P2 Frontières à qualifier: Soumettre au registre des frontières pour décision humaine. Ne jamais les approuver automatiquement.
+ - P2 Inventaires documentaires divergents: Comparer les inventaires datés et mettre à jour la source de référence après révision.

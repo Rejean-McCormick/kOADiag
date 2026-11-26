@@ -1,0 +1,90 @@
+{
+  "schema": "koa.scan-gaps/v1",
+  "repos": [
+    {
+      "repo": "diK",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 11,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "reports",
+          "files": 11
+        }
+      ]
+    },
+    {
+      "repo": "Ekole-Atelier-Images",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 5,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "donnees",
+          "files": 5
+        }
+      ]
+    },
+    {
+      "repo": "Ekole-Quebec",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "personnages",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "EncyKlopedia",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 2,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "ecosystem",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "Kristal-Manager",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 2,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "koa_upgrade_runs",
+          "files": 2
+        }
+      ]
+    }
+  ]
+}

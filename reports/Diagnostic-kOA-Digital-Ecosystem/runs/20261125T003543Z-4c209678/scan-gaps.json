@@ -1,0 +1,2491 @@
+{
+  "schema": "koa.scan-gaps/v1",
+  "repos": [
+    {
+      "repo": "Arketype",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 180,
+      "oversized_files": 22,
+      "top_unselected_directories": [
+        {
+          "directory": "modeles",
+          "files": 167
+        },
+        {
+          "directory": "outils",
+          "files": 11
+        },
+        {
+          "directory": "[root]",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "modeles",
+          "files": 19
+        },
+        {
+          "directory": "outils",
+          "files": 2
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Daat",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "src",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "diK",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 194,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "reports",
+          "files": 172
+        },
+        {
+          "directory": "src",
+          "files": 11
+        },
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "tools",
+          "files": 3
+        },
+        {
+          "directory": "spec",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Ekole",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-education-physique/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-messagers-en-mouvement-francais/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-mathematiques/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_6/situations/trame-transport-commande-univers-social/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/FICHE_PEDAGOGIQUE.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-arts/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/FICHE_PEDAGOGIQUE.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-affiche-service-francais/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/FICHE_PEDAGOGIQUE.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-arts/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/brouillon.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/design.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/FICHE_PEDAGOGIQUE.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/handoff.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/plan-01.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/plan-08.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "banques/prf22/candidats-v0_7/situations/trame-chapeau-de-papier-mathematiques/plan-30.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "prf22_bridge.py",
+          "reason": "LIMITE_SCAN"
+        }
+      ],
+      "boundary_scan_gap_count": 53,
+      "unreadable_files": 0,
+      "unselected_files": 1991,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "banques",
+          "files": 1975
+        },
+        {
+          "directory": "[root]",
+          "files": 16
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Ekole-Atelier-Images",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Ekole-Pastorale",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 653,
+      "oversized_files": 35,
+      "top_unselected_directories": [
+        {
+          "directory": "kristals",
+          "files": 576
+        },
+        {
+          "directory": "publications",
+          "files": 32
+        },
+        {
+          "directory": "extension-arketype",
+          "files": 25
+        },
+        {
+          "directory": "kristals-temoins",
+          "files": 17
+        },
+        {
+          "directory": "[root]",
+          "files": 2
+        },
+        {
+          "directory": "federation",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "kristals",
+          "files": 32
+        },
+        {
+          "directory": "extension-arketype",
+          "files": 2
+        },
+        {
+          "directory": "kristals-temoins",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Ekole-Quebec",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 555,
+      "oversized_files": 3,
+      "top_unselected_directories": [
+        {
+          "directory": "kristals",
+          "files": 341
+        },
+        {
+          "directory": "cours",
+          "files": 202
+        },
+        {
+          "directory": "cours-references",
+          "files": 8
+        },
+        {
+          "directory": "data",
+          "files": 3
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "catalogue",
+          "files": 2
+        },
+        {
+          "directory": "kristals",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "EncyKlopedia",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 911,
+      "oversized_files": 19,
+      "top_unselected_directories": [
+        {
+          "directory": "ecosystem",
+          "files": 873
+        },
+        {
+          "directory": "[root]",
+          "files": 31
+        },
+        {
+          "directory": "archive",
+          "files": 3
+        },
+        {
+          "directory": "OVERLAY_CONTEXTE_UNESCO_V28",
+          "files": 2
+        },
+        {
+          "directory": "_SAUVEGARDES_PROFONDEUR_KRISTAL",
+          "files": 1
+        },
+        {
+          "directory": "config",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "ecosystem",
+          "files": 18
+        },
+        {
+          "directory": "_SAUVEGARDES_PROFONDEUR_KRISTAL",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "HomePage-initkoa.org",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 111,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "app",
+          "files": 32
+        },
+        {
+          "directory": "lib",
+          "files": 19
+        },
+        {
+          "directory": "scripts",
+          "files": 16
+        },
+        {
+          "directory": "components",
+          "files": 14
+        },
+        {
+          "directory": "[root]",
+          "files": 14
+        },
+        {
+          "directory": "public",
+          "files": 11
+        },
+        {
+          "directory": "tools",
+          "files": 2
+        },
+        {
+          "directory": "content",
+          "files": 1
+        },
+        {
+          "directory": "data",
+          "files": 1
+        },
+        {
+          "directory": "initkoa-delivery-test",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Karacter",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 4,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "src",
+          "files": 2
+        },
+        {
+          "directory": "data",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "kOA-Linux-Koali",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "integrations/external-services/gamma/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/external-services/gamma/policy.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/external-services/suno/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/external-services/suno/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/external-services/suno/policy.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/appearance.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/host_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/interface_assets.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/interface_theme.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/module_manifest.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/native_workspace.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/route_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/shell_state.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/space_activation.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/adapter/src/koa_spaces_adapter/unix_transport.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/appearance/accent-palette.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/community-space.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/default-space.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/global-widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/localization/koa-spaces.en.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/localization/koa-spaces.fr-CA.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/school-space.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/themes/community.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/themes/default.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/interface/themes/school.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/koa-spaces/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/notifications.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/routes.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/adapter/src/koa_konnaxion_adapter/surface_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/interface/module-interface.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/interface/sidebar.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/interface/widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/konnaxion/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/commands.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/surface_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/adapter/src/koa_orgo_adapter/tasks.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/interface/module-interface.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/interface/sidebar.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/interface/widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/orgo/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/artifact_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/compiler_jobs.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/adapter/src/koa_semantik_architect_adapter/runtime_packs.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/interface/module-interface.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/interface/sidebar.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/interface/widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/semantik-architect/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/artifact_bridge.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/candidate_artifacts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/adapter/src/koa_sentient_adapter/workbench_jobs.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/interface/module-interface.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/interface/sidebar.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/interface/widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/sentient/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/pyproject.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/__init__.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/bootstrap.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/capabilities.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/health.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/learning_import.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/mediatheque_frame.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/moodle_client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/package_verification.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/publication.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/adapter/src/koa_uckk_adapter/receipts.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/backup.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/compatibility.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/degradation.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/deployment.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/health.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/integration.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/interface/module-interface.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/interface/sidebar.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/interface/widgets.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/resource-envelope.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/source.lock.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/uckk/storage.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/capabilities/capability-snapshot.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/health/health-status.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/health/readiness.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/identity/identity-context.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/jobs/job-request.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/jobs/job-status.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/python/src/koa_interfaces/client.py",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/receipts/correlation.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/receipts/receipt-envelope.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/rust/src/client.rs",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/transport/error-envelope.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/transport/event-envelope.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/transport/http-over-unix.toml",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/transport/idempotency.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "interfaces/transport/version-negotiation.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "release/channels/service-bundle.toml",
+          "reason": "LIMITE_SCAN"
+        }
+      ],
+      "boundary_scan_gap_count": 169,
+      "unreadable_files": 0,
+      "unselected_files": 643,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "components",
+          "files": 214
+        },
+        {
+          "directory": "integrations",
+          "files": 153
+        },
+        {
+          "directory": "host",
+          "files": 59
+        },
+        {
+          "directory": "operations",
+          "files": 31
+        },
+        {
+          "directory": "packaging",
+          "files": 30
+        },
+        {
+          "directory": "profiles",
+          "files": 29
+        },
+        {
+          "directory": "assembly",
+          "files": 28
+        },
+        {
+          "directory": "tools",
+          "files": 27
+        },
+        {
+          "directory": "interfaces",
+          "files": 25
+        },
+        {
+          "directory": "release",
+          "files": 19
+        },
+        {
+          "directory": "ci",
+          "files": 16
+        },
+        {
+          "directory": "[root]",
+          "files": 8
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Koali-Scenario-Mosaic",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Koali-Spaces",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 27,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "tests-runtime",
+          "files": 10
+        },
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "interface",
+          "files": 4
+        },
+        {
+          "directory": "config",
+          "files": 2
+        },
+        {
+          "directory": "public",
+          "files": 2
+        },
+        {
+          "directory": "src",
+          "files": 1
+        },
+        {
+          "directory": "tools",
+          "files": 1
+        },
+        {
+          "directory": "launcher",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Konfid",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "openapi.json",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 1,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [
+        {
+          "path": "backend/routes.json",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 1,
+      "unreadable_files": 0,
+      "unselected_files": 914,
+      "oversized_files": 1,
+      "top_unselected_directories": [
+        {
+          "directory": "frontend",
+          "files": 438
+        },
+        {
+          "directory": "_BUG_HARVEST_SOURCE",
+          "files": 223
+        },
+        {
+          "directory": "backend",
+          "files": 222
+        },
+        {
+          "directory": "[root]",
+          "files": 17
+        },
+        {
+          "directory": "cinematic",
+          "files": 9
+        },
+        {
+          "directory": "_BUG_HARVEST_REVIEW",
+          "files": 4
+        },
+        {
+          "directory": "Structurizr",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "backend",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion-Capsule-Manager",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 136,
+      "oversized_files": 3,
+      "top_unselected_directories": [
+        {
+          "directory": "tools",
+          "files": 35
+        },
+        {
+          "directory": "kx_manager",
+          "files": 31
+        },
+        {
+          "directory": "diagnostics",
+          "files": 11
+        },
+        {
+          "directory": "kx_shared",
+          "files": 8
+        },
+        {
+          "directory": "profiles",
+          "files": 6
+        },
+        {
+          "directory": "[root]",
+          "files": 3
+        },
+        {
+          "directory": "policies",
+          "files": 3
+        },
+        {
+          "directory": "templates",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "kx_agent",
+          "files": 2
+        },
+        {
+          "directory": "kx_builder",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konnaxion-Worlds",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 197,
+      "oversized_files": 4,
+      "top_unselected_directories": [
+        {
+          "directory": "universes",
+          "files": 120
+        },
+        {
+          "directory": "legacy-world-packs",
+          "files": 75
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        },
+        {
+          "directory": "tools",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "legacy-world-packs",
+          "files": 4
+        }
+      ]
+    },
+    {
+      "repo": "Konstellation",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 8,
+      "oversized_files": 5,
+      "top_unselected_directories": [
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "lenses-enriched",
+          "files": 1
+        },
+        {
+          "directory": "test-results",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "data",
+          "files": 4
+        },
+        {
+          "directory": "src",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Konstellation-Light",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "light",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Kontexte",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 5,
+      "oversized_files": 3,
+      "top_unselected_directories": [
+        {
+          "directory": "[root]",
+          "files": 2
+        },
+        {
+          "directory": "teacher-only",
+          "files": 2
+        },
+        {
+          "directory": "tools",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "data",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "repo": "Kristal-Authoring-Kit",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "tools",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Kristal-Framework",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 108,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "tck",
+          "files": 53
+        },
+        {
+          "directory": "spec",
+          "files": 26
+        },
+        {
+          "directory": "tools",
+          "files": 25
+        },
+        {
+          "directory": "[root]",
+          "files": 3
+        },
+        {
+          "directory": "reference",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Kristal-Manager",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v7/kristall-mesh.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v7/kristall-projection-recipe.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v7/kristall-property-registry.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v7/kristall-source-registry.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v7/semantic-resonance.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-ai-context-bundle.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-lexicon-stack.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-lexicon.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-query-index.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-query-request.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-query-result.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v8/kristall-v8-capabilities.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-activation.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-derivation.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-exchange.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-logical-artifact.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-materialization-manifest.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-state-snapshot.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/contracts/v9/kristal-v9-capabilities.schema.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/resources/locks/contract-set.json",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "tools/KristalDiag/kristaldiag/schemas.py",
+          "reason": "LIMITE_SCAN"
+        }
+      ],
+      "boundary_scan_gap_count": 21,
+      "unreadable_files": 0,
+      "unselected_files": 1836,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "rapports",
+          "files": 1581
+        },
+        {
+          "directory": "tools",
+          "files": 90
+        },
+        {
+          "directory": "kristal_manager",
+          "files": 80
+        },
+        {
+          "directory": "koa_upgrade_runs",
+          "files": 66
+        },
+        {
+          "directory": "koa_upgrade",
+          "files": 7
+        },
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "data",
+          "files": 5
+        },
+        {
+          "directory": "catalogue",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "kristal-public",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 964,
+      "oversized_files": 13,
+      "top_unselected_directories": [
+        {
+          "directory": "kristals",
+          "files": 963
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "kristals",
+          "files": 13
+        }
+      ]
+    },
+    {
+      "repo": "KristalDiag",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 187,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "kristaldiag",
+          "files": 94
+        },
+        {
+          "directory": "tck",
+          "files": 47
+        },
+        {
+          "directory": "levels",
+          "files": 35
+        },
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "scripts",
+          "files": 5
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "LevelUpDiag-Orgo",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 15,
+      "oversized_files": 19,
+      "top_unselected_directories": [
+        {
+          "directory": "verification",
+          "files": 7
+        },
+        {
+          "directory": "[root]",
+          "files": 6
+        },
+        {
+          "directory": "tools",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "browser",
+          "files": 19
+        }
+      ]
+    },
+    {
+      "repo": "Mediatheque",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/form/media_relation_form.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/form/media_version_form.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/form/validation_form.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/archive_item.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/archive_policy.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/content_marker.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/content_policy.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/content_review.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/content_tag.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/content_tag_set.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/context_resolver.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/export_package.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/external_work.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/file_area_registry.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/kristal.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/kristal_artifact_catalog.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/manifest_builder.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_collection.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_file.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_library_scope.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_policy.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_relation.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_search.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_source.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_tag.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/media_version.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/metadata_validator.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/proof.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/provenance.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/public_mediatheque_repository.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/public_mediatheque_service.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/revision.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/local/uuid.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/observer.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/archive_item_card.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/archive_view.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/content_advisory_panel.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/external_work_card.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/kristal_card.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_card.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_collection.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_detail.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_library.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_library_editor.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/media_version_list.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/provenance_panel.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/output/renderer.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/privacy/provider.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/generate_archive_exports.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/generate_media_derivatives.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/generate_media_thumbnails.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/purge_expired_exports.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/rebuild_content_marker_index.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/rebuild_media_search.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/classes/task/validate_pending_items.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/cli/import_uckk_bootstrap.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/access.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/events.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/install.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/services.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/tasks.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/db/upgrade.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/export.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/index.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/item.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/lang/en/uckkarchive.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/lang/fr/uckkarchive.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/lib.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/library_admin.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/locallib.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/media.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/mod_form.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/settings.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/validate.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/version.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "integrations/moodle/mod_uckkarchive/view.php",
+          "reason": "LIMITE_SCAN"
+        },
+        {
+          "path": "koali.integration.json",
+          "reason": "LIMITE_SCAN"
+        }
+      ],
+      "boundary_scan_gap_count": 78,
+      "unreadable_files": 0,
+      "unselected_files": 137,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "integrations",
+          "files": 77
+        },
+        {
+          "directory": "06_GUI",
+          "files": 39
+        },
+        {
+          "directory": "05_TOOLS",
+          "files": 16
+        },
+        {
+          "directory": "[root]",
+          "files": 5
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "MediKristal",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "backend/medikristal/_assets/contracts/domain.schema.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "backend/medikristal/_assets/contracts/openapi.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "backend/medikristal/api.py",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "contracts/domain.schema.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "contracts/openapi.json",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 5,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 5,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "backend",
+          "files": 3
+        },
+        {
+          "directory": "contracts",
+          "files": 2
+        }
+      ]
+    },
+    {
+      "repo": "Orgo",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 75,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "tools",
+          "files": 44
+        },
+        {
+          "directory": "charters",
+          "files": 17
+        },
+        {
+          "directory": "validation",
+          "files": 7
+        },
+        {
+          "directory": "[root]",
+          "files": 5
+        },
+        {
+          "directory": "apps",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "Orgo-Worlds",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 5,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "fakeplant",
+          "files": 4
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "SemantiK-Architect",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 83,
+      "oversized_files": 0,
+      "top_unselected_directories": [
+        {
+          "directory": "profiles",
+          "files": 34
+        },
+        {
+          "directory": "runtime",
+          "files": 25
+        },
+        {
+          "directory": "src",
+          "files": 12
+        },
+        {
+          "directory": "tools",
+          "files": 9
+        },
+        {
+          "directory": "[root]",
+          "files": 3
+        }
+      ],
+      "top_oversized_directories": []
+    },
+    {
+      "repo": "SenTient",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "opentapioca/html/js/jquery-3.2.1.min.js",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 1,
+      "unreadable_files": 0,
+      "unselected_files": 177,
+      "oversized_files": 4,
+      "top_unselected_directories": [
+        {
+          "directory": "webapp",
+          "files": 167
+        },
+        {
+          "directory": "config",
+          "files": 4
+        },
+        {
+          "directory": "[root]",
+          "files": 3
+        },
+        {
+          "directory": "datasets",
+          "files": 2
+        },
+        {
+          "directory": "src",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "webapp",
+          "files": 3
+        },
+        {
+          "directory": "opentapioca",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Skope",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 109,
+      "oversized_files": 1,
+      "top_unselected_directories": [
+        {
+          "directory": "encyk",
+          "files": 102
+        },
+        {
+          "directory": "scopes",
+          "files": 5
+        },
+        {
+          "directory": "[root]",
+          "files": 2
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "encyk",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "Spek",
+      "truncated": true,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [
+        {
+          "path": "dist-bridge/en/document.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "dist-bridge/fr/document.json",
+          "reason": "TAILLE"
+        },
+        {
+          "path": "dist-bridge/it/document.json",
+          "reason": "TAILLE"
+        }
+      ],
+      "boundary_scan_gap_count": 3,
+      "unreadable_files": 0,
+      "unselected_files": 121,
+      "oversized_files": 6,
+      "top_unselected_directories": [
+        {
+          "directory": "template_library",
+          "files": 68
+        },
+        {
+          "directory": "pilotes_prives",
+          "files": 52
+        },
+        {
+          "directory": "[root]",
+          "files": 1
+        }
+      ],
+      "top_oversized_directories": [
+        {
+          "directory": "dist-bridge",
+          "files": 3
+        },
+        {
+          "directory": "dist-education",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "repo": "UCKK-Assets",
+      "truncated": false,
+      "traversal_limited": false,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 0,
+      "oversized_files": 1,
+      "top_unselected_directories": [],
+      "top_oversized_directories": [
+        {
+          "directory": "Auto_Format",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "UCKK-Ops-Console",
+      "truncated": true,
+      "traversal_limited": true,
+      "boundary_scan_gaps": [],
+      "boundary_scan_gap_count": 0,
+      "unreadable_files": 0,
+      "unselected_files": 13,
+      "oversized_files": 0,
+      "top_unselected_directories": [],
+      "top_oversized_directories": []
+    }
+  ]
+}

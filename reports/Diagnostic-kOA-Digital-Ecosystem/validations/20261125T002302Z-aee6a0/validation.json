@@ -1,0 +1,1097 @@
+{
+  "schema": "koa.diag.validation.hub.v1",
+  "checked_at_utc": "2026-11-25T00:23:02.533118+00:00",
+  "summary": {
+    "domaines": {
+      "services_essentiels": "PARTIAL",
+      "sante_http": "PARTIAL",
+      "connexions": "PARTIAL",
+      "preuves_levelup": "BLOCKED",
+      "interaction_kernel_e2e": "NON_EXECUTE"
+    },
+    "mode": "intermediaire",
+    "verdict": "ECART",
+    "port_count": 21,
+    "services_accessibles": 3,
+    "services_essentiels_accessibles": 3,
+    "services_essentiels_total": 5,
+    "services_non_demarras": 18,
+    "anomalies_identite": 0,
+    "erreurs_sante": 0,
+    "liaisons_declarees": 6,
+    "liaisons_extremites_accessibles": 2,
+    "transactions_e2e_executees": 0,
+    "precision": "Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé."
+  },
+  "services": [
+    {
+      "id": "orgo-web",
+      "owner": "orgo",
+      "purpose": "frontend",
+      "port": 21110,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 200,
+      "http_title": "Orgo · Organize and Go",
+      "status": "FAMILY_MATCH",
+      "detail": "Famille reconnue dans le titre, instance exacte non prouvée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-api",
+      "owner": "orgo",
+      "purpose": "API",
+      "port": 21111,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 404,
+      "http_title": "Error",
+      "status": "HTTP_UNVERIFIED",
+      "detail": "Serveur HTTP présent, identité non vérifiée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-worlds-web",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone UI",
+      "port": 21112,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-worlds-api",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone API",
+      "port": 21113,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-web",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo frontend instance",
+      "port": 21114,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-api",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo API instance",
+      "port": 21115,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-pglite",
+      "owner": "orgo",
+      "purpose": "Koali-managed local PGlite listening on loopback only",
+      "port": 21116,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "initkoa-web",
+      "owner": "initkoa",
+      "purpose": "HomePage Next.js frontend",
+      "port": 21120,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-web",
+      "owner": "konnaxion",
+      "purpose": "frontend",
+      "port": 21130,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-api",
+      "owner": "konnaxion",
+      "purpose": "Django API (direct host, Docker host-published 21131:8000)",
+      "port": 21131,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 200,
+      "http_title": "Konnaxion",
+      "status": "FAMILY_MATCH",
+      "detail": "Famille reconnue dans le titre, instance exacte non prouvée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "konnaxion-capsule-agent-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Agent only; not remote droplet Agent",
+      "port": 21132,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-capsule-manager-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Capsule Manager",
+      "port": 21133,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-web",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second frontend instance",
+      "port": 21134,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-api",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second Django instance",
+      "port": 21135,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "skope-web",
+      "owner": "skope",
+      "purpose": "research explorer",
+      "port": 21140,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-learner",
+      "owner": "ekole",
+      "purpose": "Québec learner",
+      "port": 21150,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-teacher",
+      "owner": "ekole",
+      "purpose": "Québec teacher",
+      "port": 21151,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-opsconsole",
+      "owner": "ekole",
+      "purpose": "OpsConsole",
+      "port": 21152,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-learner",
+      "owner": "ekole",
+      "purpose": "Pastorale learner",
+      "port": 21153,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-teacher",
+      "owner": "ekole",
+      "purpose": "Pastorale teacher",
+      "port": 21154,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "koali-spaces-web",
+      "owner": "koali",
+      "purpose": "Koali Spaces shell frontend",
+      "port": 21170,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    }
+  ],
+  "links": [
+    {
+      "name": "Interaction Kernel : Orgo -> Konnaxion",
+      "source": "orgo-api",
+      "target": "konnaxion-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Interaction Kernel : Konnaxion -> Orgo",
+      "source": "konnaxion-api",
+      "target": "orgo-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Koali : Konnaxion Web -> API",
+      "source": "konnaxion-koali-web",
+      "target": "konnaxion-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Koali : Orgo Web -> API",
+      "source": "orgo-koali-web",
+      "target": "orgo-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Orgo Worlds : Web -> API",
+      "source": "orgo-worlds-web",
+      "target": "orgo-worlds-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Audit kOA -> HomePage",
+      "source": "initkoa-web",
+      "target": "initkoa-web",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "NON_TESTABLE",
+      "e2e_proven": false,
+      "detail": "Source indépendante non enregistrée dans C0 ; audit kOA non démontré"
+    }
+  ],
+  "repositories": {
+    "ekole": {
+      "path": "Ekole/ekole",
+      "present": true
+    },
+    "initkoa": {
+      "path": "HomePage/HomePage",
+      "present": true
+    },
+    "koali": {
+      "path": "kOA-Linux/koali-spaces",
+      "present": true
+    },
+    "konnaxion": {
+      "path": "Konnaxion/Konnaxion",
+      "present": true
+    },
+    "orgo": {
+      "path": "Orgo/Orgo",
+      "present": true
+    },
+    "skope": {
+      "path": "Skope/Skope",
+      "present": true
+    }
+  },
+  "health": [
+    {
+      "id": "orgo-web",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "orgo-api",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/health/ready",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "orgo-worlds-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-worlds-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "orgo-koali-pglite",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "initkoa-web",
+      "status": "INDISPONIBLE",
+      "detail": "Port local fermé",
+      "path": "/"
+    },
+    {
+      "id": "konnaxion-web",
+      "status": "INDISPONIBLE",
+      "detail": "Port local fermé",
+      "path": "/"
+    },
+    {
+      "id": "konnaxion-api",
+      "status": "HTTP_OK",
+      "http_code": 200,
+      "path": "/health/ready/",
+      "detail": "Réponse HTTP 200"
+    },
+    {
+      "id": "konnaxion-capsule-agent-local",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-capsule-manager-local",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-koali-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "konnaxion-koali-api",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "skope-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-quebec-learner",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-quebec-teacher",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-opsconsole",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-pastorale-learner",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "ekole-pastorale-teacher",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    },
+    {
+      "id": "koali-spaces-web",
+      "status": "NON_CONFIGURE",
+      "detail": "Aucun endpoint santé validé pour ce service"
+    }
+  ],
+  "campaign": {
+    "verdict": "BLOCKED",
+    "run_id": "20261125T002201Z-d49bc71d",
+    "report_path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261125T002201Z-d49bc71d\\summary.json",
+    "exit_code": 20,
+    "triage": {
+      "schema": "koa.diag.levelup.triage.v1",
+      "run_id": "20261125T002201Z-d49bc71d",
+      "verdict_source": "BLOCKED",
+      "niveaux": [
+        {
+          "id": "N00",
+          "nom": "Intégrité des références et sécurité",
+          "verdict": "WARN",
+          "constats": [
+            {
+              "id": "references.repositories.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "repositories.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "references.graph-registry.v1.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "graph-registry.v1.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "references.graph-focus.v1.json.readable",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "graph-focus.v1.json lisible",
+              "recommandation": ""
+            },
+            {
+              "id": "inventory.count",
+              "verdict": "PASS",
+              "categorie": "references",
+              "message": "53 dépôts dans le registre",
+              "recommandation": ""
+            },
+            {
+              "id": "inventory.audit.reference.difference",
+              "verdict": "WARN",
+              "categorie": "references",
+              "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+              "recommandation": ""
+            },
+            {
+              "id": "security.no-target-commands",
+              "verdict": "PASS",
+              "categorie": "security",
+              "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N01",
+          "nom": "Collecte de preuves inter-repos",
+          "verdict": "INFRA_ERROR",
+          "constats": [
+            {
+              "id": "worker.infra.failure",
+              "verdict": "INFRA_ERROR",
+              "categorie": "infrastructure",
+              "message": "Niveau expiré après 60s",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N03",
+          "nom": "Contrats IK et dérive de schémas",
+          "verdict": "BLOCKED",
+          "constats": [
+            {
+              "id": "dependencies.unavailable",
+              "verdict": "BLOCKED",
+              "categorie": "orchestration",
+              "message": "Dépendance de niveau non disponible",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N08",
+          "nom": "Obligations de frontière",
+          "verdict": "BLOCKED",
+          "constats": [
+            {
+              "id": "dependencies.unavailable",
+              "verdict": "BLOCKED",
+              "categorie": "orchestration",
+              "message": "Dépendance de niveau non disponible",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        },
+        {
+          "id": "N09",
+          "nom": "Traces, enveloppes et reçus IK",
+          "verdict": "BLOCKED",
+          "constats": [
+            {
+              "id": "dependencies.unavailable",
+              "verdict": "BLOCKED",
+              "categorie": "orchestration",
+              "message": "Dépendance de niveau non disponible",
+              "recommandation": ""
+            }
+          ],
+          "erreur_lecture": ""
+        }
+      ],
+      "causes": [
+        {
+          "id": "PREUVES_TRACES_ABSENTES",
+          "priorite": "P1",
+          "titre": "Traces IK non corroborées",
+          "detail": "0 paire corrélée, 0 reçu IK. Aucune source déclarée dans les deux configurations.",
+          "action": "Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.",
+          "niveaux": [
+            "N09",
+            "N11",
+            "N12"
+          ],
+          "resolu": false
+        }
+      ],
+      "sources_configurees": {
+        "exchange_trace_files": 0,
+        "ik.trace_files": 0
+      },
+      "requis_pass": 0,
+      "requis_total": 0,
+      "collecte": {
+        "depots_presents": 0,
+        "depots_declares": 0,
+        "fichiers_surdimensionnes": 0,
+        "fichiers_illisibles": 0
+      },
+      "limites": "Interprétation passive ; ces constats ne constituent ni un test E2E ni une réparation automatique."
+    },
+    "recovery": {
+      "schema": "koa.diag.campaign-recovery.v1",
+      "items": [
+        {
+          "id": "INVENTORY_DIFF",
+          "category": "inventaire",
+          "priority": "P2",
+          "owner": "C0 / Audit",
+          "diag_only": [
+            "Rejean-McCormick/Karacter",
+            "Rejean-McCormick/Kolor",
+            "Rejean-McCormick/Kristalizer",
+            "Rejean-McCormick/diK"
+          ],
+          "audit_only": [],
+          "action": "Rapprocher les instantanés datés; ne pas déclarer à jour un inventaire historique."
+        },
+        {
+          "id": "TRACE_SOURCES_MISSING",
+          "category": "preuves_e2e",
+          "priority": "P1",
+          "owner": "Orgo / Konnaxion",
+          "action": "Produire des exports de preuve assainis depuis les dépôts propriétaires, puis déclarer les fichiers et empreintes dans la configuration locale de kOADiag. Aucun log brut ni jeton."
+        }
+      ],
+      "counts": {
+        "collecte": 0,
+        "documentation": 0,
+        "inventaire": 1,
+        "preuves_e2e": 1
+      },
+      "warning": "Plan de remédiation dérivé des preuves : aucun fichier source, verdict ou empreinte modifié."
+    }
+  },
+  "application_test_suites": [
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "check:architecture",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test:integration",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "test:pglite",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "orgo",
+      "location": "Orgo/Orgo",
+      "kind": "npm-script",
+      "entry": "validate:local",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "initkoa",
+      "location": "HomePage/HomePage",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "lint:fix",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test-storybook",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "test:ct",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/frontend",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "konnaxion",
+      "location": "Konnaxion/Konnaxion/backend",
+      "kind": "manifest",
+      "entry": "pyproject.toml",
+      "status": "PRESENT_NON_EXECUTE"
+    },
+    {
+      "owner": "skope",
+      "location": "Skope/Skope",
+      "kind": "manifest",
+      "entry": "pyproject.toml",
+      "status": "PRESENT_NON_EXECUTE"
+    },
+    {
+      "owner": "ekole",
+      "location": "Ekole/ekole",
+      "kind": "none",
+      "entry": "",
+      "status": "AUCUN_TEST_REFERENCE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "check:dependency-lock",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "check:local-assets",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "lint",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test:runtime",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "test:watch",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "typecheck",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:appearance",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:contracts",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:runtime-package",
+      "status": "DECOUVERT_NON_EXECUTE"
+    },
+    {
+      "owner": "koali",
+      "location": "kOA-Linux/koali-spaces",
+      "kind": "npm-script",
+      "entry": "validate:surface-spec",
+      "status": "DECOUVERT_NON_EXECUTE"
+    }
+  ],
+  "ik_e2e": {
+    "status": "NON_EXECUTE",
+    "detail": "Exécution séparée, sécurisée et confirmée par utilisateur."
+  },
+  "port_registry_sha256": "b343fe72df0afd3fde3985d97181f69b4c68e23ab8a77c4c98a75c183c85704f",
+  "developer_evidence": {
+    "schema": "koa.diag.developer-evidence.v1",
+    "run_id": "20261125T002201Z-d49bc71d",
+    "verdict": "BLOCKED",
+    "limites": {
+      "campaign_seconds": 105,
+      "files_per_repo": 700,
+      "bytes_per_file": 150000
+    },
+    "niveaux": [
+      {
+        "id": "N00",
+        "nom": "Intégrité des références et sécurité",
+        "verdict": "WARN",
+        "source": "levels/N00/result.json",
+        "sha256": "9fbb4b46c2f1136ae86c32a80aa0ab77ad216060e1620f23824b917088a35bdd",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "references.repositories.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "repositories.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "references.graph-registry.v1.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "graph-registry.v1.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "references.graph-focus.v1.json.readable",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "graph-focus.v1.json lisible",
+            "recommendation": ""
+          },
+          {
+            "id": "inventory.count",
+            "verdict": "PASS",
+            "category": "references",
+            "message": "53 dépôts dans le registre",
+            "recommendation": ""
+          },
+          {
+            "id": "inventory.audit.reference.difference",
+            "verdict": "WARN",
+            "category": "references",
+            "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+            "recommendation": ""
+          },
+          {
+            "id": "security.no-target-commands",
+            "verdict": "PASS",
+            "category": "security",
+            "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N01",
+        "nom": "Collecte de preuves inter-repos",
+        "verdict": "INFRA_ERROR",
+        "source": "levels/N01/result.json",
+        "sha256": "a531c15c0a0f7073ab0481a74d1526d26b9889c1951434d657f6a2b22c91e59f",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "worker.infra.failure",
+            "verdict": "INFRA_ERROR",
+            "category": "infrastructure",
+            "message": "Niveau expiré après 60s",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N03",
+        "nom": "Contrats IK et dérive de schémas",
+        "verdict": "BLOCKED",
+        "source": "levels/N03/result.json",
+        "sha256": "f3bfd37622e8bfcdcdb9c37fae1843764cb82aec0b28d4046d7d891a5f633051",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "dependencies.unavailable",
+            "verdict": "BLOCKED",
+            "category": "orchestration",
+            "message": "Dépendance de niveau non disponible",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N08",
+        "nom": "Obligations de frontière",
+        "verdict": "BLOCKED",
+        "source": "levels/N08/result.json",
+        "sha256": "7a8c8f89140e786d64bedf9a9593888727cee439ee04daab17cf5500aa0c71b4",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "dependencies.unavailable",
+            "verdict": "BLOCKED",
+            "category": "orchestration",
+            "message": "Dépendance de niveau non disponible",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      },
+      {
+        "id": "N09",
+        "nom": "Traces, enveloppes et reçus IK",
+        "verdict": "BLOCKED",
+        "source": "levels/N09/result.json",
+        "sha256": "17ffe60b4a10821faca7cf78c83eeda15a901d8f559ab038221245f65816aa82",
+        "artefacts": [],
+        "constats": [
+          {
+            "id": "dependencies.unavailable",
+            "verdict": "BLOCKED",
+            "category": "orchestration",
+            "message": "Dépendance de niveau non disponible",
+            "recommendation": ""
+          }
+        ],
+        "constats_omis": 0
+      }
+    ],
+    "exports_locaux": [
+      "validation.json",
+      "applications.csv",
+      "connexions.csv"
+    ],
+    "portee": "Constats passifs et traces existantes, aucune transaction E2E exécutée.",
+    "dossier_source": "runs/20261125T002201Z-d49bc71d",
+    "journal": [
+      {
+        "at_utc": "2026-11-25T00:21:59.218643+00:00",
+        "event": "Vérification des ports C0 et des identités locales…"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:01.519656+00:00",
+        "event": "Sondes de santé locales en lecture seule…"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:01.607787+00:00",
+        "event": "Campagne LevelUpDiag intermédiaire · preuves développeur…"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:01.927482+00:00",
+        "event": "RUN_ROOT"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:01.927670+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N00|Int�grit� des r�f�rences et s�curit�"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:02.330123+00:00",
+        "event": "LevelUpDiag : LEVEL=N00|WARN|Int�grit� des r�f�rences et s�curit�"
+      },
+      {
+        "at_utc": "2026-11-25T00:22:02.330302+00:00",
+        "event": "LevelUpDiag : LEVEL_START=N01|Collecte de preuves inter-repos"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.376572+00:00",
+        "event": "LevelUpDiag : LEVEL=N01|INFRA_ERROR|Collecte de preuves inter-repos"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.376870+00:00",
+        "event": "LevelUpDiag : LEVEL=N09|BLOCKED|d�pendance indisponible"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.377062+00:00",
+        "event": "LevelUpDiag : LEVEL=N03|BLOCKED|d�pendance indisponible"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.377244+00:00",
+        "event": "LevelUpDiag : LEVEL=N08|BLOCKED|d�pendance indisponible"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.478058+00:00",
+        "event": "LevelUpDiag : VERDICT=BLOCKED"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.478265+00:00",
+        "event": "SUMMARY"
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.513296+00:00",
+        "event": "Index des preuves développeur terminé."
+      },
+      {
+        "at_utc": "2026-11-25T00:23:02.513463+00:00",
+        "event": "Inventaire des suites applicatives déclarées…"
+      }
+    ]
+  }
+}

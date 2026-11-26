@@ -1,0 +1,10 @@
+﻿id;category;priority;owner;count;file;locations;action
+SCAN_0;collecte;P2;diK;11;;reports;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_1;collecte;P2;Ekole-Atelier-Images;5;;donnees;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_2;collecte;P2;Ekole-Quebec;1;;personnages;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_3;collecte;P2;EncyKlopedia;2;;ecosystem;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_4;collecte;P2;Kristal-Manager;2;;koa_upgrade_runs;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+DOC_5;documentation;P2;Docs;;docs/2-Technical-Reference/40-integration/skope-ekole/index.md;;"Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+DOC_6;documentation;P2;Docs;;docs/status/current.md;;"Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+INVENTORY_DIFF;inventaire;P2;C0 / Audit;;;;"Rapprocher les instantanés datés; ne pas déclarer à jour un inventaire historique."
+TRACE_SOURCES_MISSING;preuves_e2e;P1;Orgo / Konnaxion;;;;Produire des exports de preuve assainis depuis les dépôts propriétaires, puis déclarer les fichiers et empreintes dans la configuration locale de kOADiag. Aucun log brut ni jeton.

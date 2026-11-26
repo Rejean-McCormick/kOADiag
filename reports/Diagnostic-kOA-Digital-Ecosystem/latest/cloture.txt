@@ -1,5 +1,5 @@
 Diagnostic kOA · Clôture
-Campagne 20261120T154115Z-11b659c7
+Campagne 20261125T031522Z-f7aeaddd
 VALIDATIONS_RESTANTES
 
 Frontières obligatoires corroborées
@@ -11,6 +11,8 @@ Frontières optionnelles à documenter : 7
 Sources documentaires alignées : non
 
 Contrôles obligatoires à reprendre
+- depot · diK  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
 - depot · Ekole-Atelier-Images  · COLLECTE_PARTIELLE
   Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
 - depot · Ekole-Quebec  · COLLECTE_PARTIELLE

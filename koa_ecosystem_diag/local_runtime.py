@@ -7,6 +7,7 @@ import subprocess
 
 from .framework import write_json
 from .ik_diag_core import safe_under, sha256_file
+from .port_diagnostics import read_registry
 
 MARKER = 'KOA_OBSERVATIONS='
 JOURNEY = 'konnaxion-orgo-decision-impact'
@@ -58,19 +59,26 @@ def run(root, *, world=None, audit=None, run_root=None, start_stack=False):
     pwsh = shutil.which('pwsh')
     if not pwsh or not script.is_file() or not konnaxion.is_dir():
         return 'BLOCKED', 'Le kit Orgo, Konnaxion ou PowerShell 7 est absent', {}
+    try:
+        _, registry = read_registry(root)
+        allocations = {row['id']: row['port'] for row in registry['services']}
+        orgo_port = allocations['orgo-api']
+        konnaxion_port = allocations['konnaxion-api']
+    except (OSError, ValueError, TypeError, KeyError):
+        return 'BLOCKED', 'Registre C0 absent, invalide ou sans les API requises', {}
     if start_stack:
         from .test_stack import start
         logfile = run_root / 'levels' / 'N14' / 'test-stack.log'
         try:
             with logfile.open('w', encoding='utf-8') as log:
-                start(orgo, konnaxion / 'backend', log)
+                start(orgo, konnaxion / 'backend', log, root=root)
         except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired) as exc:
             return 'BLOCKED', f'Pile d’essai indisponible : {exc}. Consulter test-stack.log.', {
                 'local_log': 'levels/N14/test-stack.log'
             }
     command = [pwsh, '-NoProfile', '-NonInteractive', '-File', str(script),
                '-OrgoRoot', str(orgo), '-KonnaxionRoot', str(konnaxion),
-               '-OrgoHostUrl', 'http://127.0.0.1:4000', '-TimeoutSeconds', '120']
+               '-OrgoHostUrl', f'http://127.0.0.1:{orgo_port}', '-TimeoutSeconds', '120']
     if world:
         command.extend(('-WorldKey', world))
     capture = bool(audit and run_root and 'switch]$ExportObservations' in

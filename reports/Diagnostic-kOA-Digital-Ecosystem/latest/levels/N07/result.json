@@ -3,14 +3,14 @@
   "standard": "LevelUpDiag",
   "standard_version": "1.0.0",
   "suite": "Diagnostic du kOA Digital Ecosystem",
-  "suite_version": "5.6.0",
-  "run_id": "20261120T154115Z-11b659c7",
+  "suite_version": "5.7.0",
+  "run_id": "20261125T031522Z-f7aeaddd",
   "level_id": "N07",
   "level_name": "Imports, CI et variables de service",
   "purpose": "Cartographier les références de code, workflows et variables sans secrets",
   "target_repo_root": "C:\\mycode",
-  "started_at": "2026-11-20T15:42:56+00:00",
-  "ended_at": "2026-11-20T15:42:56+00:00",
+  "started_at": "2026-11-25T03:17:19+00:00",
+  "ended_at": "2026-11-25T03:17:19+00:00",
   "verdict": "PARTIAL",
   "required": false,
   "findings": [
@@ -40,6 +40,6 @@
     "upstream_quality": {
       "N01": "PARTIAL"
     },
-    "worker_duration_seconds": 0.34
+    "worker_duration_seconds": 0.43
   }
 }

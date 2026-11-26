@@ -1,0 +1,16 @@
+﻿id;nom;verdict;constats_non_pass;erreur_lecture
+N00;Intégrité des références et sécurité;WARN;1;
+N01;Collecte de preuves inter-repos;PARTIAL;3;
+N02;Topologie et propriété des liaisons;PARTIAL;2;
+N03;Contrats IK et dérive de schémas;PARTIAL;26;
+N04;API sortantes et routes entrantes;PARTIAL;7;
+N05;Événements, topics, abonnements;PARTIAL;37;
+N06;Dépendances et versions;PARTIAL;2;
+N07;Imports, CI et variables de service;PARTIAL;1;
+N08;Obligations de frontière;PARTIAL;1;
+N09;Traces, enveloppes et reçus IK;PARTIAL;2;
+N10;Sondes API opt-in (GET/HEAD);SKIP;0;
+N11;Continuité et qualification des parcours;PARTIAL;3;
+N12;Preuves et qualification des parcours E2E;PARTIAL;3;
+N13;Validation intégrale par dépôt, frontière et mode;PARTIAL;3;
+N14;Kit métier officiel Konnaxion–Orgo (pile locale d’essai);SKIP;0;

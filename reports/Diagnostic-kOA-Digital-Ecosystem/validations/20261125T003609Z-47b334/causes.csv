@@ -1,0 +1,7 @@
+﻿id;priorite;titre;detail;action;niveaux
+COLLECTE_INCOMPLETE;P1;Collecte partielle;159 fichiers trop volumineux et 0 illisibles. Aucune analyse complète de ces fichiers.;Examiner les fichiers/dossiers listés dans N01 et adapter les limites ou sources ciblées, sans les déclarer PASS.;N01
+FRONTIERES_NON_PROUVEES;P1;Frontières obligatoires non démontrées;4 frontières obligatoires sans preuve E2E qualifiée.;Collecter des événements émis, reçus et réponses corrélés, valider contrats et révisions dans les deux modes.;N01,N09,N12,N13
+PREUVES_TRACES_ABSENTES;P1;Traces IK non corroborées;0 paire corrélée, 0 reçu IK. Aucune source déclarée dans les deux configurations.;"Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.";N09,N11,N12
+PARCOURS_NON_PROUVES;P1;Parcours métier incomplets;1 parcours déclaré(s) ne possède(nt) pas une chaîne de preuves complète.;Associer les observations aux sauts du parcours, avec corrélation, timestamps, réponse et révisions.;N12,N13
+QUALIFICATION_A_COMPLETER;P2;Frontières à qualifier;17 frontières nouvelles ou non revues.;Soumettre au registre des frontières pour décision humaine. Ne jamais les approuver automatiquement.;N01,N13
+INVENTAIRES_DIVERGENTS;P2;Inventaires documentaires divergents;Diagnostic 53, référence Audit 49.;Comparer les inventaires datés et mettre à jour la source de référence après révision.;N00

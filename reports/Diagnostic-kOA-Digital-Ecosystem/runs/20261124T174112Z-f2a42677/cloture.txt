@@ -1,0 +1,46 @@
+Diagnostic kOA · Clôture
+Campagne 20261124T174112Z-f2a42677
+VALIDATIONS_RESTANTES
+
+Frontières obligatoires corroborées
+- autonome : 0/4
+- integre : 0/4
+
+Décisions de revue ouvertes : 25
+Frontières optionnelles à documenter : 7
+Sources documentaires alignées : non
+
+Contrôles obligatoires à reprendre
+- depot · diK  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
+- depot · Ekole-Atelier-Images  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
+- depot · Ekole-Quebec  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
+- depot · EncyKlopedia  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
+- depot · Kristal-Manager  · COLLECTE_PARTIELLE
+  Vérifier le périmètre du dépôt et les fichiers signalés dans scan-gaps.json.
+- parcours · konnaxion-orgo-decision-impact autonome · PREUVES_INSUFFISANTES
+  Consulter les motifs de chaque saut dans validation-integrale.json.
+- frontiere · 1f2498730e97c890bdcf (Daat → Kristal-Framework) autonome · CONTRAT_SANS_PREUVE_RUNTIME
+  Exécuter le contrat sur les versions actives et exporter les observations des deux services.
+- frontiere · 4870ff5c8d8f61490fff (EncyKlopedia → Daat) autonome · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+  Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution.
+- frontiere · 5ccf0084e563d648f67b (Konnaxion → Orgo) autonome · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- frontiere · b269e34addc74b408fac (Orgo → Konnaxion) autonome · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- parcours · konnaxion-orgo-decision-impact integre · PREUVES_INSUFFISANTES
+  Consulter les motifs de chaque saut dans validation-integrale.json.
+- frontiere · 1f2498730e97c890bdcf (Daat → Kristal-Framework) integre · CONTRAT_SANS_PREUVE_RUNTIME
+  Exécuter le contrat sur les versions actives et exporter les observations des deux services.
+- frontiere · 4870ff5c8d8f61490fff (EncyKlopedia → Daat) integre · QUALIFICATION_DU_PROFIL_HISTORIQUE_REQUISE
+  Faire confirmer le profil historique par les propriétaires avant de qualifier son exécution.
+- frontiere · 5ccf0084e563d648f67b (Konnaxion → Orgo) integre · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- frontiere · b269e34addc74b408fac (Orgo → Konnaxion) integre · PARCOURS_DECLARE_NON_PROUVE
+  Exécuter ce parcours dans le mode indiqué et fournir les preuves de chaque saut.
+- Inventaire · Diag seulement · Rejean-McCormick/Karacter, Rejean-McCormick/Kolor, Rejean-McCormick/Kristalizer, Rejean-McCormick/diK
+
+Consulter cloture.json pour les détails. La décision de certification appartient au responsable.

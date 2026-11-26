@@ -101,18 +101,20 @@ def _source_text(path):
         return ''
 
 
-def code_references(repo_dir, contracts, max_files=1000, max_bytes=250000, stop=None):
+def code_references(repo_dir, contracts, max_files=1000, max_bytes=250000, stop=None, *, deadline=None):
     """Only find static source references, never infer that a call executes."""
     result = {c: [] for c in contracts}
     if not repo_dir.is_dir() or not contracts:
         return result
     found = 0
     for current, directories, files in os.walk(repo_dir):
+        if deadline is not None and time.monotonic() >= deadline:
+            break
         directories[:] = sorted(d for d in directories if d not in EXCLUDES and not d.startswith('.'))
         for name in sorted(files):
             if stop and stop():
                 raise Stopped()
-            if found >= max_files:
+            if found >= max_files or (deadline is not None and time.monotonic() >= deadline):
                 return result
             p = Path(current) / name
             if p.suffix.lower() not in SOURCE_EXTENSIONS or p.is_symlink() or not p.is_file():
@@ -378,6 +380,8 @@ def verify_links(links, root, repo_map, systems, profiles, config, notify=None, 
     contracts = sorted({p['id'] for p in profiles.values()})
     maxfiles = max(10,min(10000,int(scan_conf.get('max_files_per_repo',1000))))
     maxbytes = max(1024,min(1000000,int(scan_conf.get('max_file_bytes',250000))))
+    seconds = scan_conf.get('ik_reference_seconds')
+    deadline = time.monotonic() + seconds if seconds is not None else None
     for i, link in enumerate(links):
         if stop and stop():raise Stopped()
         src = _repo_for_system(link['source'], systems, repo_map)
@@ -414,7 +418,7 @@ def verify_links(links, root, repo_map, systems, profiles, config, notify=None, 
                 continue
             cache_key = str(repo['path']).lower()
             if cache_key not in cache:
-                cache[cache_key] = code_references(repo['path'], contracts, maxfiles, maxbytes, stop)
+                cache[cache_key] = code_references(repo['path'], contracts, maxfiles, maxbytes, stop, deadline=deadline)
             prof_name = link['contract'].rsplit('/', 1)[0]
             link[who] = cache[cache_key].get(prof_name, [])
         if profile and link['status'] == 'CONTRAT_ALIGNE':

@@ -3,12 +3,12 @@
   "standard": "LevelUpDiag",
   "standard_version": "1.0.0",
   "suite": "Diagnostic du kOA Digital Ecosystem",
-  "suite_version": "5.6.0",
-  "run_id": "20261120T154115Z-11b659c7",
+  "suite_version": "5.7.0",
+  "run_id": "20261125T031522Z-f7aeaddd",
   "selection": "validation-integrale",
   "target_repo_root": "C:\\mycode",
-  "started_at": "2026-11-20T15:41:15+00:00",
-  "ended_at": "2026-11-20T15:42:57+00:00",
+  "started_at": "2026-11-25T03:15:22+00:00",
+  "ended_at": "2026-11-25T03:17:19+00:00",
   "verdict": "PARTIAL",
   "counts": {
     "PASS": 0,
@@ -27,10 +27,10 @@
       "declared": 55,
       "truncated": 0,
       "complete": false,
-      "eligible_files": 21201,
-      "scanned_files": 21191,
+      "eligible_files": 21854,
+      "scanned_files": 21833,
       "unselected_files": 0,
-      "oversized_files": 10,
+      "oversized_files": 21,
       "unreadable_files": 0,
       "empty_repo_surfaces": 0,
       "scan_scope": "code/configuration (hors dossiers exclus)"
@@ -101,7 +101,7 @@
   },
   "comparison": {
     "available": true,
-    "previous_run_id": "20261113T222420Z-883ebf2e",
+    "previous_run_id": "20261125T004130Z-3c91e39f",
     "report": "delta.json"
   },
   "expected_levels": [
@@ -232,11 +232,11 @@
   "validation_integrale": {
     "counts": {
       "SKIP": 62,
-      "PASS": 51,
-      "PARTIAL": 78
+      "PASS": 50,
+      "PARTIAL": 79
     },
     "required_total": 65,
-    "required_pass": 51,
+    "required_pass": 50,
     "global_certified": false,
     "report": "validation-integrale.json"
   },

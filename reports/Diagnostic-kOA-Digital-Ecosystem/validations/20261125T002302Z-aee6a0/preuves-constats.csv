@@ -1,0 +1,11 @@
+﻿niveau;id;verdict;category;message;recommendation;source
+N00;references.repositories.json.readable;PASS;references;repositories.json lisible;;levels/N00/result.json
+N00;references.graph-registry.v1.json.readable;PASS;references;graph-registry.v1.json lisible;;levels/N00/result.json
+N00;references.graph-focus.v1.json.readable;PASS;references;graph-focus.v1.json lisible;;levels/N00/result.json
+N00;inventory.count;PASS;references;53 dépôts dans le registre;;levels/N00/result.json
+N00;inventory.audit.reference.difference;WARN;references;Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire;;levels/N00/result.json
+N00;security.no-target-commands;PASS;security;Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.;;levels/N00/result.json
+N01;worker.infra.failure;INFRA_ERROR;infrastructure;Niveau expiré après 60s;;levels/N01/result.json
+N03;dependencies.unavailable;BLOCKED;orchestration;Dépendance de niveau non disponible;;levels/N03/result.json
+N08;dependencies.unavailable;BLOCKED;orchestration;Dépendance de niveau non disponible;;levels/N08/result.json
+N09;dependencies.unavailable;BLOCKED;orchestration;Dépendance de niveau non disponible;;levels/N09/result.json

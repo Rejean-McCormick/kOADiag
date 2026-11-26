@@ -31,3 +31,29 @@ The documented owner script resides under `C:\mycode\Orgo\Orgo\validation\konnax
 The E2E summary is sanitized: return code, script digest, PASS marker and optional hashed observation identifiers, not raw terminal output or secrets. An owner kit PASS addresses its stated scenarios only; cross-repository trust-chain validation, other modes and general maturity certification remain independent work.
 
 See preserved [`GUIDE-E2E-V570.md`](../../GUIDE-E2E-V570.md) for the exact version-specific original procedure and its safeguards.
+
+## C0 host-port consumers (24 November 2026)
+
+The GUI launcher `Konnaxion-Orgo-E2E.pyw` and the legacy N14
+`local_runtime.py` / `test_stack.py` path now **read** the two API host
+ports from C0 `config/local-dev-ports.v1.json`, using service IDs
+`orgo-api` and `konnaxion-api`. The November 23 registry proposes
+Orgo `127.0.0.1:21111` (container `4000`) and Konnaxion
+`127.0.0.1:21131` (container `8000`). Missing or invalid entries
+**block** the launch or preflight; no fallback to the old host ports,
+no automatic next-free-port search and no runtime configuration rewrite.
+
+The C0 allocations remain **proposed** until each owner has adopted and
+qualified them. A Docker Compose mapping or HTTP 200 alone does not
+prove service identity, database isolation or a successful IK transaction.
+The 24 November Windows evidence observed Orgo API mapped
+`127.0.0.1:21111:4000` and healthy, whereas Konnaxion Django had exited
+with a PostgreSQL hostname-resolution error. Fix that independently,
+without replacing the database target or modifying credentials in the
+launcher. The owner Compose files, internal Docker ports, official test
+kit, private IK settings and explicit test-data consent are unchanged.
+
+The separate `ik_e2e.py` path already reads the C0 registry and requires
+explicit authorization before executing the owner kit. The optional
+disabled example in `ik_diag_core.py` is historical and not evidence
+of a live service; do not enable it without checking its URL against C0.

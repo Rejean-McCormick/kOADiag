@@ -1,0 +1,15 @@
+{"at_utc": "2026-11-25T00:21:59.218643+00:00", "event": "Vérification des ports C0 et des identités locales…"}
+{"at_utc": "2026-11-25T00:22:01.519656+00:00", "event": "Sondes de santé locales en lecture seule…"}
+{"at_utc": "2026-11-25T00:22:01.607787+00:00", "event": "Campagne LevelUpDiag intermédiaire · preuves développeur…"}
+{"at_utc": "2026-11-25T00:22:01.927482+00:00", "event": "RUN_ROOT"}
+{"at_utc": "2026-11-25T00:22:01.927670+00:00", "event": "LevelUpDiag : LEVEL_START=N00|Int�grit� des r�f�rences et s�curit�"}
+{"at_utc": "2026-11-25T00:22:02.330123+00:00", "event": "LevelUpDiag : LEVEL=N00|WARN|Int�grit� des r�f�rences et s�curit�"}
+{"at_utc": "2026-11-25T00:22:02.330302+00:00", "event": "LevelUpDiag : LEVEL_START=N01|Collecte de preuves inter-repos"}
+{"at_utc": "2026-11-25T00:23:02.376572+00:00", "event": "LevelUpDiag : LEVEL=N01|INFRA_ERROR|Collecte de preuves inter-repos"}
+{"at_utc": "2026-11-25T00:23:02.376870+00:00", "event": "LevelUpDiag : LEVEL=N09|BLOCKED|d�pendance indisponible"}
+{"at_utc": "2026-11-25T00:23:02.377062+00:00", "event": "LevelUpDiag : LEVEL=N03|BLOCKED|d�pendance indisponible"}
+{"at_utc": "2026-11-25T00:23:02.377244+00:00", "event": "LevelUpDiag : LEVEL=N08|BLOCKED|d�pendance indisponible"}
+{"at_utc": "2026-11-25T00:23:02.478058+00:00", "event": "LevelUpDiag : VERDICT=BLOCKED"}
+{"at_utc": "2026-11-25T00:23:02.478265+00:00", "event": "SUMMARY"}
+{"at_utc": "2026-11-25T00:23:02.513296+00:00", "event": "Index des preuves développeur terminé."}
+{"at_utc": "2026-11-25T00:23:02.513463+00:00", "event": "Inventaire des suites applicatives déclarées…"}

@@ -2,7 +2,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import json
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 
 from koa_ecosystem_diag import levelup_triage, validation_hub
 
@@ -77,8 +77,11 @@ class LevelUpTriageTests(unittest.TestCase):
         with TemporaryDirectory() as directory:
             base=Path(directory);path=self._campaign(base)
             (base/'Diagnostic-kOA-Digital-Ecosystem-CLI.py').write_text('# test',encoding='utf-8')
-            with patch.object(validation_hub.subprocess,'run',return_value=Mock(
-                    stdout='RUN_ROOT='+str(path.parent)+'\nVERDICT=PARTIAL\n', returncode=21)) as runner:
+            def emit(args, cwd, receive, **kwargs):
+                receive('RUN_ROOT='+str(path.parent))
+                receive('VERDICT=PARTIAL')
+                return 21
+            with patch.object(validation_hub, 'stream_process', side_effect=emit) as runner:
                 result=validation_hub._passive_campaign(base,base)
             self.assertEqual(result['verdict'],'PARTIAL')
             self.assertEqual(len(result['triage']['causes']),7)

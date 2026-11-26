@@ -21,13 +21,14 @@ Le test utilise **uniquement le script maintenu dans le dépôt Orgo** :
 
 Il lui passe explicitement `-OrgoHostUrl http://127.0.0.1:21111`, le `-WorldKey`, et `-ExportObservations`. Le script exécute les scénarios métier qu'il sait valider, notamment émission, réception, idempotence et retour d'impact. **kOADiag ne réimplémente pas ces règles métier.**
 
-### Préconditions supplémentaires
+### Pile Docker et fichier dotenv
 
-- Orgo Web/API et Konnaxion Web/API doivent répondre sur leurs ports C0. Les API sont vérifiées sur les routes de santé déclarées.
-- Pour le test propriétaire, la pile Konnaxion **Docker** doit tourner (`django`, `redis`, `celeryworker`) et les services Orgo (`postgres`, `api`, `worker`). Le précontrôle ne démarre ni ne recrée les conteneurs.
-- Variables privées requises : Orgo `POSTGRES_PASSWORD`, `KONNAXION_IK_URL`, Konnaxion `IK_ORGO_TOKEN`, `IK_ORGO_TARGET_ORGANIZATION`, `IK_ORGO_INTERACTIONS_URL`. Seule leur **présence** et la conformité des **routes IK locales** sont affichées. Les valeurs secrètes ne sont jamais incluses dans les rapports.
-- Les routes inter-conteneurs doivent être configurées sur `host.docker.internal:21131` (Orgo vers Konnaxion) et `host.docker.internal:21111` (Konnaxion vers Orgo), dans l'environnement Docker pris en charge. Un service exposé sur l'interface loopback hôte peut rester inaccessible depuis un conteneur : le précontrôle local ne peut pas certifier l'acheminement Docker de bout en bout.
-- PowerShell 7.5+ et Docker CLI sont requis. Le script propriétaire vérifie lui-même la version PowerShell.
+- Prépare Orgo dans le projet **`orgo-ik-test`**, avec l’API sur `127.0.0.1:21111` et l’API et le worker branchés sur `host.docker.internal:5432/orgo_test`. Le précontrôle reconnaît `orgo-ik-test-api-1`, `orgo-ik-test-worker-1` et `orgo-test-postgres`.
+- Prépare Konnaxion dans le projet **`backend`** avec `docker-compose.local.yml`, `docker-compose.e2e-db.local.yml` et `docker-compose.worlds.local.yml`. Django et Celery doivent utiliser `kx-e2e-postgres/konnaxion_e2e`; Django publie `127.0.0.1:21131`. Le précontrôle exécute le filtre d’URL installé dans le conteneur Celery pour vérifier que l’URL C0 est acceptée.
+- Le jeton machine reste dans **`C:\mycode\Konnaxion\Konnaxion\backend\.envs\.local\.django`**, hors de Git. Le kit et Docker lisent ce même fichier. Il contient `IK_ORGO_TOKEN`, `IK_ORGO_TARGET_ORGANIZATION`, `IK_ORGO_ALLOWED_ORGANIZATION`, `IK_ORGO_INBOUND_TOKEN` et `IK_ORGO_INTERACTIONS_URL`. Le précontrôle compare le jeton et la cible chargés dans Django/Celery, vérifie à Orgo le périmètre du jeton machine, et contrôle le jeton de retour et l’organisation autorisée côté Django.
+- L’API Orgo doit utiliser `konnaxion_decision_v1` et un label de décision. Le worker doit cibler `http://host.docker.internal:21131/api/integrations/ik/konnaxion/interactions/` et son `KONNAXION_IK_TOKEN` doit correspondre au jeton entrant de Django.
+- Le précontrôle inspecte les conteneurs et sonde les deux API. L’attestation reste requise pour l’isolement des données. Il ne crée aucun jeton et ne lance ni Docker ni aucune transaction. Si le jeton expire, renouvelle-le dans le fichier dotenv puis recharge la pile E2E avant de reprendre.
+- N14 utilise la pile isolée préparée. L’ancien démarrage automatique `--start-test-stack` est bloqué dans N14 car il ciblerait le Compose Orgo standard. Depuis cette version, utilise **Centre de validation → Interaction Kernel E2E** pour tester la pile préparée.
 
 ### Autorisation temporaire
 
@@ -40,7 +41,9 @@ Le lanceur rejette le fichier absent, expiré, mal formé ou qui ne mentionne pa
 Rapports structurés et expurgés dans :
 `reports\Diagnostic-kOA-Digital-Ecosystem\ik-e2e\*.json`
 
-Sont conservés : statut, code de retour, empreinte du script officiel, présence du marqueur PASS et, lorsque le script fournit `KOA_OBSERVATIONS`, une empreinte de l'observation et des identifiants hachés. **Ni stdout/stderr brut, ni token, ni mot de passe** ne sont exportés par kOADiag.
+Sont conservés le verdict, le code de retour pour une exécution kOADiag, l’empreinte du script exécuté, le marqueur PASS et, si le kit les fournit, les statuts, les six horodatages UTC et l’empreinte de corrélation. Les secrets et la sortie brute ne sont pas conservés.
+
+**Importer une sortie** accepte un fichier UTF-8 d’une exécution PowerShell comprenant la ligne avec le World et sa release, `KOA_OBSERVATIONS=` et le marqueur exact `KONNAXION <-> ORGO IK E2E PASS`. L’entrée apparaît dans **Dernier résultat** avec la provenance `terminal_import`, sans relancer le test.
 
 Un **PASS du kit officiel ne certifie pas toutes les frontières de l'écosystème**, ni les modes autonome/intégré. Les preuves doivent encore être rapprochées des traces indépendantes de chaque dépôt avec révision, horodatage et corrélation.
 

@@ -1,0 +1,315 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.7.0",
+  "run_id": "20261125T031522Z-f7aeaddd",
+  "level_id": "N03",
+  "level_name": "Contrats IK et dérive de schémas",
+  "purpose": "Valider versions, profils, verrous et intégrité des schémas de frontière",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-25T03:17:18+00:00",
+  "ended_at": "2026-11-25T03:17:18+00:00",
+  "verdict": "PARTIAL",
+  "required": true,
+  "findings": [
+    {
+      "id": "contracts.schema.review.1",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "EncyKlopedia — ecosystem/LevelUpDiag_EncyK/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "35ce6a6650846b368627dcb7156fe088a95800bef9bdd968575661a8430c0dc9"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.2",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Interaction-Kernel — locks/kristal-v6.0.0-upstream/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "3b83525838a41abe4a8f88358127f6d5f582b231d6ddd0fdb26c88c810917e9b"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.3",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Konnaxion — _BUG_HARVEST_REVIEW/LevelUpDiag/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "1b6c720b5edfb66deafea819b590669ea7734a9a8e598480946f213103ba9e1b"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.4",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Konstellation — contracts/upstream/kristal-state-v6.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.5",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Authoring-Kit — schemas/github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "daa9c41056342d5c956b4941e03b9bbfcff7a793590a85eb64cb4c51ce4cc541"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.6",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Framework — profiles/github/schemas/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "2eccf67961ca19684bcbc5b5db9ed262275382e617369f3ad11780643306c64d"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.7",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Framework — schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.8",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — koa_upgrade_runs/runs/run-20261120T012750607983Z/staging/Kristal-kOA-Ecosystem/knowledge-base/schemas/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.9",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — tools/KristalDiag/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "2eccf67961ca19684bcbc5b5db9ed262275382e617369f3ad11780643306c64d"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.10",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — tools/KristalDiag/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.11",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.12",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "2eccf67961ca19684bcbc5b5db9ed262275382e617369f3ad11780643306c64d"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.13",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "Kristal-Manager — tools/KristalDiag/kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.14",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "kristal-public — kristals/prime-numbers/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.15",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "KristalDiag — contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "2eccf67961ca19684bcbc5b5db9ed262275382e617369f3ad11780643306c64d"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.16",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "KristalDiag — contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.17",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "KristalDiag — kristaldiag/resources/baseline/9.0.0-draft.1/schemas/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.18",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "KristalDiag — kristaldiag/resources/contracts/github/kristal-github-read-surface.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "urn:kristal:github-read-surface:1.0",
+        "digest": "2eccf67961ca19684bcbc5b5db9ed262275382e617369f3ad11780643306c64d"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.19",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "KristalDiag — kristaldiag/resources/contracts/v6/kristal-state.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+        "digest": "c5eda4b2a31fdb6265d8ea97485ec79bda9c67ccab0b8567b5db47ff32551b60"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.20",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "LevelUpDiag-kOA-Linux — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "4c6b03d0ca85131abbf258cd244a92258bf1f2f0e0dc2a8de29f38cb54566249"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.21",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "LevelUpDiag-Orgo — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "b6e4f76b629c5840ba6c767f07539ac6cb994ef6d1d9934eae4c3cc14c1da3ae"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.22",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "LevelUpDiag-Orgo — tools/tandem_tour7/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "b6e4f76b629c5840ba6c767f07539ac6cb994ef6d1d9934eae4c3cc14c1da3ae"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.23",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "LevelUpDiag-Orgo — tools/tandem_tour7_v2/payload/schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "b6e4f76b629c5840ba6c767f07539ac6cb994ef6d1d9934eae4c3cc14c1da3ae"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.24",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "LevelUpDiag_SemantiK-Architect — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "35ce6a6650846b368627dcb7156fe088a95800bef9bdd968575661a8430c0dc9"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "contracts.schema.review.25",
+      "verdict": "WARN",
+      "category": "schema",
+      "message": "MediKristal-LevelUpDiag- — schemas/campaign-summary.schema.json: plusieurs empreintes partagent le même identifiant",
+      "evidence": {
+        "id": "levelupdiag.campaign-summary.v2",
+        "digest": "35ce6a6650846b368627dcb7156fe088a95800bef9bdd968575661a8430c0dc9"
+      },
+      "recommendation": "Qualifier le propriétaire, la version et le lock attendu avant de parler d’incompatibilité."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "ik_contracts": 29,
+    "schemas": 538,
+    "issues": 0,
+    "schema_review": 25,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.52
+  }
+}

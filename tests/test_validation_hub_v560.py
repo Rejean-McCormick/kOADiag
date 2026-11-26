@@ -85,12 +85,12 @@ class ValidationHubTests(unittest.TestCase):
         with TemporaryDirectory() as folder:
             root=Path(folder)
             (root/'Diagnostic-kOA-Digital-Ecosystem-CLI.py').write_text('# test')
-            from unittest.mock import Mock
             captured=[]
-            def invoke(args, **kw):
+            def invoke(args, cwd, receive, **kw):
                 captured.extend(args)
-                return Mock(stdout='VERDICT=WARN\n',returncode=10)
-            with patch.object(v.subprocess, 'run', side_effect=invoke):
+                receive('VERDICT=WARN')
+                return 10
+            with patch.object(v, 'stream_process', side_effect=invoke):
                 response=v._passive_campaign(root,root)
             self.assertEqual(response['verdict'],'ERROR') # no summary cannot mean success
             self.assertIn('validation-integrale',captured)

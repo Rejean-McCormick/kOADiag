@@ -73,12 +73,14 @@ def priorities(cover):
     return lines
 
 
-def get_previous(control, uid):
+def get_previous(control, uid, *, intermediate=False):
     all_summaries=sorted((Path(control)/'runs').glob('*/summary.json'),reverse=True)
     for p in all_summaries:
         if p.parent.name==uid:continue
         try:
             summary=read_json(p)
+            if (summary.get('selection') == 'validation-intermediaire') != intermediate:
+                continue
             snapshot=p.parent/'levels'/'N01'/'snapshot.json'
             return summary,read_json(snapshot) if snapshot.is_file() else None
         except (OSError,ValueError,KeyError,TypeError):pass

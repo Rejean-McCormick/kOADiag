@@ -23,6 +23,7 @@ def main(argv=None):
     p.add_argument('--out',default=None,help='Destination de export-audit (*.zip)')
     p.add_argument('--run-id',default=None)
     p.add_argument('--id',default=None)
+    p.add_argument('--intermediate-worker',action='store_true',help=argparse.SUPPRESS)
     p.add_argument('--integral-worker',action='store_true',help=argparse.SUPPRESS)
     p.add_argument('--runtime-local',action='store_true',
                    help='Exécuter le kit officiel Konnaxion–Orgo sur une pile locale d’essai (crée des données)')
@@ -83,7 +84,7 @@ def main(argv=None):
         c=load_config(tool,args.root,args.config)
         result=runner.worker(tool,meta,c,args.run_root,args.run_id,
                              args.network,args.remote,args.ack_remote,
-                             integral=args.integral_worker,runtime_local=args.runtime_local,
+                             integral=args.integral_worker,intermediate=args.intermediate_worker,runtime_local=args.runtime_local,
                              runtime_world=args.world,runtime_audit=args.audit_root,
                              start_test_stack=args.start_test_stack)
         return 0 if result['verdict'] not in ('ERROR','INFRA_ERROR','CONFIG_ERROR') else 30

@@ -3,14 +3,14 @@
   "standard": "LevelUpDiag",
   "standard_version": "1.0.0",
   "suite": "Diagnostic du kOA Digital Ecosystem",
-  "suite_version": "5.6.0",
-  "run_id": "20261120T154115Z-11b659c7",
+  "suite_version": "5.7.0",
+  "run_id": "20261125T031522Z-f7aeaddd",
   "level_id": "N10",
   "level_name": "Sondes API opt-in (GET/HEAD)",
   "purpose": "Vérifier uniquement les endpoints de lecture explicitement activés",
   "target_repo_root": "C:\\mycode",
-  "started_at": "2026-11-20T15:41:15+00:00",
-  "ended_at": "2026-11-20T15:41:16+00:00",
+  "started_at": "2026-11-25T03:15:22+00:00",
+  "ended_at": "2026-11-25T03:15:22+00:00",
   "verdict": "SKIP",
   "required": false,
   "findings": [
@@ -25,6 +25,6 @@
   "metrics": {
     "enabled_probes": 0,
     "upstream_quality": {},
-    "worker_duration_seconds": 0.37
+    "worker_duration_seconds": 0.5
   }
 }

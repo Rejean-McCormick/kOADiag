@@ -1,0 +1,396 @@
+{
+  "schema": "koa.diag.validation.hub.v1",
+  "checked_at_utc": "2026-11-24T23:41:30.684157+00:00",
+  "summary": {
+    "domaines": {
+      "services_essentiels": "PARTIAL",
+      "sante_http": "NON_EXECUTEE",
+      "connexions": "PARTIAL",
+      "preuves_levelup": "NON_EXECUTEES",
+      "interaction_kernel_e2e": "NON_EXECUTE"
+    },
+    "mode": "rapide",
+    "verdict": "PARTIEL",
+    "port_count": 21,
+    "services_accessibles": 3,
+    "services_essentiels_accessibles": 3,
+    "services_essentiels_total": 5,
+    "services_non_demarras": 18,
+    "anomalies_identite": 0,
+    "erreurs_sante": 0,
+    "liaisons_declarees": 6,
+    "liaisons_extremites_accessibles": 2,
+    "transactions_e2e_executees": 0,
+    "precision": "Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé."
+  },
+  "services": [
+    {
+      "id": "orgo-web",
+      "owner": "orgo",
+      "purpose": "frontend",
+      "port": 21110,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 200,
+      "http_title": "Orgo · Organize and Go",
+      "status": "FAMILY_MATCH",
+      "detail": "Famille reconnue dans le titre, instance exacte non prouvée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-api",
+      "owner": "orgo",
+      "purpose": "API",
+      "port": 21111,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": 404,
+      "http_title": "Error",
+      "status": "HTTP_UNVERIFIED",
+      "detail": "Serveur HTTP présent, identité non vérifiée",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "orgo-worlds-web",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone UI",
+      "port": 21112,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-worlds-api",
+      "owner": "orgo",
+      "purpose": "Orgo Worlds standalone API",
+      "port": 21113,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-web",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo frontend instance",
+      "port": 21114,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-api",
+      "owner": "orgo",
+      "purpose": "Koali-managed second Orgo API instance",
+      "port": 21115,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "orgo-koali-pglite",
+      "owner": "orgo",
+      "purpose": "Koali-managed local PGlite listening on loopback only",
+      "port": 21116,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "initkoa-web",
+      "owner": "initkoa",
+      "purpose": "HomePage Next.js frontend",
+      "port": 21120,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-web",
+      "owner": "konnaxion",
+      "purpose": "frontend",
+      "port": 21130,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-api",
+      "owner": "konnaxion",
+      "purpose": "Django API (direct host, Docker host-published 21131:8000)",
+      "port": 21131,
+      "adoption": "proposed",
+      "tcp": true,
+      "http_code": null,
+      "http_title": "",
+      "status": "TCP_OPEN_UNVERIFIED",
+      "detail": "TCP ouvert, mais aucune réponse HTTP claire (TimeoutError)"
+    },
+    {
+      "id": "konnaxion-capsule-agent-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Agent only; not remote droplet Agent",
+      "port": 21132,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-capsule-manager-local",
+      "owner": "konnaxion",
+      "purpose": "Developer-machine Capsule Manager",
+      "port": 21133,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-web",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second frontend instance",
+      "port": 21134,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "konnaxion-koali-api",
+      "owner": "konnaxion",
+      "purpose": "Koali-managed second Django instance",
+      "port": 21135,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "skope-web",
+      "owner": "skope",
+      "purpose": "research explorer",
+      "port": 21140,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-learner",
+      "owner": "ekole",
+      "purpose": "Québec learner",
+      "port": 21150,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-quebec-teacher",
+      "owner": "ekole",
+      "purpose": "Québec teacher",
+      "port": 21151,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-opsconsole",
+      "owner": "ekole",
+      "purpose": "OpsConsole",
+      "port": 21152,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-learner",
+      "owner": "ekole",
+      "purpose": "Pastorale learner",
+      "port": 21153,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "ekole-pastorale-teacher",
+      "owner": "ekole",
+      "purpose": "Pastorale teacher",
+      "port": 21154,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    },
+    {
+      "id": "koali-spaces-web",
+      "owner": "koali",
+      "purpose": "Koali Spaces shell frontend",
+      "port": 21170,
+      "adoption": "proposed",
+      "tcp": false,
+      "http_code": null,
+      "http_title": "",
+      "status": "STOPPED",
+      "detail": "Aucun service TCP local sur le port attribué",
+      "tcp_error": "TimeoutError"
+    }
+  ],
+  "links": [
+    {
+      "name": "Interaction Kernel : Orgo -> Konnaxion",
+      "source": "orgo-api",
+      "target": "konnaxion-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Interaction Kernel : Konnaxion -> Orgo",
+      "source": "konnaxion-api",
+      "target": "orgo-api",
+      "source_tcp": true,
+      "target_tcp": true,
+      "status": "EXTREMITES_ACCESSIBLES",
+      "e2e_proven": false,
+      "detail": "Présence TCP des deux côtés uniquement ; transaction E2E non testée"
+    },
+    {
+      "name": "Koali : Konnaxion Web -> API",
+      "source": "konnaxion-koali-web",
+      "target": "konnaxion-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Koali : Orgo Web -> API",
+      "source": "orgo-koali-web",
+      "target": "orgo-koali-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Orgo Worlds : Web -> API",
+      "source": "orgo-worlds-web",
+      "target": "orgo-worlds-api",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "EXTREMITES_INDISPONIBLES",
+      "e2e_proven": false,
+      "detail": "Un ou deux endpoints locaux sont indisponibles"
+    },
+    {
+      "name": "Audit kOA -> HomePage",
+      "source": "initkoa-web",
+      "target": "initkoa-web",
+      "source_tcp": false,
+      "target_tcp": false,
+      "status": "NON_TESTABLE",
+      "e2e_proven": false,
+      "detail": "Source indépendante non enregistrée dans C0 ; audit kOA non démontré"
+    }
+  ],
+  "repositories": {
+    "ekole": {
+      "path": "Ekole/ekole",
+      "present": true
+    },
+    "initkoa": {
+      "path": "HomePage/HomePage",
+      "present": true
+    },
+    "koali": {
+      "path": "kOA-Linux/koali-spaces",
+      "present": true
+    },
+    "konnaxion": {
+      "path": "Konnaxion/Konnaxion",
+      "present": true
+    },
+    "orgo": {
+      "path": "Orgo/Orgo",
+      "present": true
+    },
+    "skope": {
+      "path": "Skope/Skope",
+      "present": true
+    }
+  },
+  "health": [],
+  "campaign": null,
+  "application_test_suites": [],
+  "ik_e2e": {
+    "status": "NON_EXECUTE",
+    "detail": "Exécution séparée, sécurisée et confirmée par utilisateur."
+  },
+  "port_registry_sha256": "b343fe72df0afd3fde3985d97181f69b4c68e23ab8a77c4c98a75c183c85704f"
+}

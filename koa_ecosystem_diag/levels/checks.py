@@ -108,6 +108,13 @@ def n01(cfg,report,ctx):
         scan['max_file_bytes'] = 1000000
         interrepo['scan'] = scan
         interrepo['integral_scan'] = True
+    elif ctx.get('intermediate'):
+        scan = dict(interrepo.get('scan', {}))
+        scan['max_files_per_repo'] = min(int(scan.get('max_files_per_repo', 120)), 120)
+        scan['max_file_bytes'] = min(int(scan.get('max_file_bytes', 80000)), 80000)
+        scan.update(max_surface_entries_per_repo=2500, surface_seconds=22, ik_reference_seconds=6)
+        interrepo['scan'] = scan
+        interrepo['integral_scan'] = False
     api_declarations=list(interrepo.get('expected_api_links',[]))
     for row in reviewed['relations']:
         if row['review_status']=='APPROVED' and row.get('protocol')=='HTTP' and row.get('method') and row.get('route'):
@@ -176,6 +183,12 @@ def n01(cfg,report,ctx):
            {'present':present,'total':total},'Confirmer les dépôts réellement installés avant de conclure.')
     else:
         _emit(report,'collection.inventory.complete','PASS','inventory',f'Collecte sur {present}/{total} dépôts')
+    if ctx.get('intermediate') and summary['source_repo_traversals_limited']:
+        _emit(report,'collection.intermediate.budget','PARTIAL','inventory',
+              f"Collecte bornée : {summary['source_repos_sampled']} dépôt(s) entamé(s), "
+              f"{summary['source_repos_deferred']} différé(s), "
+              f"{summary['source_repo_traversals_limited']} parcours incomplet(s).",
+              recommendation='Lire les sources observées et les limites dans scan-gaps.json.')
     if summary['repositories_scan_truncated']:
         _emit(report,'collection.scan.truncated','PARTIAL','inventory',
           f"Scan limité dans {summary['repositories_scan_truncated']} dépôt(s) : {summary.get('source_files_unselected',0)} fichiers éligibles non sélectionnés",
@@ -539,12 +552,29 @@ def n14(cfg, report, ctx):
         _emit(report, 'runtime.local.disabled', 'SKIP', 'runtime',
               'Kit d’essai local disponible avec --runtime-local')
         return
+    from .. import ik_e2e
+    import shutil
+
+    if ctx.get('start_test_stack'):
+        _emit(report, 'runtime.local.stack', 'BLOCKED', 'runtime',
+              'Démarrer la pile orgo-ik-test isolée avant N14. Le Compose Orgo standard ne convient pas.')
+        return
+    root = Path(cfg['_root'])
+    try:
+        checks = ik_e2e.runtime_checks(root, shutil.which('docker'), ik_e2e._ports(root))
+    except (OSError, ValueError, KeyError, TypeError):
+        _emit(report, 'runtime.local.stack', 'BLOCKED', 'runtime', 'Registre C0 indisponible.')
+        return
+    blockers = [item['id'] for item in checks if item['status'] != 'PASS']
+    if blockers:
+        _emit(report, 'runtime.local.stack', 'BLOCKED', 'runtime',
+              'Pile isolée ou configuration IK non confirmée', {'blocking_checks': blockers})
+        return
     from ..local_runtime import run
     audit = ctx.get('runtime_audit')
     verdict, message, evidence = run(
         Path(cfg['_root']), world=ctx.get('runtime_world'),
         audit=Path(audit) if audit else None, run_root=Path(ctx['run_root']),
-        start_stack=ctx.get('start_test_stack', False),
     )
     _emit(report, 'runtime.konnaxion-orgo.official', verdict, 'runtime', message, evidence)
 

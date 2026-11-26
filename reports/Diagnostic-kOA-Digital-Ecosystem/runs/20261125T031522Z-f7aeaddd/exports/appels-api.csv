@@ -1,0 +1,6 @@
+﻿source;target;method;path;status;mapping
+Konnaxion-Capsule-Manager;;GET;/health/ready/;CIBLE_INCONNUE;non_resolu
+Konstellation;;GET;/api/bootstrap;CIBLE_INCONNUE;non_resolu
+Konstellation;;GET;/api/query;CIBLE_INCONNUE;non_resolu
+Konstellation;;GET;/;CIBLE_INCONNUE;non_resolu
+Orgo;;GET;/health/ready/;CIBLE_INCONNUE;non_resolu

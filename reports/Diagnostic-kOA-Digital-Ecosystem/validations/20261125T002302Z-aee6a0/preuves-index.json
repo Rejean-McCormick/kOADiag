@@ -1,0 +1,144 @@
+{
+  "schema": "koa.diag.developer-evidence.v1",
+  "run_id": "20261125T002201Z-d49bc71d",
+  "verdict": "BLOCKED",
+  "limites": {
+    "campaign_seconds": 105,
+    "files_per_repo": 700,
+    "bytes_per_file": 150000
+  },
+  "niveaux": [
+    {
+      "id": "N00",
+      "nom": "Intégrité des références et sécurité",
+      "verdict": "WARN",
+      "source": "levels/N00/result.json",
+      "sha256": "9fbb4b46c2f1136ae86c32a80aa0ab77ad216060e1620f23824b917088a35bdd",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "references.repositories.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "repositories.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "references.graph-registry.v1.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "graph-registry.v1.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "references.graph-focus.v1.json.readable",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "graph-focus.v1.json lisible",
+          "recommendation": ""
+        },
+        {
+          "id": "inventory.count",
+          "verdict": "PASS",
+          "category": "references",
+          "message": "53 dépôts dans le registre",
+          "recommendation": ""
+        },
+        {
+          "id": "inventory.audit.reference.difference",
+          "verdict": "WARN",
+          "category": "references",
+          "message": "Écart entre l’inventaire de référence Audit et la liste Diagnostic : revue nécessaire",
+          "recommendation": ""
+        },
+        {
+          "id": "security.no-target-commands",
+          "verdict": "PASS",
+          "category": "security",
+          "message": "Les niveaux de collecte et d’analyse lisent les dépôts. Le kit métier N14 est explicite et réservé à une pile d’essai.",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N01",
+      "nom": "Collecte de preuves inter-repos",
+      "verdict": "INFRA_ERROR",
+      "source": "levels/N01/result.json",
+      "sha256": "a531c15c0a0f7073ab0481a74d1526d26b9889c1951434d657f6a2b22c91e59f",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "worker.infra.failure",
+          "verdict": "INFRA_ERROR",
+          "category": "infrastructure",
+          "message": "Niveau expiré après 60s",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N03",
+      "nom": "Contrats IK et dérive de schémas",
+      "verdict": "BLOCKED",
+      "source": "levels/N03/result.json",
+      "sha256": "f3bfd37622e8bfcdcdb9c37fae1843764cb82aec0b28d4046d7d891a5f633051",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "dependencies.unavailable",
+          "verdict": "BLOCKED",
+          "category": "orchestration",
+          "message": "Dépendance de niveau non disponible",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N08",
+      "nom": "Obligations de frontière",
+      "verdict": "BLOCKED",
+      "source": "levels/N08/result.json",
+      "sha256": "7a8c8f89140e786d64bedf9a9593888727cee439ee04daab17cf5500aa0c71b4",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "dependencies.unavailable",
+          "verdict": "BLOCKED",
+          "category": "orchestration",
+          "message": "Dépendance de niveau non disponible",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    },
+    {
+      "id": "N09",
+      "nom": "Traces, enveloppes et reçus IK",
+      "verdict": "BLOCKED",
+      "source": "levels/N09/result.json",
+      "sha256": "17ffe60b4a10821faca7cf78c83eeda15a901d8f559ab038221245f65816aa82",
+      "artefacts": [],
+      "constats": [
+        {
+          "id": "dependencies.unavailable",
+          "verdict": "BLOCKED",
+          "category": "orchestration",
+          "message": "Dépendance de niveau non disponible",
+          "recommendation": ""
+        }
+      ],
+      "constats_omis": 0
+    }
+  ],
+  "exports_locaux": [
+    "validation.json",
+    "applications.csv",
+    "connexions.csv"
+  ],
+  "portee": "Constats passifs et traces existantes, aucune transaction E2E exécutée.",
+  "dossier_source": "runs/20261125T002201Z-d49bc71d"
+}

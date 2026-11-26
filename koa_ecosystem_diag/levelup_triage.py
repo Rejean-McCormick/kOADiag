@@ -140,7 +140,11 @@ def interpret_report(report_path: Path, *, trusted_reports_root: Path | None = N
             ['N01','N09','N12','N13']))
     pairs = num(traces, 'correlated_pairs')
     receipts = num(traces, 'ik_receipts')
-    if pairs == 0 and receipts == 0:
+    if summary.get('selection') == 'validation-intermediaire' and not traces:
+        causes.append(_cause('COLLECTE_NON_ABOUTIE', 'P1', 'Collecte de preuves non aboutie',
+            'La collecte de traces ne fournit aucun résultat exploitable dans cette campagne.',
+            'Consulter le rapport de N01, puis relancer une collecte ciblée.', ['N01','N09']))
+    elif pairs == 0 and receipts == 0:
         more = ('Aucune source déclarée dans les deux configurations.'
                 if source_count['exchange_trace_files'] == 0 and source_count['ik.trace_files'] == 0
                 else 'Vérifier le chargement effectif et le format des sources déclarées.')

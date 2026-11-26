@@ -1,0 +1,21 @@
+kOADiag — Validation intermediaire
+Verdict : ECART
+Essentiels : 3/5
+Services C0 : 3/21
+Connexions : 2/6 (extrémités seulement)
+Tests métier E2E : 0 (nécessitent confirmation distincte)
+Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé.
+Dossier développeur : preuves-index.json · preuves-constats.csv · preuves-journal.jsonl
+Suites propriétaires référencées : 28 (non exécutées).
+
+DOMAINES DISTINCTS :
+ - services_essentiels: PARTIAL
+ - sante_http: PARTIAL
+ - connexions: PARTIAL
+ - preuves_levelup: BLOCKED
+ - interaction_kernel_e2e: NON_EXECUTE
+Plan de remédiation : 2 pistes (sans changement automatique).
+
+LEVELUP : 0/0 contrôles obligatoires PASS
+Causes à traiter : 1 (preuves et périmètre, non pannes automatiques)
+ - P1 Traces IK non corroborées: Configurer des fichiers JSON/JSONL d’exports de preuves déjà produits dans les dépôts propriétaires ; ne pas importer de logs bruts/secrets.

@@ -1,0 +1,14 @@
+kOADiag — Validation rapide
+Verdict : PARTIEL
+Essentiels : 3/5
+Services C0 : 3/21
+Connexions : 2/6 (extrémités seulement)
+Tests métier E2E : 0 (nécessitent confirmation distincte)
+Absence de service ≠ panne si le composant est volontairement arrêté. Aucun échange métier, agent distant ni authentification n’a été testé.
+
+DOMAINES DISTINCTS :
+ - services_essentiels: PARTIAL
+ - sante_http: NON_EXECUTEE
+ - connexions: PARTIAL
+ - preuves_levelup: NON_EXECUTEES
+ - interaction_kernel_e2e: NON_EXECUTE

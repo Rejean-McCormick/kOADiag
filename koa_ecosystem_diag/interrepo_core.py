@@ -165,7 +165,7 @@ def _manifest_deps(repo_dir, name):
     return deps, packages, issues
 
 
-def inventory_surface(repo_name, repo_dir, cfg, stop=None):
+def inventory_surface(repo_name, repo_dir, cfg, stop=None, *, deadline=None):
     """Index only declared boundary surfaces; no internal unit/app execution."""
     limits=cfg.get('scan',{})
     file_ceiling = 60000 if cfg.get('integral_scan') else 20000
@@ -227,11 +227,27 @@ def inventory_surface(repo_name, repo_dir, cfg, stop=None):
 
     max_index = max(60000, max_files * 6)
     index_overflow = 0
+    visited = 0
+    visit_limit = limits.get('max_surface_entries_per_repo')
+    indexing_limited = False
+
+    def index_limited():
+        return ((visit_limit is not None and visited >= visit_limit) or
+                (deadline is not None and time.monotonic() >= deadline))
+
     for current, dirs, files in os.walk(repo_dir, followlinks=False):
+        if index_limited():
+            indexing_limited = True
+            break
+        visited += 1
         if stop and stop():raise ik.Stopped()
         dirs[:] = sorted(d for d in dirs if d not in SKIP and not d.startswith('.')
                          and not (Path(current) == repo_dir and d.casefold() in excluded_roots))
         for filename in sorted(files):
+            if index_limited():
+                indexing_limited = True
+                break
+            visited += 1
             path=Path(current)/filename
             if path.is_symlink() or path.suffix.lower() not in CODE | CONFIG:
                 continue
@@ -249,11 +265,14 @@ def inventory_surface(repo_name, repo_dir, cfg, stop=None):
                 gap(relative, 'LIMITE_INDEX', priority)
                 continue
             candidates.append((priority, relative, path))
+        if indexing_limited:
+            break
     ordered=sorted(candidates,key=lambda row:(row[0],row[1].casefold(),row[1]))
     omitted=ordered[max_files:]
     surface['files_index_overflow']=index_overflow
     surface['files_unselected']=len(omitted)+index_overflow
-    surface['scan_limit_reached'] = bool(index_overflow or omitted)
+    surface['scan_limit_reached'] = bool(index_overflow or omitted or indexing_limited)
+    surface['traversal_limited'] = indexing_limited
     for priority, relative, _ in omitted:
         gap(relative, 'LIMITE_SCAN', priority)
     omission_counts=collections.Counter((rel.split('/')[0] if '/' in rel else '[root]')
@@ -263,8 +282,15 @@ def inventory_surface(repo_name, repo_dir, cfg, stop=None):
     surface['unselected_by_root']=[{'directory':name,'files':count}
                                    for name,count in omission_counts.most_common(12)]
     oversize_counts=collections.Counter()
-    for priority, relative, path in ordered[:max_files]:
+    selected = ordered[:max_files]
+    for ix, (priority, relative, path) in enumerate(selected):
         if stop and stop():raise ik.Stopped()
+        if deadline is not None and time.monotonic() >= deadline:
+            surface['scan_limit_reached'] = surface['traversal_limited'] = True
+            surface['files_unselected'] += len(selected) - ix
+            for unscanned_priority, unscanned_path, _ in selected[ix:]:
+                gap(unscanned_path, 'BUDGET_TEMPS', unscanned_priority)
+            break
         try:
             large_data = (
                 relative.casefold() in large_data_files or
@@ -607,11 +633,22 @@ def run(root, references, cfg, *, allow_network=False, allow_remote=False, notif
     data,_=ik.read_reference_data(root,references)
     repo_map=ik.inventory(data['repositories.json'],root)
     sources={}
-    for key,entry in sorted(repo_map.items()):
+    deferred=set()
+    seconds=ik_cfg['scan'].get('surface_seconds')
+    deadline=time.monotonic()+seconds if seconds is not None else None
+    focus = {'interaction-kernel', 'koa-linux-koali', 'orgo', 'konnaxion', 'konnaxion-worlds', 'konfid'}
+    ordered_repos = sorted(repo_map.items(), key=lambda pair: (
+        deadline is not None and pair[0].casefold() not in focus, pair[0]))
+    for key,entry in ordered_repos:
         check()
         if not entry['path'].is_dir():continue
+        name=entry['name']
+        if deadline is not None and time.monotonic() >= deadline:
+            deferred.add(name)
+            continue
         notify('progress',('Repos',len(sources)+1,len(repo_map)))
-        sources[entry['name']]=inventory_surface(entry['name'],entry['path'],cfg,stop)
+        repo_deadline = min(deadline, time.monotonic()+2) if deadline is not None else None
+        sources[name]=inventory_surface(name,entry['path'],cfg,stop,deadline=repo_deadline)
     notify('log',f"Surface passive: {len(sources)}/{len(repo_map)} dépôts présents.")
     check()
     alias=_repo_aliases(repo_map,sources)
@@ -847,7 +884,8 @@ def run(root, references, cfg, *, allow_network=False, allow_remote=False, notif
           'relative_path':repo['relative'],'incoming':sum(r['target']==name for r in related),
           'outgoing':sum(r['source']==name for r in related),
           'linked':len(related),'scanned_files':src.get('files_scanned',0),
-          'truncated':src.get('scan_limit_reached',False),
+          'truncated':name in deferred or src.get('scan_limit_reached',False),
+          'traversal_limited':name in deferred or src.get('traversal_limited',False),
           'eligible_files':src.get('files_eligible',0),
           'oversized_files':src.get('files_oversized',0),
           'unreadable_files':src.get('files_unreadable',0),
@@ -860,7 +898,7 @@ def run(root, references, cfg, *, allow_network=False, allow_remote=False, notif
           'qualification': 'ABSENT' if not repo['path'].is_dir() else ('NON_CARTOGRAPHIE' if not related else 'CARTOGRAPHIE')})
     schema_issues=sum(x['status'] not in ('LISIBLE',) for x in schemas)
     dep_issues=sum(x['status']=='VERSION_A_EXAMINER' for x in dependencies)
-    scan_warnings=sum(x['scan_limit_reached'] for x in sources.values())
+    scan_warnings=sum(x['truncated'] for x in repo_coverage)
     statuses=dict(collections.Counter(x['qualification'] for x in relations))
     from .api_links import check_links
     # Expose observed inbound API routes only, without scanning application
@@ -884,7 +922,9 @@ def run(root, references, cfg, *, allow_network=False, allow_remote=False, notif
       'security':{'read_only_repos':True,'internal_app_tests_run':False,'subprocesses_run':False,
                   'api_probes_opt_in':bool(allow_network),'remote_opt_in':bool(allow_remote),
                   'payloads_in_report':False},
-      'summary':{'inventory_repos':len(repo_map),'present_repos':len(sources),
+      'summary':{'inventory_repos':len(repo_map),'present_repos':len(sources)+len(deferred),
+       'source_repos_sampled':len(sources),'source_repos_deferred':len(deferred),
+       'source_repo_traversals_limited':sum(x['traversal_limited'] for x in repo_coverage),
        'relations':len(relations),'qualifications':statuses,
        'api_static_calls':len(api_calls),'api_route_matches':sum(x['status']=='ROUTE_CORRESPONDANTE' for x in api_calls),
        'api_inbound_routes':len(api_routes),'expected_api_links':len(expected_api_links),

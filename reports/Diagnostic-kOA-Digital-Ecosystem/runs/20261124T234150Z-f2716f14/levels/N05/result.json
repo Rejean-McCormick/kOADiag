@@ -1,0 +1,255 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.7.0",
+  "run_id": "20261124T234150Z-f2716f14",
+  "level_id": "N05",
+  "level_name": "Événements, topics, abonnements",
+  "purpose": "Comparer les publications et abonnements nommés",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-24T23:43:56+00:00",
+  "ended_at": "2026-11-24T23:43:56+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "events.unilateral.1",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal DÉBUT: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.2",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal REVIEW_WORKBENCH.html: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.3",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal SUMMARY.json: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.4",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal alertes_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.5",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal authorized: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.6",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal campaign_finished: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.7",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal campaign_started: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.8",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal catalogues_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.9",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal catalogues_candidats_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.10",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal comparaisons/: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.11",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal completed: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.12",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal copies_exactes_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.13",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal couverture_kristals_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.14",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal couverture_kristals_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.15",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal denied: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.16",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal done: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.17",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal has_member: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.18",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal identifiants_non_resolus.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.19",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal kristals_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.20",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal kristals_officiels.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.21",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal lacunes_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.22",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal level_finished: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.23",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal level_started: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.24",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal lists_file: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.25",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal log: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.26",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal mapped: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.27",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal matrice_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.28",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal mots_a_completer_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.29",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal preparation_failed: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.30",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal prepared: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.31",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal progress: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.32",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal raccordements_a_qualifier.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.33",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal replay: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.34",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal resolution_identifiants_14_langues.csv: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.unilateral.35",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Canal revues/: producteur / consommateur non appariés (UNILATERAL_OU_LOCAL)"
+    },
+    {
+      "id": "events.delivery.not-proven",
+      "verdict": "WARN",
+      "category": "event",
+      "message": "Un nom de canal commun ne prouve pas la livraison d’un message."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "channels": 55,
+    "edges": 55,
+    "approved_event_boundaries": 0,
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.62
+  }
+}

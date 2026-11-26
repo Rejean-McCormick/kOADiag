@@ -1,0 +1,29 @@
+﻿id;category;priority;owner;count;file;locations;action
+SCAN_0;collecte;P2;Arketype;22;;modeles, outils, [identifiant masqué];Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_1;collecte;P2;Daat;1;;src;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_2;collecte;P2;Ekole-Atelier-Images;1;;[identifiant masqué];Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_3;collecte;P2;Ekole-Pastorale;35;;kristals, extension-arketype, kristals-temoins;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_4;collecte;P2;Ekole-Quebec;3;;catalogue, kristals;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_5;collecte;P2;EncyKlopedia;19;;ecosystem, _SAUVEGARDES_PROFONDEUR_KRISTAL;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_6;collecte;P2;Karacter;4;;src, data;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_7;collecte;P2;Koali-Scenario-Mosaic;1;;[identifiant masqué];Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_8;collecte;P2;Konfid;1;;[identifiant masqué];Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_9;collecte;P2;Konnaxion;1;;backend;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_10;collecte;P2;Konnaxion-Capsule-Manager;3;;kx_agent, kx_builder;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_11;collecte;P2;Konnaxion-Worlds;4;;legacy-world-packs;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_12;collecte;P2;Konstellation;5;;data, src;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_13;collecte;P2;Konstellation-Light;1;;light;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_14;collecte;P2;Kontexte;3;;data;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_15;collecte;P2;Kristal-Authoring-Kit;1;;tools;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_16;collecte;P2;kristal-public;13;;kristals;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_17;collecte;P2;LevelUpDiag-Orgo;19;;browser;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_18;collecte;P2;MediKristal;5;;backend, contracts;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_19;collecte;P2;Orgo-Worlds;5;;fakeplant, [identifiant masqué];Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_20;collecte;P2;SenTient;4;;webapp, opentapioca;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_21;collecte;P2;Skope;1;;encyk;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_22;collecte;P2;Spek;6;;dist-bridge, dist-education;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+SCAN_23;collecte;P2;UCKK-Assets;1;;Auto_Format;Examiner ces dossiers et exclure les données non pertinentes, ou cibler une collecte segmentée autorisée. Ne pas augmenter globalement les limites.
+DOC_24;documentation;P2;Docs;;docs/2-Technical-Reference/40-integration/skope-ekole/index.md;;"Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+DOC_25;documentation;P2;Docs;;docs/status/current.md;;"Revoir le contenu avec le dépôt auteur; actualiser son empreinte uniquement après approbation explicite."
+INVENTORY_DIFF;inventaire;P2;C0 / Audit;;;;"Rapprocher les instantanés datés; ne pas déclarer à jour un inventaire historique."
+TRACE_SOURCES_MISSING;preuves_e2e;P1;Orgo / Konnaxion;;;;Produire des exports de preuve assainis depuis les dépôts propriétaires, puis déclarer les fichiers et empreintes dans la configuration locale de kOADiag. Aucun log brut ni jeton.

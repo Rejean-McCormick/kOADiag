@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import urlsplit
 import hashlib
 import os
 import tempfile
@@ -18,7 +19,6 @@ import json
 import re
 import shutil
 import subprocess
-import sys
 import uuid
 
 from . import port_diagnostics as c0
@@ -26,8 +26,11 @@ from . import port_diagnostics as c0
 OFFICIAL_SCRIPT = Path('Orgo/Orgo/validation/konnaxion-orgo-ik/run-e2e.ps1')
 ORGO_DIR = Path('Orgo/Orgo')
 KONNAXION_DIR = Path('Konnaxion/Konnaxion')
-ORGO_COMPOSE = 'docker-compose.yml'
-KX_COMPOSE = 'docker-compose.local.yml'
+KX_ENV = KONNAXION_DIR / 'backend/.envs/.local/.django'
+ORGO_ROUTE = 'http://host.docker.internal:21111/api/v3/ik/interactions'
+KX_ROUTE = 'http://host.docker.internal:21131/api/integrations/ik/konnaxion/interactions/'
+ORGO_CONTAINERS = ('orgo-ik-test-api-1', 'orgo-ik-test-worker-1', 'orgo-test-postgres')
+KX_CONTAINERS = ('konnaxion_local_django', 'konnaxion_local_celeryworker', 'backend-kx-e2e-postgres-1')
 PASS = 'KONNAXION <-> ORGO IK E2E PASS'
 WORLD_RE = re.compile(r'[a-z0-9][a-z0-9_-]{0,127}\Z')
 CONFIRM_PHRASE = 'TEST E2E'
@@ -52,52 +55,170 @@ def _http_ok(port: int, route: str, timeout=4) -> dict:
         conn.close()
 
 
-def _env_keys(path: Path, keys: tuple[str, ...]) -> dict:
-    """Read only required key values, never return secrets or private paths."""
-    if not path.is_file() or path.is_symlink():
-        return {'present': False, 'keys_present': [], 'missing_keys': list(keys), 'routes': {}}
-    required = set(keys)
-    found = set()
-    routes = {}
-    try:
-        if path.stat().st_size > 200_000:
-            raise ValueError('Taille .env inattendue')
-        for raw in path.read_text(encoding='utf-8-sig', errors='replace').splitlines():
-            if raw.startswith('#') or '=' not in raw:
-                continue
-            k, v = raw.split('=', 1)
-            if k in required and v.strip().strip('"\''):
-                found.add(k)
-            if k in ('KONNAXION_IK_URL', 'IK_ORGO_INTERACTIONS_URL'):
-                # Only compare to a documented literal host:port. Never report original URL.
-                value = v.strip().strip('"\'')
-                expected_port = 21131 if k == 'KONNAXION_IK_URL' else 21111
-                routes[k] = ('OK' if re.match(
-                    rf'\Ahttp://host\.docker\.internal:{expected_port}/[A-Za-z0-9_./-]+\Z', value
-                ) else ('MISSING' if not value else 'NOT_C0_DOCKER'))
-    except (OSError, ValueError):
-        return {'present': False, 'keys_present': [], 'missing_keys': list(keys), 'routes': {}}
-    return {'present': True, 'keys_present': sorted(found),
-            'missing_keys': sorted(required - found), 'routes': routes}
+def _read_kx_env(path: Path) -> dict:
+    """Match the owner's PowerShell dotenv reader. Never include values in reports."""
+    if not path.is_file() or path.is_symlink() or path.stat().st_size > 200_000:
+        return {}
+    values = {}
+    for line in path.read_text(encoding='utf-8-sig').splitlines():
+        key, sep, value = line.partition('=')
+        if sep and key in ('IK_ORGO_TOKEN', 'IK_ORGO_TARGET_ORGANIZATION',
+                           'IK_ORGO_INTERACTIONS_URL', 'IK_ORGO_ALLOWED_ORGANIZATION'):
+            values[key] = value.strip().strip('"').strip("'")
+    return values
 
 
-def _compose_services(docker: str, folder: Path, compose: str, required: tuple[str, ...], *, call=None) -> dict:
-    cmd = [docker, 'compose', '-f', compose, 'ps', '--services', '--status', 'running']
+def _docker(docker, args, root, call):
+    fn = call or subprocess.run
+    return fn([docker, *args], cwd=str(root), stdin=subprocess.DEVNULL,
+              capture_output=True, text=True, encoding='utf-8', errors='replace',
+              timeout=15, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+
+
+def _running_containers(docker, names, root, call=None):
     try:
-        fn = call or subprocess.run
-        p = fn(cmd, cwd=str(folder), stdin=subprocess.DEVNULL, capture_output=True,
-               text=True, encoding='utf-8', errors='replace', timeout=20,
-               creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
-        if p.returncode:
-            return {'status': 'BLOCKED', 'required': list(required), 'missing': list(required),
-                    'detail': 'Docker Compose indisponible (aucune sortie brute affichée)'}
-        running = set(p.stdout.split())
-        missing = sorted(set(required) - running)
-        return {'status': 'PASS' if not missing else 'BLOCKED', 'required': list(required),
-                'missing': missing}
-    except (OSError, subprocess.TimeoutExpired):
-        return {'status': 'BLOCKED', 'required': list(required), 'missing': list(required),
-                'detail': 'Impossible de vérifier les conteneurs'}
+        result = _docker(docker, ['inspect', '--type', 'container', *names], root, call)
+        # Docker can return the objects it found even if another name is missing.
+        rows = json.loads(result.stdout)
+        return {row['Name'].lstrip('/'): row for row in rows
+                if row['State'].get('Running') is True}
+    except (OSError, ValueError, TypeError, KeyError, AttributeError, subprocess.TimeoutExpired):
+        return {}
+
+
+def _container_env(row):
+    return dict(value.split('=', 1) for value in row.get('Config', {}).get('Env', [])
+                if '=' in value)
+
+
+def _bound(row, port, published):
+    bindings = row.get('NetworkSettings', {}).get('Ports', {}).get(f'{port}/tcp') or []
+    return any(item.get('HostIp') == '127.0.0.1' and item.get('HostPort') == str(published)
+               for item in bindings)
+
+
+def _db_matches(env, host, name):
+    try:
+        url = urlsplit(env.get('DATABASE_URL', ''))
+        return (url.scheme in ('postgres', 'postgresql') and url.hostname == host
+                and url.port in (None, 5432) and url.path == '/' + name)
+    except ValueError:
+        return False
+
+
+def _uuid(value):
+    try:
+        return str(uuid.UUID(value))
+    except (ValueError, AttributeError, TypeError):
+        return None
+
+
+def _authenticated_orgo_token(port, token, organization):
+    if port != 21111 or not re.fullmatch(r'[A-Za-z0-9_-]{32,128}', token):
+        return False
+    required = {'signals:read', 'signals:write', 'workflows:execute', 'work:read',
+                'work:write', 'integrations:read', 'integrations:write'}
+    conn = http.client.HTTPConnection('127.0.0.1', port, timeout=5)
+    try:
+        conn.request('GET', '/api/v3/auth/me', headers={
+            'Authorization': 'Bearer ' + token, 'X-Organization-ID': organization,
+            'Connection': 'close',
+        })
+        response = conn.getresponse()
+        if response.status != 200:
+            return False
+        context = json.loads(response.read(8192))['data']
+        return (context.get('source') == 'api' and context.get('actorType') == 'system'
+                and _uuid(context.get('organizationId')) == organization
+                and required.issubset(context.get('permissions', [])))
+    except (OSError, ValueError, TypeError, KeyError, AttributeError, http.client.HTTPException):
+        return False
+    finally:
+        conn.close()
+
+
+def runtime_checks(root: Path, docker, ports, *, call=None) -> list[dict]:
+    """Inspect the prepared isolated stacks, without starting or changing Docker."""
+    checks = []
+
+    def check(key, ok, good, bad):
+        checks.append({'id': key, 'status': 'PASS' if ok else 'BLOCKED',
+                       'detail': good if ok else bad})
+
+    if not docker:
+        check('docker', False, '', 'Docker CLI absent')
+        return checks
+
+    rows = _running_containers(docker, (*ORGO_CONTAINERS, *KX_CONTAINERS), root, call)
+    orgo_api, orgo_worker, orgo_db, django, celery, kx_db = (
+        rows.get(name, {}) for name in (*ORGO_CONTAINERS, *KX_CONTAINERS)
+    )
+    api, worker, django_env, celery_env, pg_orgo, pg_kx = map(
+        _container_env, (orgo_api, orgo_worker, django, celery, orgo_db, kx_db)
+    )
+    orgo_ready = bool(orgo_api and orgo_worker and orgo_db and ports.get('orgo-api') and
+                      _bound(orgo_api, 4000, ports['orgo-api']))
+    kx_ready = bool(django and celery and kx_db and ports.get('konnaxion-api') and
+                    _bound(django, 8000, ports['konnaxion-api']))
+    check('docker_orgo', orgo_ready, 'Projet isolé orgo-ik-test et PostgreSQL de test détectés',
+          'API ou worker orgo-ik-test, PostgreSQL de test ou publication C0 indisponible')
+    check('docker_konnaxion', kx_ready, 'Django, Celery et PostgreSQL E2E détectés',
+          'Django, Celery, PostgreSQL E2E ou publication C0 indisponible')
+    check('bases_docker', all(_db_matches(env, 'host.docker.internal', 'orgo_test') for env in (api, worker))
+          and all(_db_matches(env, 'kx-e2e-postgres', 'konnaxion_e2e') for env in (django_env, celery_env))
+          and _bound(orgo_db, 5432, 5432)
+          and pg_orgo.get('POSTGRES_DB') == 'orgo_test' and pg_kx.get('POSTGRES_DB') == 'konnaxion_e2e',
+          'Cibles Docker conformes : orgo_test et konnaxion_e2e',
+          'Cibles PostgreSQL isolées non confirmées')
+
+    try:
+        local = _read_kx_env(root / KX_ENV)
+    except (OSError, UnicodeError):
+        local = {}
+    token = local.get('IK_ORGO_TOKEN')
+    org_id = _uuid(local.get('IK_ORGO_TARGET_ORGANIZATION'))
+    kx_services = (django_env, celery_env)
+    env_matches = bool(token and org_id) and all(
+        env.get('IK_ORGO_TOKEN') == token and _uuid(env.get('IK_ORGO_TARGET_ORGANIZATION')) == org_id
+        for env in kx_services)
+    check('env_konnaxion', env_matches,
+          'Jeton local et organisation chargés dans Django et Celery',
+          'Jeton ou organisation de .django absent ou différent dans Django ou Celery')
+    check('jeton_orgo', orgo_ready and env_matches and
+          _db_matches(api, 'host.docker.internal', 'orgo_test') and
+          _authenticated_orgo_token(ports['orgo-api'], token, org_id),
+          'Jeton machine accepté par Orgo avec le périmètre IK requis',
+          'Jeton machine, organisation ou droits IK non confirmés par Orgo')
+    check('workflow_orgo', api.get('KONNAXION_DECISION_WORKFLOW_CODE') == 'konnaxion_decision_v1'
+          and bool(api.get('KONNAXION_DECISION_LABEL')), 'Workflow et label IK configurés',
+          'Workflow ou label IK Orgo absent ou inattendu')
+    check('route_orgo_vers_konnaxion', worker.get('KONNAXION_IK_URL') == KX_ROUTE,
+          'Route de retour effective conforme à C0', 'Route de retour effective absente ou hors C0')
+    check('jeton_retour', bool(worker.get('KONNAXION_IK_TOKEN')) and
+          worker['KONNAXION_IK_TOKEN'] == django_env.get('IK_ORGO_INBOUND_TOKEN'),
+          'Jeton de retour identique côté worker et Django',
+          'Jeton de retour absent ou différent')
+    check('organisation_retour', bool(org_id) and _uuid(local.get('IK_ORGO_ALLOWED_ORGANIZATION')) == org_id
+          and _uuid(django_env.get('IK_ORGO_ALLOWED_ORGANIZATION')) == org_id,
+          'Retour restreint à l’organisation de test',
+          'Organisation autorisée absente ou différente dans .django ou Django')
+
+    route_ok = local.get('IK_ORGO_INTERACTIONS_URL') == ORGO_ROUTE and all(
+        env.get('IK_ORGO_INTERACTIONS_URL') == ORGO_ROUTE and env.get('KX_IK_DOCKER_E2E') == '1'
+        for env in kx_services)
+    if route_ok and kx_ready:
+        probe = ('from django.conf import settings; '
+                 'from konnaxion.integrations.interaction_kernel.transport import _validated_target_url as valid; '
+                 'url = settings.IK_ORGO_INTERACTIONS_URL; '
+                 'raise SystemExit(0 if url and valid(url) == url else 1)')
+        try:
+            route_ok = _docker(docker, ['exec', KX_CONTAINERS[1], 'python', 'manage.py', 'shell', '-c', probe], root, call).returncode == 0
+        except (OSError, subprocess.TimeoutExpired):
+            route_ok = False
+    check('route_konnaxion_vers_orgo', route_ok and kx_ready,
+          'Route C0 acceptée par le filtre chargé dans le conteneur Celery',
+          'Route C0 absente, différente ou refusée par le filtre Konnaxion')
+    return checks
 
 
 def _ports(root: Path) -> dict:
@@ -193,43 +314,15 @@ def preflight(root: Path, tool: Path, *, world_key: str = '', docker_call=None,
         item('kit_officiel', 'PASS', 'Script du dépôt Orgo présent (aucune copie de logique métier)')
     else:
         item('kit_officiel', 'BLOCKED', 'Kit E2E officiel Orgo introuvable')
-    orgo = _env_keys(root / ORGO_DIR / '.env', ('POSTGRES_PASSWORD', 'KONNAXION_IK_URL'))
-    konnaxion = _env_keys(root / KONNAXION_DIR / 'backend/.envs/.local/.django',
-                          ('IK_ORGO_TOKEN', 'IK_ORGO_TARGET_ORGANIZATION', 'IK_ORGO_INTERACTIONS_URL'))
-    for name, vals in (('env_orgo', orgo), ('env_konnaxion', konnaxion)):
-        missing = vals['missing_keys']
-        item(name, 'BLOCKED' if missing else 'PASS',
-             'Variables manquantes : ' + ', '.join(missing) if missing else 'Clés requises présentes, valeurs masquées')
-    for key, vals in (('route_orgo_vers_konnaxion', orgo), ('route_konnaxion_vers_orgo', konnaxion)):
-        var = 'KONNAXION_IK_URL' if key.startswith('route_orgo') else 'IK_ORGO_INTERACTIONS_URL'
-        state = vals['routes'].get(var, 'MISSING')
-        item(key, 'PASS' if state == 'OK' else 'BLOCKED',
-             'URL Docker locale conforme à C0' if state == 'OK' else 'URL IK Docker manquante ou hors C0')
     probe = http_check or _http_ok
     for sid, path in (('orgo-api', '/health/ready'), ('konnaxion-api', '/health/ready/')):
         r = probe(ports[sid], path) if sid in ports else {'status': 'BLOCKED'}
         item('http_' + sid, r['status'], f"Santé HTTP : {r.get('http_code', 'indisponible')}")
     docker = docker_path if docker_path is not None else shutil.which('docker')
     pwsh = ps_path if ps_path is not None else shutil.which('pwsh')
-    if not docker:
-        item('docker', 'BLOCKED', 'Docker CLI absent')
     if not pwsh:
         item('pwsh', 'BLOCKED', 'PowerShell 7 requis')
-    # The official kit executes Python inside the Konnaxion Django *container*;
-    # a native Uvicorn process is insufficient even when its health probe passes.
-    if docker:
-        for sid, folder, compose, services in (
-            ('docker_orgo', root/ORGO_DIR, ORGO_COMPOSE, ('postgres', 'api', 'worker')),
-            ('docker_konnaxion', root/KONNAXION_DIR/'backend', KX_COMPOSE,
-             ('redis', 'django', 'celeryworker')),
-        ):
-            result = _compose_services(docker, folder, compose, services, call=docker_call) if (
-                folder/compose).is_file() else {'status': 'BLOCKED', 'missing': list(services)}
-            item(sid, result['status'], 'Services attendus manquants : ' + ', '.join(result['missing'])
-                 if result['missing'] else 'Conteneurs nécessaires démarrés')
-    else:
-        item('docker_orgo', 'BLOCKED', 'Compose non vérifié')
-        item('docker_konnaxion', 'BLOCKED', 'Compose non vérifié')
+    checks.extend(runtime_checks(root, docker, ports, call=docker_call))
     auth = test_authorization(tool, world_key)
     item('autorisation_donnees', 'PASS' if auth['status'] == 'ATTESTED' else 'BLOCKED', auth['reason'])
     blockers = [c['id'] for c in checks if c['status'] != 'PASS']
@@ -272,20 +365,11 @@ def run_e2e(root: Path, tool: Path, *, world_key: str, confirmation: str,
                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
         lines = [x.strip() for x in p.stdout.splitlines()]
         success = p.returncode == 0 and PASS in lines
-        observations = {'status':'ABSENTES'}
-        raw_record = next((x[len(OBS_PREFIX):] for x in lines if x.startswith(OBS_PREFIX)), None)
-        if raw_record and len(raw_record) < 4096:
-            try:
-                item = json.loads(raw_record)
-                required = ('correlation_id','decision_id','impact_id','decision_status','impact_status')
-                if isinstance(item,dict) and all(isinstance(item.get(k),str) and item[k] for k in required):
-                    observations = {'status':'METADONNEES_PRESENTES',
-                                    'raw_sha256':hashlib.sha256(raw_record.encode()).hexdigest(),
-                                    'correlation_sha256_prefix':hashlib.sha256(item['correlation_id'].encode()).hexdigest()[:16],
-                                    'decision_status':str(item['decision_status'])[:32],
-                                    'impact_status':str(item['impact_status'])[:32]}
-            except (ValueError,TypeError):
-                pass
+        observations = {'status': 'ABSENTES'}
+        try:
+            observations = _observations(lines)
+        except (ValueError, OverflowError):
+            pass
         result = {'schema': SCHEMA, 'type': 'transaction', 'world_key': world_key,
                   'started_at_utc': started, 'completed_at_utc': datetime.now(timezone.utc).isoformat(),
                   'verdict': 'PASS' if success else 'FAIL', 'exit_code': p.returncode,
@@ -299,10 +383,70 @@ def run_e2e(root: Path, tool: Path, *, world_key: str, confirmation: str,
                   'verdict': 'ERROR', 'exit_code': None, 'pass_marker_observed': False,
                   'observations': {'status':'ABSENTES'},
                   'details': 'Le test officiel a dépassé le délai ou le processus est inaccessible'}
-    # Export only vetted structured metadata, never stdout/stderr or credentials.
+    result['source'] = 'koadiag'
+    return _save_report(tool, result)
+
+
+def _observations(lines: list[str]) -> dict:
+    records = [line[len(OBS_PREFIX):] for line in lines if line.startswith(OBS_PREFIX)]
+    if len(records) != 1 or len(records[0]) >= 4096:
+        raise ValueError('Une observation IK unique est requise.')
+    raw = records[0]
+    record = json.loads(raw)
+    if not isinstance(record, dict):
+        raise ValueError('Observation IK invalide.')
+    correlation = record.get('correlation_id')
+    if not isinstance(correlation, str) or not re.fullmatch(r'[a-zA-Z0-9:_-]{1,128}', correlation):
+        raise ValueError('Corrélation IK invalide.')
+    times = {}
+    for hop, allowed in (('decision', ('accepted', 'succeeded')), ('impact', ('succeeded',))):
+        if not _uuid(record.get(hop + '_id')) or record.get(hop + '_status') not in allowed:
+            raise ValueError('Identifiant ou statut IK invalide.')
+        ordered = []
+        for phase in ('sent', 'received', 'response'):
+            key = f'{hop}_{phase}'
+            value = record.get(key)
+            if not isinstance(value, str) or not 20 <= len(value) <= 40:
+                raise ValueError('Horodatage IK invalide.')
+            timestamp = datetime.fromisoformat(value.replace('Z', '+00:00'))
+            if timestamp.utcoffset() is None:
+                raise ValueError('Fuseau horaire IK absent.')
+            ordered.append(timestamp)
+            times[key] = timestamp.astimezone(timezone.utc).isoformat()
+        if ordered != sorted(ordered):
+            raise ValueError('Séquence des horodatages IK incohérente.')
+    return {'status': 'METADONNEES_PRESENTES',
+            'raw_sha256': hashlib.sha256(raw.encode()).hexdigest(),
+            'correlation_sha256_prefix': hashlib.sha256(correlation.encode()).hexdigest()[:16],
+            'decision_status': record['decision_status'], 'impact_status': record['impact_status'],
+            'timestamps_utc': times}
+
+
+def import_terminal_result(path: Path, tool: Path) -> dict:
+    if path.is_symlink() or not path.is_file() or path.stat().st_size > 256_000:
+        raise ValueError('Fichier de sortie PowerShell invalide ou trop volumineux.')
+    lines = [line.strip() for line in path.read_text(encoding='utf-8-sig').splitlines()]
+    worlds = [m for line in lines if (m := re.fullmatch(
+        r'Konnaxion test World: ([a-z0-9][a-z0-9_-]{0,127}), release ID: ([1-9][0-9]*)\.', line))]
+    if lines.count(PASS) != 1 or len(worlds) != 1:
+        raise ValueError('Choisis la sortie d’un seul test officiel terminé avec PASS.')
+    try:
+        observations = _observations(lines)
+    except OverflowError as exc:
+        raise ValueError('Horodatage IK hors plage.') from exc
+    return _save_report(tool, {
+        'schema': SCHEMA, 'type': 'transaction', 'source': 'terminal_import',
+        'world_key': worlds[0][1], 'release_id': int(worlds[0][2]),
+        'imported_at_utc': datetime.now(timezone.utc).isoformat(),
+        'verdict': 'PASS', 'pass_marker_observed': True, 'observations': observations,
+        'details': 'PASS déclaré dans une sortie du kit officiel importée. Aucune exécution kOADiag.',
+    })
+
+
+def _save_report(tool: Path, result: dict) -> dict:
     destination = tool/'reports'/'Diagnostic-kOA-Digital-Ecosystem'/'ik-e2e'
     destination.mkdir(parents=True, exist_ok=True)
-    out = destination/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:6]+'.json')
-    out.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    out = destination / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:6] + '.json')
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     result['report_path'] = str(out)
     return result

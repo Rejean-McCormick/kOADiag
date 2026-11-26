@@ -1,0 +1,6 @@
+﻿id;nom;verdict;constats_non_pass;erreur_lecture
+N00;Intégrité des références et sécurité;WARN;1;
+N01;Collecte de preuves inter-repos;INFRA_ERROR;1;
+N03;Contrats IK et dérive de schémas;BLOCKED;1;
+N08;Obligations de frontière;BLOCKED;1;
+N09;Traces, enveloppes et reçus IK;BLOCKED;1;

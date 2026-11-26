@@ -1,0 +1,69 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.7.0",
+  "run_id": "20261124T234150Z-f2716f14",
+  "level_id": "N13",
+  "level_name": "Validation intégrale par dépôt, frontière et mode",
+  "purpose": "Consolider les contrôles dans les deux modes et identifier chaque preuve ou prérequis manquant",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-24T23:43:57+00:00",
+  "ended_at": "2026-11-24T23:43:57+00:00",
+  "verdict": "PARTIAL",
+  "required": true,
+  "findings": [
+    {
+      "id": "full.cases.partial",
+      "verdict": "PARTIAL",
+      "category": "scope",
+      "message": "79 contrôle(s) PARTIAL. Consulter la matrice intégrale."
+    },
+    {
+      "id": "full.scope.incomplete",
+      "verdict": "PARTIAL",
+      "category": "scope",
+      "message": "Périmètre documentaire incomplet"
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "validation-integrale",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261124T234150Z-f2716f14\\validation-integrale.json",
+      "description": "Résultats détaillés par dépôt, frontière et mode"
+    },
+    {
+      "kind": "validation-integrale",
+      "path": "C:\\mycode\\kOA_Digital_Ecosystem\\kOADiag\\reports\\Diagnostic-kOA-Digital-Ecosystem\\runs\\20261124T234150Z-f2716f14\\exports\\validation-integrale.csv",
+      "description": "Résultats détaillés par dépôt, frontière et mode"
+    }
+  ],
+  "metrics": {
+    "cases": 191,
+    "counts": {
+      "SKIP": 62,
+      "PASS": 50,
+      "PARTIAL": 79
+    },
+    "required_total": 65,
+    "required_pass": 50,
+    "upstream_quality": {
+      "N01": "PARTIAL",
+      "N10": "SKIP",
+      "N14": "SKIP"
+    },
+    "worker_duration_seconds": 0.38
+  }
+}

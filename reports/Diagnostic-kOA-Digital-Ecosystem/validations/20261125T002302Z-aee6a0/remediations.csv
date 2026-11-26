@@ -1,0 +1,3 @@
+﻿id;category;priority;owner;count;file;locations;action
+INVENTORY_DIFF;inventaire;P2;C0 / Audit;;;;"Rapprocher les instantanés datés; ne pas déclarer à jour un inventaire historique."
+TRACE_SOURCES_MISSING;preuves_e2e;P1;Orgo / Konnaxion;;;;Produire des exports de preuve assainis depuis les dépôts propriétaires, puis déclarer les fichiers et empreintes dans la configuration locale de kOADiag. Aucun log brut ni jeton.

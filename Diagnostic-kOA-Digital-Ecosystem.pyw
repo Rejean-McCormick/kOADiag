@@ -11,13 +11,15 @@ import queue
 import subprocess
 import sys
 import threading
+import time
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, simpledialog
 from koa_ecosystem_diag import VERSION
-from koa_ecosystem_diag.framework import load_manifest,load_config,read_json
+from koa_ecosystem_diag.framework import load_manifest,load_config,read_json,resolve_campaign
 from koa_ecosystem_diag.audit_export import export_campaign
 from koa_ecosystem_diag import boundary_registry as registry
 from koa_ecosystem_diag import port_diagnostics, validation_hub, ik_e2e
+from koa_ecosystem_diag.hub_session import launch_validation, ValidationCancelled
 from koa_ecosystem_diag.evidence_adapters import load as load_evidence
 
 HERE=Path(__file__).resolve().parent
@@ -50,7 +52,8 @@ class App(tk.Tk):
         self.q=queue.Queue();self.process=None;self.running=False;self.run_root=None
         self.summary=None;self.snapshot=None;self.results={};self.relation_rows=[]
         self.manifest=load_manifest(HERE)
-        self.campaigns=self.manifest['campaigns']
+        self.campaigns={name: campaign for name,campaign in self.manifest['campaigns'].items()
+                        if name != validation_hub.HUB_CAMPAIGNS['intermediaire']}
         self.rootvar=tk.StringVar(value=r'C:\mycode')
         self.campaignvar=tk.StringVar(value='validation-integrale')
         self.network=tk.BooleanVar(value=False);self.remote=tk.BooleanVar(value=False)
@@ -66,6 +69,7 @@ class App(tk.Tk):
         self.boundary_proof_rows={}
         self.ports_running=False;self.ports_last_folder=None
         self.hub_running=False;self.hub_last=None;self.hub_last_folder=None
+        self.hub_cancel=None
         self.ik_busy=False;self.ik_last_preflight=None;self.ik_world=tk.StringVar()
         self.reboot_running=False;self.reboot_scope=tk.StringVar(value='Essentiels')
         self.reboot_action=tk.StringVar(value='Redémarrer')
@@ -244,12 +248,22 @@ class App(tk.Tk):
         self.hub_fast_btn=self.button(actions,'VALIDATION RAPIDE TOTALE',
                                       lambda:self.hub_begin('rapide'),bg=BRAND)
         self.hub_fast_btn.pack(side='left',padx=(0,10))
+        self.hub_mid_btn=self.button(actions,'INTERMÉDIAIRE · PREUVES',
+                                     lambda:self.hub_begin('intermediaire'),bg=BRAND)
+        self.hub_mid_btn.pack(side='left',padx=(0,10))
         self.hub_deep_btn=self.button(actions,'VALIDATION APPROFONDIE',
                                       lambda:self.hub_begin('approfondie'),bg=BRAND_DARK)
         self.hub_deep_btn.pack(side='left',padx=(0,10))
+        self.hub_stop_btn=self.button(actions,'ARRÊTER LA VALIDATION',self.hub_stop,bg=RED)
+        self.hub_stop_btn.config(state='disabled')
+        self.hub_stop_btn.pack(side='left',padx=(0,10))
         self.button(actions,'RAPPORT',self.hub_open_report,bg=BRAND_SOFT,fg=INK).pack(side='right')
-        self.label(pane,'Les deux parcours sont non destructifs. Le test métier IK et le redémarrage restent séparés et soumis à confirmation.',
+        self.label(pane,'Le mode intermédiaire collecte des preuves développeur. Le test métier IK et le redémarrage restent séparés.',
                    bg='#fff',fg=MUTED,font=('Segoe UI',9)).pack(anchor='w',pady=(0,6))
+        self.hub_progress_bar=ttk.Progressbar(pane,mode='determinate',maximum=1)
+        self.hub_progress_bar.pack(fill='x',pady=(0,3))
+        self.hub_progress_info=self.label(pane,'',bg='#fff',fg=MUTED,font=('Segoe UI',9))
+        self.hub_progress_info.pack(anchor='w',pady=(0,6))
         stats=tk.Frame(pane,bg='#fff');stats.pack(fill='x',pady=(0,5))
         self.hub_metrics={}
         for key,title in (('verdict','BILAN'),('ports','SERVICES C0'),('essential','ESSENTIELS'),('links','LIAISONS TCP')):
@@ -345,45 +359,108 @@ class App(tk.Tk):
         if self.hub_running or self.running or self.ports_running or self.reboot_running or self.ik_busy:
             messagebox.showwarning('Validation','Une autre opération est déjà en cours.');return
         root=Path(self.rootvar.get()).expanduser()
-        try:validation_hub.c0.read_registry(root)
-        except (OSError,ValueError,TypeError) as exc:
-            messagebox.showerror('Registre C0',str(exc));return
+        selection=validation_hub.HUB_CAMPAIGNS.get(mode)
+        label='intermédiaire' if mode=='intermediaire' else mode
+        try:
+            total=len(resolve_campaign(self.manifest,selection)) if selection else 0
+        except (ValueError, KeyError) as exc:
+            messagebox.showerror('Validation',str(exc));return
+        cancel=threading.Event()
+        self.hub_cancel=cancel
         self.hub_running=True
-        self.hub_status.config(text='Validation '+mode+' en cours…',fg=BRAND)
-        for b in (self.hub_fast_btn,self.hub_deep_btn):b.config(state='disabled')
-        recovery=(campaign or {}).get('recovery') if isinstance(campaign,dict) else None
-        if isinstance(recovery,dict):
-            for i,row in enumerate(recovery.get('items',[])):
-                self.hub_remediations_tree.insert('','end',iid='remedy:'+str(i),
-                    values=(row.get('priority',''),row.get('category',''),row.get('owner',''),row.get('action','')[:180]))
-        if s.get('domaines'):
-            self.hub_set_text(self.hub_overview_text,
-                self.hub_overview_text.get('1.0','end-1c')+'\n\nBILAN PAR DOMAINE :\n'+
-                '\n'.join(f' - {k}: {v}' for k,v in s['domaines'].items()))
-        self.hub_set_text(self.hub_steps_text,
-            '1. Registre C0 et services locaux\n2. Connexions entre applications\n'+
-            ('3. Santé HTTP et LevelUpDiag (passif)\n' if mode=='approfondie' else '')+
-            '4. Rapport JSON/CSV/TXT\n\nOpération en cours…')
+        self.hub_started=self.hub_activity=time.monotonic()
+        self.hub_complete=set()
+        self.hub_active={}
+        self.hub_total=total
+        self.hub_status.config(text='Préparation de la validation '+label+'…',fg=BRAND)
+        for b in (self.hub_fast_btn,self.hub_mid_btn,self.hub_deep_btn):b.config(state='disabled')
+        self.hub_stop_btn.config(state='normal')
+        self.hub_progress_bar.config(mode='indeterminate',value=0)
+        self.hub_progress_bar.start(75)
+        self.hub_set_text(self.hub_steps_text,'Validation en cours. Les résultats affichés proviennent du dernier rapport terminé.')
+
         def worker():
             try:
-                result=validation_hub.validate(root,mode=mode,tool=HERE,
-                    progress=lambda line:self.q.put(('hub_progress',line)))
-                folder=validation_hub.save_report(result,
-                   HERE/'reports'/'Diagnostic-kOA-Digital-Ecosystem'/'validations')
-                self.q.put(('hub_done',(result,str(folder))))
-            except Exception as exc:self.q.put(('hub_error',type(exc).__name__+': '+str(exc)))
-        threading.Thread(target=worker,daemon=True,name='koa-central-validation').start()
+                result=launch_validation(python_console(),HERE,root,mode,cancel,
+                    lambda line:self.q.put(('hub_progress',line)))
+                self.q.put(('hub_done',result))
+            except ValidationCancelled:
+                self.q.put(('hub_cancelled',None))
+            except Exception as exc:
+                self.q.put(('hub_error',type(exc).__name__+': '+str(exc)))
+
+        try:
+            threading.Thread(target=worker,daemon=True,name='koa-central-validation').start()
+        except RuntimeError as exc:
+            self.hub_end()
+            self.hub_status.config(text='Impossible de démarrer : '+str(exc),fg=RED)
+
+    def hub_stop(self):
+        if self.hub_cancel is None or self.hub_cancel.is_set():
+            return
+        self.hub_cancel.set()
+        self.hub_stop_btn.config(state='disabled')
+        self.hub_status.config(text='Arrêt de la validation et de ses processus…',fg=AMBER)
+
+    def hub_event(self,line):
+        self.hub_activity=time.monotonic()
+        marker=line.removeprefix('LevelUpDiag : ')
+        if marker.startswith('LEVEL_START='):
+            level, _, name=marker.removeprefix('LEVEL_START=').partition('|')
+            self.hub_active[level]=name
+        elif marker.startswith('LEVEL='):
+            level=marker.removeprefix('LEVEL=').split('|',1)[0]
+            self.hub_active.pop(level,None)
+            self.hub_complete.add(level)
+        if self.hub_total and marker.startswith(('LEVEL_START=','LEVEL=')):
+            self.hub_progress_bar.stop()
+            self.hub_progress_bar.config(mode='determinate',maximum=self.hub_total,
+                                         value=len(self.hub_complete))
+        display=line
+        if marker.startswith('LEVEL_START='):
+            display=f'{level} · {name or "Démarrage"}'
+        elif marker.startswith('LEVEL='):
+            display=marker.removeprefix('LEVEL=').replace('|',' · ')
+        elif marker.startswith('RUN_ROOT='):
+            display='Campagne LevelUpDiag démarrée…'
+        elif marker.startswith('SUMMARY='):
+            display='Rapport LevelUpDiag disponible · synthèse en cours…'
+        if not self.hub_cancel.is_set():
+            self.hub_status.config(text=display,fg=BRAND)
+        self.log('VALIDATION : '+line)
+
+    def hub_tick(self):
+        if not self.hub_running:
+            return
+        now=time.monotonic()
+        elapsed=int(now-self.hub_started)
+        quiet=int(now-self.hub_activity)
+        text=f'Temps écoulé : {elapsed//60:02d}:{elapsed%60:02d} · Dernière activité signalée : il y a {quiet}s'
+        if self.hub_total and (self.hub_complete or self.hub_active):
+            text+=f' · Niveaux traités : {len(self.hub_complete)}/{self.hub_total}'
+        if self.hub_active:
+            text+=' · En cours : '+', '.join(sorted(self.hub_active))
+        self.hub_progress_info.config(text=text)
+
+    def hub_end(self,completed=False):
+        self.hub_running=False
+        self.hub_cancel=None
+        self.hub_stop_btn.config(state='disabled')
+        self.hub_progress_bar.stop()
+        self.hub_progress_bar.config(mode='determinate',maximum=1,value=int(completed))
+        self.hub_progress_info.config(text='')
+        for b in (self.hub_fast_btn,self.hub_mid_btn,self.hub_deep_btn):b.config(state='normal')
 
     def hub_finish(self,result,folder):
-        self.hub_running=False
+        self.hub_end(completed=self.hub_running)
         self.hub_last=result;self.hub_last_folder=Path(folder)
-        for b in (self.hub_fast_btn,self.hub_deep_btn):b.config(state='normal')
         s=result['summary']
+        label='intermédiaire' if s['mode']=='intermediaire' else s['mode']
         self.hub_metrics['verdict'].config(text=s['verdict'])
         self.hub_metrics['ports'].config(text=f"{s['services_accessibles']}/{s['port_count']}")
         self.hub_metrics['essential'].config(text=f"{s['services_essentiels_accessibles']}/{s['services_essentiels_total']}")
         self.hub_metrics['links'].config(text=f"{s['liaisons_extremites_accessibles']}/{s['liaisons_declarees']}")
-        self.hub_status.config(text=f"{s['mode'].capitalize()} · {s['verdict']} · {result['checked_at_utc'][:19]} UTC",
+        self.hub_status.config(text=f"{label.capitalize()} · {s['verdict']} · {result['checked_at_utc'][:19]} UTC",
                                fg=RED if s['verdict']=='ECART' else BRAND)
         self.hub_apps_tree.delete(*self.hub_apps_tree.get_children())
         health={x['id']:x for x in result.get('health',[])}
@@ -402,7 +479,7 @@ class App(tk.Tk):
         present=sum(rec.get('present') is True for rec in src.values())
         verified=sum(rec.get('present') is not None for rec in src.values())
         self.hub_set_text(self.hub_overview_text,
-            f"BILAN : {s['verdict']}\nMode : {s['mode']}\nDate : {result['checked_at_utc']}\n\n"
+            f"BILAN : {s['verdict']}\nMode : {label}\nDate : {result['checked_at_utc']}\n\n"
             f"SERVICES : {s['services_accessibles']}/{s['port_count']} ports joignables\n"
             f"ESSENTIELS : {s['services_essentiels_accessibles']}/{s['services_essentiels_total']}\n"
             f"Arrêtés ou inaccessibles : {s['services_non_demarras']} (pas nécessairement des pannes)\n"
@@ -450,6 +527,9 @@ class App(tk.Tk):
             'Rapports : '+str(folder)+'\n'+
             ('Rapport LevelUpDiag : '+str(campaign.get('report_path','')) if campaign else '')+
             '\n\nLes tests applicatifs internes et les agents distants ne sont pas exécutés automatiquement.')
+        if result.get('developer_evidence'):
+            self.hub_set_text(self.hub_steps_text,self.hub_steps_text.get('1.0','end-1c')+
+                '\n\nDossier développeur · bouton Rapport : preuves-index.json, preuves-constats.csv et preuves-journal.jsonl.')
         if result.get('application_test_suites'):
             self.hub_set_text(self.hub_steps_text,self.hub_steps_text.get('1.0','end-1c')+
                 f"\n\nSuites propriétaires référencées : {len(result['application_test_suites'])} (NON exécutées ; voir détail Applications et tests_applicatifs.csv).")
@@ -510,6 +590,7 @@ class App(tk.Tk):
         self.ik_run_btn=self.button(row,'EXÉCUTER LE E2E OFFICIEL',self.hub_ik_run,bg=BRAND)
         self.ik_run_btn.pack(side='left',padx=5)
         self.button(row,'DERNIER RÉSULTAT',self.hub_ik_history,bg=BRAND_SOFT,fg=INK).pack(side='right',padx=5)
+        self.button(row,'IMPORTER UNE SORTIE',self.hub_ik_import,bg=BRAND_SOFT,fg=INK).pack(side='right',padx=5)
         self.ik_text=tk.Text(pane,wrap='word',font=('Consolas',10),bg='#f3f9f8',fg=INK,
                              padx=12,pady=12,relief='flat')
         self.ik_text.pack(fill='both',expand=True)
@@ -535,6 +616,18 @@ class App(tk.Tk):
             except Exception as exc:
                 self.q.put(('ik_error',type(exc).__name__))
         threading.Thread(target=worker,daemon=True,name='koa-ik-preflight').start()
+
+    def hub_ik_import(self):
+        path = filedialog.askopenfilename(parent=self, title='Sortie PowerShell du kit officiel',
+                                         filetypes=[('Sortie texte', '*.txt *.log'), ('Tous', '*.*')])
+        if not path:
+            return
+        try:
+            result = ik_e2e.import_terminal_result(Path(path), HERE)
+        except (OSError, ValueError) as exc:
+            messagebox.showerror('Import IK', str(exc), parent=self)
+            return
+        self.hub_set_text(self.ik_text, json.dumps(result, ensure_ascii=False, indent=2))
 
     def hub_ik_history(self):
         folder=HERE/'reports'/'Diagnostic-kOA-Digital-Ecosystem'/'ik-e2e'
@@ -1215,7 +1308,7 @@ class App(tk.Tk):
 
     def close_checked(self):
         if self.hub_running:
-            messagebox.showwarning('Validation en cours','Attends le bilan avant de fermer kOADiag.');return
+            messagebox.showwarning('Validation en cours','Utilise Arrêter la validation, puis ferme kOADiag.');return
         if self.reboot_running:
             messagebox.showwarning('Redémarrage en cours',
                 'L’opération est toujours en cours. Ne ferme pas kOADiag avant le bilan.');return
@@ -1366,13 +1459,15 @@ class App(tk.Tk):
                     self.hub_set_text(self.ik_text,'E2E bloqué : '+value)
                     self.log('IK E2E bloqué : '+value)
                 elif kind=='hub_progress':
-                    self.hub_status.config(text=value,fg=BRAND)
-                    self.log('VALIDATION : '+value)
+                    self.hub_event(value)
                 elif kind=='hub_done':
                     self.hub_finish(*value)
+                elif kind=='hub_cancelled':
+                    self.hub_end()
+                    self.hub_status.config(text='Validation arrêtée · dernier rapport conservé',fg=AMBER)
+                    self.log('VALIDATION : arrêt demandé par l’utilisateur')
                 elif kind=='hub_error':
-                    self.hub_running=False
-                    for b in (self.hub_fast_btn,self.hub_deep_btn):b.config(state='normal')
+                    self.hub_end()
                     self.hub_status.config(text='Erreur de validation : '+value,fg=RED)
                     self.log('VALIDATION ERREUR : '+value)
                 elif kind=='line':
@@ -1418,6 +1513,7 @@ class App(tk.Tk):
                     self.verdict.config(text='ERREUR',fg=RED);self.log('ERREUR : '+value)
                     messagebox.showerror('Diagnostic',value)
         except queue.Empty:pass
+        self.hub_tick()
         self.after(130,self.drain)
 
     def load_run(self,path):

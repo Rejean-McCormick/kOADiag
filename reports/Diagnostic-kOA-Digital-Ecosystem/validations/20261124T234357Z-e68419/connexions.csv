@@ -1,0 +1,7 @@
+﻿name;source;target;status;detail;e2e_proven
+Interaction Kernel : Orgo -> Konnaxion;orgo-api;konnaxion-api;EXTREMITES_ACCESSIBLES;"Présence TCP des deux côtés uniquement ; transaction E2E non testée";False
+Interaction Kernel : Konnaxion -> Orgo;konnaxion-api;orgo-api;EXTREMITES_ACCESSIBLES;"Présence TCP des deux côtés uniquement ; transaction E2E non testée";False
+Koali : Konnaxion Web -> API;konnaxion-koali-web;konnaxion-koali-api;EXTREMITES_INDISPONIBLES;Un ou deux endpoints locaux sont indisponibles;False
+Koali : Orgo Web -> API;orgo-koali-web;orgo-koali-api;EXTREMITES_INDISPONIBLES;Un ou deux endpoints locaux sont indisponibles;False
+Orgo Worlds : Web -> API;orgo-worlds-web;orgo-worlds-api;EXTREMITES_INDISPONIBLES;Un ou deux endpoints locaux sont indisponibles;False
+Audit kOA -> HomePage;initkoa-web;initkoa-web;NON_TESTABLE;"Source indépendante non enregistrée dans C0 ; audit kOA non démontré";False

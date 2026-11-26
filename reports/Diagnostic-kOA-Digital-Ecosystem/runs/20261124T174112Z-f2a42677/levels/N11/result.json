@@ -1,0 +1,60 @@
+{
+  "schema": "levelupdiag.report.v2",
+  "standard": "LevelUpDiag",
+  "standard_version": "1.0.0",
+  "suite": "Diagnostic du kOA Digital Ecosystem",
+  "suite_version": "5.7.0",
+  "run_id": "20261124T174112Z-f2a42677",
+  "level_id": "N11",
+  "level_name": "Continuité et qualification des parcours",
+  "purpose": "Consolider les degrés de preuve de chaque relation sans test interne",
+  "target_repo_root": "C:\\mycode",
+  "started_at": "2026-11-24T17:42:30+00:00",
+  "ended_at": "2026-11-24T17:42:30+00:00",
+  "verdict": "PARTIAL",
+  "required": false,
+  "findings": [
+    {
+      "id": "continuity.graph.available",
+      "verdict": "PASS",
+      "category": "continuity",
+      "message": "66 liaisons cartographiées, 0 avec preuves corrélées"
+    },
+    {
+      "id": "continuity.runtime.unproven",
+      "verdict": "PARTIAL",
+      "category": "continuity",
+      "message": "Aucune continuité E2E attestée par paires de traces : la topologie reste en partie déclarative"
+    },
+    {
+      "id": "continuity.certification.limit",
+      "verdict": "WARN",
+      "category": "continuity",
+      "message": "Ce diagnostic ne certifie pas les parcours métier de bout en bout; voir les preuves de chaque liaison."
+    },
+    {
+      "id": "evidence.upstream.partial",
+      "verdict": "PARTIAL",
+      "category": "coverage",
+      "message": "Résultat fondé sur une collecte partielle; les constats restent utilisables, pas exhaustifs.",
+      "evidence": {
+        "upstream": {
+          "N01": "PARTIAL"
+        }
+      }
+    }
+  ],
+  "artifacts": [],
+  "metrics": {
+    "qualifications": {
+      "INDICES_STATIQUES": 25,
+      "CONTRAT_OU_ROUTE": 16,
+      "DOCUMENTE": 14,
+      "CANDIDAT_OU_BLOQUE": 11
+    },
+    "upstream_quality": {
+      "N01": "PARTIAL"
+    },
+    "worker_duration_seconds": 0.27
+  }
+}

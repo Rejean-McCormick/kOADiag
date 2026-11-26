@@ -1,0 +1,13 @@
+Diagnostic du kOA Digital Ecosystem - validation-intermediaire
+Run: 20261125T002201Z-d49bc71d
+Verdict: BLOCKED
+Racine: C:\mycode
+
+NIVEAUX
+N00  WARN         Intégrité des références et sécurité
+N01  INFRA_ERROR  Collecte de preuves inter-repos
+N03  BLOCKED      Contrats IK et dérive de schémas
+N08  BLOCKED      Obligations de frontière
+N09  BLOCKED      Traces, enveloppes et reçus IK
+
+Une route, un import ou une réponse GET ne valide pas un échange métier E2E.

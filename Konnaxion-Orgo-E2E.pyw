@@ -14,6 +14,8 @@ from tkinter import filedialog, ttk
 from urllib.error import HTTPError, URLError
 from urllib.request import HTTPRedirectHandler, ProxyHandler, build_opener
 
+from koa_ecosystem_diag.port_diagnostics import read_registry
+
 BRAND = '#1E6864'
 PASS_MARKER = 'KONNAXION <-> ORGO IK E2E PASS'
 
@@ -25,17 +27,33 @@ class Stack:
     compose_file: str
     services: tuple[str, ...]
     ready_url: str
+    host_port: int
 
     def command(self, docker, *args):
         return [docker, 'compose', '-f', self.compose_file, *args]
 
 
+def host_ports_at(root):
+    """Read the *target* loopback allocations from C0; never guess free ports."""
+    _, registry = read_registry(root)
+    services = {row['id']: row['port'] for row in registry['services']}
+    expected = ('orgo-api', 'konnaxion-api')
+    missing = [name for name in expected if name not in services]
+    if missing:
+        raise ValueError('C0 is missing assigned service IDs: ' + ', '.join(missing))
+    return services
+
+
 def stacks_at(root):
+    ports = host_ports_at(root)
+    kx = ports['konnaxion-api']
+    orgo = ports['orgo-api']
     return (
         Stack('Konnaxion', root/'Konnaxion'/'Konnaxion'/'backend', 'docker-compose.local.yml',
-              ('redis', 'mailpit', 'django', 'celeryworker'), 'http://127.0.0.1:8000/health/ready/'),
+              ('redis', 'mailpit', 'django', 'celeryworker'),
+              f'http://127.0.0.1:{kx}/health/ready/', kx),
         Stack('Orgo', root/'Orgo'/'Orgo', 'docker-compose.yml',
-              ('postgres', 'api', 'worker'), 'http://127.0.0.1:4000/health/ready'),
+              ('postgres', 'api', 'worker'), f'http://127.0.0.1:{orgo}/health/ready', orgo),
     )
 
 
@@ -57,8 +75,8 @@ def service_states(output):
     states = {}
     for row in json_rows(output):
         service = row['Service']
-        health = row.get('Health', '').lower()
-        state = row['State'].lower()
+        health = str(row.get('Health') or '').lower()
+        state = str(row['State']).lower()
         if state == 'running' and health in ('unhealthy', 'starting'):
             state = health
         states.setdefault(service, []).append(state)
@@ -83,7 +101,7 @@ def startup_diagnostic(stack, docker, service, output, emit):
            ('port is already allocated', 'address already in use', 'ports are not available',
             'only one usage of each socket address')):
         ports = re.findall(r'(?<![\w.])(?:127[.]0[.]0[.]1|0[.]0[.]0[.]0|localhost):(\d{1,5})', detail)
-        port = int(ports[0]) if ports else (8000 if service == 'django' else None)
+        port = int(ports[0]) if ports else (stack.host_port if service in ('django', 'api') else None)
         if port:
             emit(f'{stack.name} · {service}: Docker could not bind host port {port}.')
             owners = port_owners(docker, stack.folder, port)
@@ -134,7 +152,7 @@ def readiness(url):
     try:
         with build_opener(ProxyHandler({}), NoRedirect()).open(url, timeout=4) as response:
             return response.status == 200
-    except (HTTPError, URLError, TimeoutError):
+    except (HTTPError, URLError, TimeoutError, OSError):
         return False
 
 
@@ -194,11 +212,16 @@ def kit_failure(output, emit):
 def run_action(root, action, emit):
     if not root.is_dir():
         return 'Repository root not found.'
+    try:
+        stacks = stacks_at(root)
+    except (OSError, ValueError, TypeError, KeyError):
+        return 'BLOCKED — C0 port registry missing, invalid or incomplete. No legacy port fallback.'
     docker = shutil.which('docker')
     pwsh = shutil.which('pwsh')
     if not docker:
         return 'Docker CLI not found. Start Docker Desktop and check again.'
-    stacks = stacks_at(root)
+    emit('C0 assigned host ports (not evidence of service readiness): ' +
+         ', '.join(f'{stack.name}={stack.host_port}' for stack in stacks))
     ready = True
     start_failed = False
     for stack in stacks:
@@ -265,7 +288,7 @@ def run_action(root, action, emit):
     try:
         result = invoke([pwsh, '-NoProfile', '-NonInteractive', '-File', str(kit),
                          '-OrgoRoot', str(stacks[1].folder), '-KonnaxionRoot', str(stacks[0].folder.parent),
-                         '-OrgoHostUrl', 'http://127.0.0.1:4000', '-TimeoutSeconds', '120'], root, 240)
+                         '-OrgoHostUrl', f'http://127.0.0.1:{stacks[1].host_port}', '-TimeoutSeconds', '120'], root, 240)
     except subprocess.TimeoutExpired as exc:
         parts = (exc.stdout or b'', exc.stderr or b'')
         output = '\n'.join(part.decode('utf-8', errors='replace') if isinstance(part, bytes) else part

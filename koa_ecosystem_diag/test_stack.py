@@ -7,6 +7,8 @@ import time
 from urllib.parse import urlsplit
 from urllib.request import build_opener, HTTPRedirectHandler, ProxyHandler
 
+from .port_diagnostics import read_registry
+
 KX_FILES = ('docker-compose.local.yml', 'docker-compose.worlds.local.yml',
             'docker-compose.e2e-db.local.yml')
 class NoRedirect(HTTPRedirectHandler):
@@ -46,7 +48,13 @@ def wait_ready(urls, deadline, log):
         raise ValueError('Services indisponibles : ' + ', '.join(pending))
 
 
-def start(orgo, backend, log):
+def start(orgo, backend, log, *, root):
+    # Check C0 before any Docker operation; this is target allocation, not
+    # evidence that the owner has deployed the binding or test DB isolation.
+    _, registry = read_registry(root)
+    allocations = {row['id']: row['port'] for row in registry['services']}
+    if 'orgo-api' not in allocations or 'konnaxion-api' not in allocations:
+        raise ValueError('Registre C0 incomplet : API Konnaxion ou Orgo manquante')
     docker = shutil.which('docker')
     if not docker:
         raise ValueError('Docker introuvable')
@@ -79,6 +87,6 @@ def start(orgo, backend, log):
         missing = names - set(raw.splitlines())
         if missing:
             raise ValueError('Conteneurs attendus arrêtés : ' + ', '.join(sorted(missing)))
-    wait_ready({'Orgo': 'http://127.0.0.1:4000/health/ready',
-                'Konnaxion': 'http://127.0.0.1:8000/health/ready/'},
+    wait_ready({'Orgo': f"http://127.0.0.1:{allocations['orgo-api']}/health/ready",
+                'Konnaxion': f"http://127.0.0.1:{allocations['konnaxion-api']}/health/ready/"},
                time.monotonic() + 90, log)

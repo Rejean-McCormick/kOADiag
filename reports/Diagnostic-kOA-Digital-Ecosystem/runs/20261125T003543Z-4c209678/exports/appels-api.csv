@@ -1,0 +1,4 @@
+﻿source;target;method;path;status;mapping
+Konstellation;;GET;/api/bootstrap;CIBLE_INCONNUE;non_resolu
+Konstellation;;GET;/api/query;CIBLE_INCONNUE;non_resolu
+Konstellation;;GET;/;CIBLE_INCONNUE;non_resolu

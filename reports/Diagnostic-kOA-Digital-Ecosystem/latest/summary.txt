@@ -1,5 +1,5 @@
 Diagnostic du kOA Digital Ecosystem - validation-integrale
-Run: 20261120T154115Z-11b659c7
+Run: 20261125T031522Z-f7aeaddd
 Verdict: PARTIAL
 Racine: C:\mycode
 
@@ -26,13 +26,13 @@ E2E GLOBAL : NON CERTIFIÉ
 FRONTIÈRES À QUALIFIER : 25
 
 PRIORITÉS
-Collecte : 10 fichiers volumineux et 0 fichiers illisibles ignorés.
+Collecte : 21 fichiers volumineux et 0 fichiers illisibles ignorés.
 E2E : 1 parcours sur 1 n’ont pas assez de preuves de livraison/réponse.
 Traces : importer des exports passifs attribués aux dépôts émetteur et récepteur.
 Preuves : 4 frontières obligatoires sans parcours corroboré; voir matrice-preuves-frontieres.csv.
 API : rattacher les appels statiques à des dépôts/routes via les endpoints déclarés; ne pas inférer les cibles.
 
-VALIDATION INTÉGRALE : 51/65 contrôles obligatoires PASS
+VALIDATION INTÉGRALE : 50/65 contrôles obligatoires PASS
 Détail : validation-integrale.json et exports/validation-integrale.csv
 
 Une route, un import ou une réponse GET ne valide pas un échange métier E2E.

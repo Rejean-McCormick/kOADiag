@@ -1,0 +1,15 @@
+{
+  "source": "dated_snapshot_2026-11-10",
+  "diag_count": 53,
+  "audit_count": 49,
+  "common": 49,
+  "diag_only": [
+    "Rejean-McCormick/Karacter",
+    "Rejean-McCormick/Kolor",
+    "Rejean-McCormick/Kristalizer",
+    "Rejean-McCormick/diK"
+  ],
+  "audit_only": [],
+  "aligned": false,
+  "qualification": "MAPPING_A_REVOIR"
+}
